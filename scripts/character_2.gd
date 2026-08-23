@@ -108,10 +108,7 @@ func _standing(delta):
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, acceleration_walk * delta)
 	else:
-		if abs(velocity.x) <= SPEED + (SPEED / 1.5):
-			velocity.x = move_toward(velocity.x, 0, acceleration_walk * delta)
-		else:
-			velocity.x = move_toward(velocity.x, 0, acceleration_air * delta)
+		velocity.x = move_toward(velocity.x, 0, acceleration_air * delta)
 
 
 func _knockback(knock_value):
