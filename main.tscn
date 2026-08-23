@@ -1,0 +1,48 @@
+[gd_scene format=4 uid="uid://deotlyst3v2p8"]
+
+[ext_resource type="Texture2D" uid="uid://bumh5if4xovdf" path="res://icon.svg" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://d7u0mhs8jn2t" path="res://character_1.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://b2lbuxbsgi1no" path="res://character_2.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://dra4hwim6nip" path="res://button.tscn" id="5_7mycd"]
+[ext_resource type="PackedScene" uid="uid://tf0x6voo2kg0" path="res://change_player.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://moving_block.tscn" id="6_7mycd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0xm2m"]
+texture = ExtResource("1_ig7tw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_h2yge"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_0xm2m")
+
+[node name="Main" type="Node2D" unique_id=1061118238]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1852415893]
+tile_map_data = PackedByteArray("AAD4/wgAAQAAAAAAAAD5/wgAAQAAAAAAAAD6/wgAAQAAAAAAAAD7/wgAAQAAAAAAAAD8/wgAAQAAAAAAAAD9/wgAAQAAAAAAAAD+/wgAAQAAAAAAAAD//wgAAQAAAAAAAAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAASAAgAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAeAAgAAQAAAAAAAAD3/wgAAQAAAAAAAAD2/wgAAQAAAAAAAAD1/wgAAQAAAAAAAAD0/wgAAQAAAAAAAADz/wgAAQAAAAAAAADy/wgAAQAAAAAAAADx/wgAAQAAAAAAAADw/wgAAQAAAAAAAADv/wgAAQAAAAAAAADu/wgAAQAAAAAAAADt/wgAAQAAAAAAAADs/wgAAQAAAAAAAADr/wgAAQAAAAAAAADq/wgAAQAAAAAAAADp/wgAAQAAAAAAAADo/wgAAQAAAAAAAADn/wgAAQAAAAAAAADm/wgAAQAAAAAAAADl/wgAAQAAAAAAAADk/wgAAQAAAAAAAADj/wgAAQAAAAAAAADi/wgAAQAAAAAAAAA=")
+tile_set = SubResource("TileSet_h2yge")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=864746858]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Character_1" parent="." unique_id=1347863031 instance=ExtResource("2_0xm2m")]
+position = Vector2(238, 155)
+
+[node name="character_2" parent="." unique_id=1518678440 instance=ExtResource("4_1bvp3")]
+position = Vector2(720, 163)
+
+[node name="Change_Player" parent="." unique_id=350997356 node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("5_lquwl")]
+player_1 = NodePath("../Character_1")
+player_2 = NodePath("../character_2")
+
+[node name="Button" parent="." unique_id=1079946355 node_paths=PackedStringArray("block") instance=ExtResource("5_7mycd")]
+position = Vector2(-737, 188)
+block = NodePath("../Moving_block")
+
+[node name="Moving_block" parent="." unique_id=380016871 instance=ExtResource("6_7mycd")]
+position = Vector2(-513, 483)

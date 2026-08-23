@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://d7u0mhs8jn2t"]
+
+[ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://scripts/character_1.gd" id="1_ui45g"]
+[ext_resource type="Texture2D" uid="uid://bumh5if4xovdf" path="res://icon.svg" id="2_f06a8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l82gq"]
+size = Vector2(140, 128)
+
+[node name="Character_1" type="CharacterBody2D" unique_id=1347863031]
+collision_layer = 2
+script = ExtResource("1_ui45g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390438291]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_l82gq")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1987698618]
+modulate = Color(1, 0.2784314, 1, 1)
+position = Vector2(2, 1)
+texture = ExtResource("2_f06a8")
+
+[node name="Rotation_point" type="Marker2D" parent="." unique_id=1506511493]
+
+[node name="Gun" type="Sprite2D" parent="Rotation_point" unique_id=1557632044]
+position = Vector2(146, 1)
+scale = Vector2(1, 0.171875)
+texture = ExtResource("2_f06a8")
+
+[node name="Pivot" type="Marker2D" parent="Rotation_point" unique_id=1911494738]
+position = Vector2(208, 0)
+
+[node name="Shoot_cooldown" type="Timer" parent="." unique_id=1840948671]
+wait_time = 0.2
+one_shot = true
+
+[node name="Coyote_time" type="Timer" parent="." unique_id=1446615506]
+wait_time = 0.3
+one_shot = true
+
+[node name="Faster_jump" type="Timer" parent="." unique_id=1955486852]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
+[connection signal="timeout" from="Coyote_time" to="." method="_on_coyote_time_timeout"]
+[connection signal="timeout" from="Faster_jump" to="." method="_on_faster_jump_timeout"]
