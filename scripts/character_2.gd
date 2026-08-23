@@ -64,10 +64,10 @@ func _physics_process(delta: float) -> void:
 	if faster_jump and is_on_floor():
 		_jump()
 	
-	if Input.is_action_just_pressed("jump") and can_jump:
+	if Input.is_action_just_pressed("jump") and can_jump and not during_dash:
 		_jump()
 	
-	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0:
+	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0 and not during_dash:
 		velocity.y += hold_jump
 	else:
 		during_jump = false
