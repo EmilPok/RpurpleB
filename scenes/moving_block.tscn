@@ -3,6 +3,40 @@
 [ext_resource type="Script" uid="uid://cxbtsm8sbdlgj" path="res://scripts/moving_block.gd" id="1_836u2"]
 [ext_resource type="Texture2D" uid="uid://bfjfydj83jvvg" path="res://art/misc/platform.png" id="2_sy65f"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl38g"]
+atlas = ExtResource("2_sy65f")
+region = Rect2(64, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sy65f"]
+atlas = ExtResource("2_sy65f")
+region = Rect2(32, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pdaj3"]
+atlas = ExtResource("2_sy65f")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fg72o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl38g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sy65f")
+}],
+"loop": true,
+"name": &"Anim",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pdaj3")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(30, 3)
 
@@ -11,14 +45,22 @@ script = ExtResource("1_836u2")
 
 [node name="Moving_block" type="Node2D" parent="." unique_id=380016871]
 
-[node name="icon" type="Sprite2D" parent="Moving_block" unique_id=432622643]
-texture = ExtResource("2_sy65f")
-hframes = 3
+[node name="Icon" type="AnimatedSprite2D" parent="Moving_block" unique_id=1749353674]
+sprite_frames = SubResource("SpriteFrames_fg72o")
+animation = &"Anim"
+autoplay = "Idle"
 
 [node name="Collision" type="StaticBody2D" parent="Moving_block" unique_id=75066616]
+visible = false
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Moving_block/Collision" unique_id=2026281387]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="Stop_anim" type="Timer" parent="." unique_id=1572210677]
+wait_time = 0.6
+one_shot = true
+
+[connection signal="timeout" from="Stop_anim" to="." method="_on_stop_anim_timeout"]

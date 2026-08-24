@@ -14,5 +14,6 @@ func _input(event: InputEvent) -> void:
 			now_active = player_1
 		else:
 			now_active = player_2
+		now_active.get_node("AnimationPlayer").seek(0.0)
 		now_active.get_node("AnimationPlayer").play("now_me")
 		

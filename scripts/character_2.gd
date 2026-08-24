@@ -26,6 +26,11 @@ var did_coyote = false
 
 var faster_jump = false
 
+var shadow = preload("res://scenes/shadow.tscn")
+var shadow_first_frame = 5
+var shadow_last_frame = 8
+var shadow_frame = 5
+
 func player_2():
 	pass
 
@@ -77,6 +82,21 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	if Input.is_action_just_pressed("dash") and (direction or Input.is_action_pressed("up")) and can_dash:
+		shadow_frame = shadow_first_frame
+		_on_start_shadows_timeout()
+		$Icon.play("Dash")
+		
+		$Dash_part.direction.y = 0.0
+		if direction == 1.0:
+			$Dash_part.direction.x = -1.0
+		elif direction == -1.0:
+			$Dash_part.direction.x = 1.0
+		else:
+			$Dash_part.direction.x = 0.0
+			$Dash_part.direction.y = 1.0
+			
+			
+		$Dash_part.emitting = true
 		during_dash = true
 		can_dash = false
 		if direction:
@@ -87,6 +107,7 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -dash_vertical_velocity
 		$Dash_dur.start()
 		$Dash_cooldown.start()
+		
 	
 	elif not during_dash:
 	
@@ -128,6 +149,8 @@ func _knockback(knock_value):
 
 func _on_dash_dur_timeout() -> void:
 	during_dash = false
+	$Icon.play("Idle")
+	$Dash_part.emitting = false
 	velocity.x = SPEED * sign(velocity.x)
 
 func _on_dash_cooldown_timeout() -> void:
@@ -139,3 +162,20 @@ func _on_coyote_time_timeout() -> void:
 
 func _on_faster_jump_timeout() -> void:
 	faster_jump = false
+
+func _on_start_shadows_timeout() -> void:
+	var new_shadow = shadow.instantiate()
+	new_shadow.global_position = global_position
+	new_shadow.frame = shadow_frame
+	if $Icon.flip_h:
+		new_shadow.flip_h = true
+	add_sibling(new_shadow)
+	
+	if shadow_frame != shadow_last_frame:
+		$Start_shadows.start()
+	shadow_frame += 1
+	
+	
+	
+	
+	
