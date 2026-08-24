@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b053jtu2jaiwv"]
 
 [ext_resource type="Texture2D" uid="uid://b1q58i2l4osiu" path="res://art/characters/a.png" id="1_0rvn4"]
-[ext_resource type="Script" uid="uid://fva1g2wlkyps" path="res://scenes/shadow.gd" id="2_jqplm"]
+[ext_resource type="Script" uid="uid://fva1g2wlkyps" path="res://scripts/shadow.gd" id="2_jqplm"]
 
 [sub_resource type="Animation" id="Animation_bs2fw"]
 resource_name = "Dis"
@@ -41,7 +41,7 @@ _data = {
 }
 
 [node name="Shadow" type="Sprite2D" unique_id=1891777246]
-modulate = Color(0.29411766, 0.29411766, 0.29411766, 1)
+modulate = Color(0.0070391116, 0.5181329, 0.7967447, 1)
 z_index = 9
 texture = ExtResource("1_0rvn4")
 hframes = 10

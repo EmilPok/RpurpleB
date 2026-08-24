@@ -31,12 +31,28 @@ var shadow_first_frame = 5
 var shadow_last_frame = 8
 var shadow_frame = 5
 
+var last_velocity_y = 0
+var squesh_weight = 16
+
+var scale_fell = Vector2(1.2, 0.8)
+var scale_falling = Vector2(2, 4)
+var scale_hold_jump = Vector2(0.2, 0.4)
+var scale_single_jump = Vector2(0.7, 1.3)
+
 func player_2():
 	pass
 
 func _physics_process(delta: float) -> void:
+	if $Icon.animation == "Blink" and not $Icon.is_playing():
+		$Icon.play("Idle")
+	
+	if $Icon.scale.x != 1.0:
+		$Icon.scale.x = lerp($Icon.scale.x, 1.0, squesh_weight * delta)
+		$Icon.scale.y = lerp($Icon.scale.y, 1.0, squesh_weight * delta)
 	
 	if is_on_floor():
+		if last_velocity_y:
+			$Icon.scale = scale_fell
 		if not can_jump:
 			can_jump = true
 		if wait_can_dash:
@@ -44,6 +60,8 @@ func _physics_process(delta: float) -> void:
 			wait_can_dash = false
 		if did_coyote:
 			did_coyote = false
+		if $Icon.animation == "Dash" and not during_dash:
+			$Icon.play("Idle")
 	
 	
 	if not is_on_floor() and $Coyote_time.is_stopped() and not did_coyote:
@@ -53,9 +71,10 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor() and not during_dash:
 		if velocity.y >= falling_down_velocity_max:
 			velocity += get_gravity() * delta * speed_falling
+			$Icon.scale += scale_falling * delta
 		else:
 			velocity += get_gravity() * delta
-	
+	last_velocity_y = velocity.y
 	
 	if not active:
 		if not during_dash:
@@ -76,7 +95,8 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0 and not during_dash:
 		velocity.y += hold_jump
-	elif during_dash:
+		$Icon.scale += scale_hold_jump * delta
+	else:
 		during_jump = false
 	
 	var direction := Input.get_axis("left", "right")
@@ -125,11 +145,12 @@ func _physics_process(delta: float) -> void:
 		else:
 			_standing(delta)
 	
-
 	
 	move_and_slide()
 
 func _jump():
+	$Icon.scale = scale_single_jump
+	velocity.y = 0.0
 	during_jump = true
 	velocity.y += single_jump
 	can_jump = false
@@ -149,13 +170,13 @@ func _knockback(knock_value):
 
 func _on_dash_dur_timeout() -> void:
 	during_dash = false
-	$Icon.play("Idle")
+	if is_on_floor():
+		$Icon.play("Idle")
 	$Dash_part.emitting = false
 	velocity.x = SPEED * sign(velocity.x)
 
 func _on_dash_cooldown_timeout() -> void:
 	wait_can_dash = true
-
 
 func _on_coyote_time_timeout() -> void:
 	can_jump = false
@@ -176,6 +197,7 @@ func _on_start_shadows_timeout() -> void:
 	shadow_frame += 1
 	
 	
-	
-	
-	
+func _on_blink_timer_timeout() -> void:
+	if $Icon.animation == "Idle":
+		$Icon.play("Blink")
+	$Blink_timer.start(randf_range(2.0, 5.0))

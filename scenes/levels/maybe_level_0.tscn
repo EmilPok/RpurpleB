@@ -149,7 +149,7 @@ object = NodePath("../Moving_block")
 
 [node name="Moving_block" parent="." unique_id=380016871 instance=ExtResource("9_pe4kx")]
 position = Vector2(196, 151.43)
-end_point_pos = Vector2(0, -100)
+end_point_pos = Vector2(0, -50)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1099420840]
 position = Vector2(160, 90)

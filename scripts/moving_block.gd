@@ -14,10 +14,12 @@ func _active():
 	if not active:
 		tween.tween_property($Moving_block, "position", end_point_pos, 0.8).set_trans(Tween.TRANS_CUBIC)
 		Icon.flip_v = false
+		$Moving_block/Collision.position.y -= 1.0
 		Icon.play("Anim")
 		$Stop_anim.start()
 	else:
 		Icon.flip_v = true
+		$Moving_block/Collision.position.y += 1.0
 		tween.tween_property($Moving_block, "position", Vector2.ZERO, 0.8).set_trans(Tween.TRANS_CUBIC)
 		Icon.play("Anim")
 		$Stop_anim.start()
