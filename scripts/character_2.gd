@@ -35,7 +35,9 @@ func player_2():
 	pass
 
 func _physics_process(delta: float) -> void:
-	
+	if $Icon.animation == "Blink" and not $Icon.is_playing():
+		$Icon.play("Idle")
+		
 	if is_on_floor():
 		if not can_jump:
 			can_jump = true
@@ -125,7 +127,6 @@ func _physics_process(delta: float) -> void:
 		else:
 			_standing(delta)
 	
-
 	
 	move_and_slide()
 
@@ -176,6 +177,7 @@ func _on_start_shadows_timeout() -> void:
 	shadow_frame += 1
 	
 	
-	
-	
-	
+func _on_blink_timer_timeout() -> void:
+	if $Icon.animation == "Idle":
+		$Icon.play("Blink")
+	$Blink_timer.start(randf_range(2.0, 5.0))

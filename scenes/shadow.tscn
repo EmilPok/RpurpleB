@@ -41,7 +41,7 @@ _data = {
 }
 
 [node name="Shadow" type="Sprite2D" unique_id=1891777246]
-modulate = Color(0.29411766, 0.29411766, 0.29411766, 1)
+modulate = Color(0.0070391116, 0.5181329, 0.7967447, 1)
 z_index = 9
 texture = ExtResource("1_0rvn4")
 hframes = 10
