@@ -22,7 +22,7 @@ var active = true
 @onready var Gun_sprite = $Rotation_point/Gun
 @onready var Gun_pivot = $Rotation_point/Pivot
 
-var bullet = preload("res://bullet.tscn")
+var bullet = preload("res://scenes/bullet.tscn")
 
 var can_shoot = true
 
