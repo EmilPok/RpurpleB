@@ -31,6 +31,8 @@ var shadow_first_frame = 5
 var shadow_last_frame = 8
 var shadow_frame = 5
 
+
+
 func player_2():
 	pass
 
@@ -46,6 +48,8 @@ func _physics_process(delta: float) -> void:
 			wait_can_dash = false
 		if did_coyote:
 			did_coyote = false
+		if $Icon.animation == "Dash" and not during_dash:
+			$Icon.play("Idle")
 	
 	
 	if not is_on_floor() and $Coyote_time.is_stopped() and not did_coyote:
@@ -150,7 +154,8 @@ func _knockback(knock_value):
 
 func _on_dash_dur_timeout() -> void:
 	during_dash = false
-	$Icon.play("Idle")
+	if is_on_floor():
+		$Icon.play("Idle")
 	$Dash_part.emitting = false
 	velocity.x = SPEED * sign(velocity.x)
 

@@ -18,6 +18,9 @@ var faster_jump = false
 
 var active = true
 
+var gun_out = false
+var taking_gun = false
+
 @onready var Gun = $Rotation_point
 @onready var Gun_sprite = $Rotation_point/Gun
 @onready var Gun_pivot = $Rotation_point/Pivot
@@ -30,6 +33,14 @@ var bullet = preload("res://scenes/bullet.tscn")
 var can_shoot = true
 
 func _physics_process(delta: float) -> void:
+	
+
+	if $Icon.animation == "LookAround" and not $Icon.is_playing():
+		if $Icon.frame == 0:
+			$Icon.play("Idle")
+		else:
+			$Icon.play_backwards("LookAround")
+	
 	if is_on_floor():
 		if not can_jump:
 			can_jump = true
@@ -51,14 +62,34 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 		return
 	
-	Gun.look_at(get_global_mouse_position())
-	var mouse_left := get_global_mouse_position().x < global_position.x
-	icon.flip_h = mouse_left
-	Gun_sprite.flip_v = mouse_left 
+	if Input.is_action_just_pressed("aim") and not gun_out and not taking_gun:
+		taking_gun = true
+		$Icon.play("TakeAGun")
+		
+	if taking_gun and $Icon.animation == "TakeAGun" and not $Icon.is_playing():
+		taking_gun = false
+		gun_out = true
+		Gun.visible = true 
+		Engine.time_scale = 0.1
 	
+	if gun_out:
+		Gun.look_at(get_global_mouse_position())
+		var mouse_left := get_global_mouse_position().x < global_position.x
+		icon.flip_h = mouse_left 
+		Gun_sprite.flip_v = mouse_left
 	
-	if Input.is_action_just_pressed("shoot") and can_shoot:
+	var direction := Input.get_axis("left", "right") if not gun_out and not taking_gun else 0.0
+	
+	if direction:
+		if not gun_out:
+			$Icon.flip_h = direction < 0 
+	
+	if Input.is_action_just_pressed("shoot") and can_shoot and gun_out:
 		GUI.cursor._shoot()
+		gun_out = false
+		Gun.visible = false
+		Engine.time_scale = 1.0
+		$Icon.play("Idle")
 		
 		can_shoot = false
 		$Shoot_cooldown.start()
@@ -84,7 +115,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		during_jump = false
 
-	var direction := Input.get_axis("left", "right")
 	if direction:
 		if abs(velocity.x) <= SPEED + (SPEED / 1.5):
 			velocity.x = move_toward(velocity.x, SPEED * direction, acceleration_walk * delta)
@@ -121,3 +151,9 @@ func _on_coyote_time_timeout() -> void:
 
 func _on_faster_jump_timeout() -> void:
 	faster_jump = false
+
+
+func _on_look_around_timeout() -> void:
+	if $Icon.animation == "Idle":
+		$Icon.play("LookAround")
+	$Look_around.start(randf_range(4.0, 9.0))

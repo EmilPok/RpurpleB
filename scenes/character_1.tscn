@@ -15,18 +15,105 @@ shader_parameter/flash_value = 0.0
 atlas = ExtResource("2_p0pq8")
 region = Rect2(0, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_l55i8"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47oof"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2wmww"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfkyx"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2t02"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o12to"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aclxv"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ugrg"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcl4c"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2vf1k"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qsh3i"]
+atlas = ExtResource("2_p0pq8")
+region = Rect2(160, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_l55i8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sbsjf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
 "speed": 5.0
 }, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l55i8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47oof")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2wmww")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tfkyx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2t02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o12to")
+}],
+"loop": 0,
+"name": &"LookAround",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aclxv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ugrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcl4c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2vf1k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qsh3i")
+}],
+"loop": 0,
+"name": &"TakeAGun",
+"speed": 7.0
+}, {
 "frames": [],
-"loop": true,
+"loop": 1,
 "name": &"Walk",
 "speed": 5.0
 }]
@@ -114,8 +201,10 @@ texture = ExtResource("2_l55i8")
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1916461415]
 material = SubResource("ShaderMaterial_ryofq")
 sprite_frames = SubResource("SpriteFrames_l55i8")
-animation = &"Idle"
+animation = &"TakeAGun"
 autoplay = "Idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786981151]
 libraries/ = SubResource("AnimationLibrary_tfkyx")
@@ -126,6 +215,7 @@ position = Vector2(0.25, 1)
 shape = SubResource("RectangleShape2D_l82gq")
 
 [node name="Rotation_point" type="Marker2D" parent="." unique_id=1506511493]
+visible = false
 position = Vector2(0, 2)
 
 [node name="Gun" type="Sprite2D" parent="Rotation_point" unique_id=1557632044]
@@ -148,6 +238,10 @@ one_shot = true
 wait_time = 0.2
 one_shot = true
 
+[node name="Look_around" type="Timer" parent="." unique_id=1971798085]
+autostart = true
+
 [connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="timeout" from="Coyote_time" to="." method="_on_coyote_time_timeout"]
 [connection signal="timeout" from="Faster_jump" to="." method="_on_faster_jump_timeout"]
+[connection signal="timeout" from="Look_around" to="." method="_on_look_around_timeout"]

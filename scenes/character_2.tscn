@@ -202,10 +202,8 @@ texture = ExtResource("2_ryofq")
 material = SubResource("ShaderMaterial_ryofq")
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_i4thp")
-animation = &"Blink"
+animation = &"Dash"
 autoplay = "Idle"
-frame = 3
-frame_progress = 0.31796485
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=578662714]
 libraries/ = SubResource("AnimationLibrary_jdd3b")
