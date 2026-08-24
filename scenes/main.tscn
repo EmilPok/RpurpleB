@@ -1,6 +1,114 @@
 [gd_scene format=3 uid="uid://dhu7d5mfju5tc"]
 
 [ext_resource type="Script" uid="uid://wktkettro3js" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://24awp6djh3i1" path="res://scenes/gui.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://d7u0mhs8jn2t" path="res://scenes/character_1.tscn" id="3_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://b2lbuxbsgi1no" path="res://scenes/character_2.tscn" id="4_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://tf0x6voo2kg0" path="res://scenes/change_player.tscn" id="5_tbgi4"]
+[ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="6_tefeu"]
+
+[sub_resource type="Animation" id="Animation_tefeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle_trans/ColorRect:material:shader_parameter/_Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_trans/Black_screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "circle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle_trans/ColorRect:material:shader_parameter/_Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 0.999999977648]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_trans/Black_screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.44, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tipki"]
+_data = {
+&"RESET": SubResource("Animation_tefeu"),
+&"circle": SubResource("Animation_o6xl0")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_o6xl0"]
+shader = ExtResource("6_tefeu")
+shader_parameter/_CirclePosition = Vector2(0.5, 0.5)
+shader_parameter/_Progress = 0.0
+shader_parameter/_Smoothness = 0.0999999977648
+shader_parameter/_Background = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1172100023]
 script = ExtResource("1_o5qli")
+
+[node name="GUI" parent="." unique_id=310219774 instance=ExtResource("2_0wfyh")]
+
+[node name="Character_1" parent="." unique_id=1347863031 node_paths=PackedStringArray("GUI") instance=ExtResource("3_jyhfs")]
+position = Vector2(-15, 0)
+GUI = NodePath("../GUI")
+
+[node name="Character_2" parent="." unique_id=1518678440 instance=ExtResource("4_tbgi4")]
+position = Vector2(15, 0)
+
+[node name="Change_Player" parent="." unique_id=350997356 node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("5_tbgi4")]
+player_1 = NodePath("../Character_1")
+player_2 = NodePath("../Character_2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=851738091]
+libraries/ = SubResource("AnimationLibrary_tipki")
+
+[node name="Circle_trans" type="CanvasLayer" parent="." unique_id=1578152919]
+
+[node name="ColorRect" type="ColorRect" parent="Circle_trans" unique_id=242601296]
+material = SubResource("ShaderMaterial_o6xl0")
+offset_right = 320.0
+offset_bottom = 180.0
+
+[node name="Black_screen" type="ColorRect" parent="Circle_trans" unique_id=646299022]
+visible = false
+offset_right = 320.0
+offset_bottom = 180.0
+color = Color(0, 0, 0, 1)
+
+[node name="Circle_trans_time" type="Timer" parent="." unique_id=1000476811]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]

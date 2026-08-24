@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b1q58i2l4osiu" path="res://art/characters/a.png" id="2_afpa3"]
 [ext_resource type="Shader" uid="uid://dy8swvx71s6e2" path="res://shaders/flash.gdshader" id="2_n74hp"]
 [ext_resource type="Texture2D" uid="uid://bqsb317lca1ci" path="res://art/misc/now_blue.png" id="2_ryofq"]
+[ext_resource type="AudioStream" uid="uid://dnmkgx2asmcsn" path="res://sounds/woosh.mp3" id="5_jqnby"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryofq"]
 shader = ExtResource("2_n74hp")
@@ -65,7 +66,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4j4yg")
 }],
-"loop": 0,
+"loop": false,
 "name": &"Blink",
 "speed": 10.0
 }, {
@@ -85,7 +86,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r4dws")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Dash",
 "speed": 15.0
 }, {
@@ -93,7 +94,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fbb61")
 }],
-"loop": 1,
+"loop": true,
 "name": &"Idle",
 "speed": 15.0
 }]
@@ -190,7 +191,7 @@ colors = PackedColorArray(0.011764706, 0.60784316, 0.8980392, 1, 0.007843138, 0.
 
 [node name="character_2" type="CharacterBody2D" unique_id=1518678440]
 z_index = 10
-collision_layer = 2
+collision_layer = 18
 collision_mask = 5
 script = ExtResource("1_66c7w")
 
@@ -247,6 +248,10 @@ one_shot = true
 [node name="Blink_timer" type="Timer" parent="." unique_id=2031478611]
 wait_time = 3.0
 autostart = true
+
+[node name="Woosh" type="AudioStreamPlayer" parent="." unique_id=739706319]
+stream = ExtResource("5_jqnby")
+volume_db = -10.0
 
 [connection signal="timeout" from="Dash_dur" to="." method="_on_dash_dur_timeout"]
 [connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

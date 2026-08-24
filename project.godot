@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="gamejam"
-run/main_scene="uid://rs2fbwgne3wq"
-config/features=PackedStringArray("4.7", "GL Compatibility")
+run/main_scene="uid://dhu7d5mfju5tc"
+config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=240
 
 [display]
@@ -77,6 +77,9 @@ aim={
 2d_physics/layer_1="tiles"
 2d_physics/layer_2="players"
 2d_physics/layer_3="one way plat"
+2d_physics/layer_4="RED character"
+2d_physics/layer_5="BLUE character"
+2d_physics/layer_6="button"
 
 [physics]
 

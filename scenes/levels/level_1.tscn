@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dt1i1to4dxqvs"]
+
+[ext_resource type="TileSet" uid="uid://b8gubqbjc0uns" path="res://art/tiles.tres" id="1_ksju7"]
+
+[node name="level_1" type="Node2D" unique_id=389029467]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1918348704]
+position = Vector2(160, 90)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2023791641]
+tile_set = ExtResource("1_ksju7")

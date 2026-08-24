@@ -35,8 +35,8 @@ var last_velocity_y = 0
 var squesh_weight = 16
 
 var scale_fell = Vector2(1.2, 0.8)
-var scale_falling = Vector2(2, 4)
-var scale_hold_jump = Vector2(0.2, 0.4)
+var scale_falling = Vector2(1.9, 0.1)
+var scale_hold_jump = Vector2(0.5, 1.5)
 var scale_single_jump = Vector2(0.7, 1.3)
 
 func player_2():
@@ -102,6 +102,7 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	if Input.is_action_just_pressed("dash") and (direction or Input.is_action_pressed("up")) and can_dash:
+		$Woosh.play()
 		shadow_frame = shadow_first_frame
 		_on_start_shadows_timeout()
 		$Icon.play("Dash")

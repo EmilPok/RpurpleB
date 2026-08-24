@@ -11,6 +11,8 @@ var speed_falling = 2.0
 var acceleration_walk = 1200.0
 var acceleration_air = 600.0
 
+var shoot_self_knock = 400
+
 var can_jump = true
 var during_jump = false
 var did_coyote = false
@@ -37,8 +39,8 @@ var last_velocity_y = 0
 var squesh_weight = 16
 
 var scale_fell = Vector2(1.2, 0.8)
-var scale_falling = Vector2(2, 4)
-var scale_hold_jump = Vector2(0.2, 0.4)
+var scale_falling = Vector2(1.9, 0.1)
+var scale_hold_jump = Vector2(0.5, 1.5)
 var scale_single_jump = Vector2(0.7, 1.3)
 
 func _physics_process(delta: float) -> void:
