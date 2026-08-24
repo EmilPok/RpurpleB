@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxy87tlatwalv"
-path="res://.godot/imported/door.png-487ca51a83c3e213d6cabc9d4264229f.ctex"
+uid="uid://bopu1mdve3awg"
+path="res://.godot/imported/Opening_sign.png-a1e0c70451f8ef50a306165990995f63.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/misc/door.png"
-dest_files=["res://.godot/imported/door.png-487ca51a83c3e213d6cabc9d4264229f.ctex"]
+source_file="res://art/misc/Door/Opening_sign.png"
+dest_files=["res://.godot/imported/Opening_sign.png-a1e0c70451f8ef50a306165990995f63.ctex"]
 
 [params]
 
