@@ -4,7 +4,7 @@ var active = false
 
 func _active():
 	if not active:
-		$AnimationPlayer.play("Move")
+		$Moving_block/AnimationPlayer.play("Move")
 	else:
-		$AnimationPlayer.play("Back_Move")
+		$Moving_block/AnimationPlayer.play("Back_Move")
 	active = not active

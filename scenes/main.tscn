@@ -54,7 +54,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_0xm2m")
 sources/0 = SubResource("TileSetAtlasSource_tipki")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_85g3d"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_o6xl0"]
 texture = ExtResource("1_o6xl0")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -107,7 +107,7 @@ texture = ExtResource("1_o6xl0")
 
 [sub_resource type="TileSet" id="TileSet_g4v7s"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_85g3d")
+sources/0 = SubResource("TileSetAtlasSource_o6xl0")
 
 [node name="Main" type="Node2D" unique_id=1061118238]
 
@@ -115,7 +115,7 @@ sources/0 = SubResource("TileSetAtlasSource_85g3d")
 tile_map_data = PackedByteArray("AAD4/wgAAQAAAAAAAAD5/wgAAQAAAAAAAAD6/wgAAQAAAAAAAAD7/wgAAQAAAAAAAAD8/wgAAQAAAAAAAAD9/wgAAQAAAAAAAAD+/wgAAQAAAAAAAAD//wgAAQAAAAAAAAAAAAgAAQAAAAAAAAABAAgAAQAAAAAAAAACAAgAAQAAAAAAAAADAAgAAQAAAAAAAAAEAAgAAQAAAAAAAAAFAAgAAQAAAAAAAAAGAAgAAQAAAAAAAAAHAAgAAQAAAAAAAAAIAAgAAQAAAAAAAAAJAAgAAQAAAAAAAAAKAAgAAQAAAAAAAAALAAgAAQAAAAAAAAAMAAgAAQAAAAAAAAANAAgAAQAAAAAAAAAOAAgAAQAAAAAAAAAPAAgAAQAAAAAAAAAQAAgAAQAAAAAAAAARAAgAAQAAAAAAAAASAAgAAQAAAAAAAAATAAgAAQAAAAAAAAAUAAgAAQAAAAAAAAAVAAgAAQAAAAAAAAAWAAgAAQAAAAAAAAAXAAgAAQAAAAAAAAAYAAgAAQAAAAAAAAAZAAgAAQAAAAAAAAAaAAgAAQAAAAAAAAAbAAgAAQAAAAAAAAAcAAgAAQAAAAAAAAAdAAgAAQAAAAAAAAAeAAgAAQAAAAAAAAD3/wgAAQAAAAAAAAD2/wgAAQAAAAAAAAD1/wgAAQAAAAAAAAD0/wgAAQAAAAAAAADz/wgAAQAAAAAAAADy/wgAAQAAAAAAAADx/wgAAQAAAAAAAADw/wgAAQAAAAAAAADv/wgAAQAAAAAAAADu/wgAAQAAAAAAAADt/wgAAQAAAAAAAADs/wgAAQAAAAAAAADr/wgAAQAAAAAAAADq/wgAAQAAAAAAAADp/wgAAQAAAAAAAADo/wgAAQAAAAAAAADn/wgAAQAAAAAAAADm/wgAAQAAAAAAAADl/wgAAQAAAAAAAADk/wgAAQAAAAAAAADj/wgAAQAAAAAAAADi/wgAAQAAAAAAAAA=")
 tile_set = SubResource("TileSet_h2yge")
 
-[node name="TileMapLayer2" type="TileMapLayer" parent="." unique_id=1347103124]
+[node name="platforms" type="TileMapLayer" parent="." unique_id=1347103124]
 tile_set = SubResource("TileSet_g4v7s")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=864746858]
@@ -131,9 +131,8 @@ position = Vector2(720, 163)
 player_1 = NodePath("../Character_1")
 player_2 = NodePath("../character_2")
 
-[node name="Button" parent="." unique_id=1079946355 node_paths=PackedStringArray("block") instance=ExtResource("5_7mycd")]
+[node name="Button" parent="." unique_id=1079946355 instance=ExtResource("5_7mycd")]
 position = Vector2(-737, 188)
-block = NodePath("../Moving_block")
 
 [node name="Moving_block" parent="." unique_id=380016871 instance=ExtResource("6_7mycd")]
 position = Vector2(-513, 483)
