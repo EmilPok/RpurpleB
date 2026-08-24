@@ -1,20 +1,22 @@
 extends CharacterBody2D
 
-var SPEED = 600.0
+var SPEED = 100.0
 
-var single_jump = -800.0
-var hold_jump = -15.0
+var single_jump = -180.0
+var hold_jump = -7.5
+
+var falling_down_velocity_max = 120.0
 
 var speed_falling = 2.0
 
-var dash_velocity = 1000.0
-var dash_vertical_velocity = 600.0
+var dash_velocity = 350.0
+var dash_vertical_velocity = 260.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
 
-var acceleration_walk = 15000.0
-var acceleration_air = 1000.0
+var acceleration_walk = 1800.0
+var acceleration_air = 600.0
 
 var active = false
 
@@ -44,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		$Coyote_time.start()
 
 	if not is_on_floor() and not during_dash:
-		if velocity.y >= 200.0:
+		if velocity.y >= falling_down_velocity_max:
 			velocity += get_gravity() * delta * speed_falling
 		else:
 			velocity += get_gravity() * delta
@@ -60,7 +62,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
 		faster_jump = true
 		$Faster_jump.start()
-	
+		
 	if faster_jump and is_on_floor():
 		_jump()
 	
@@ -69,7 +71,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0 and not during_dash:
 		velocity.y += hold_jump
-	else:
+	elif during_dash:
 		during_jump = false
 	
 	var direction := Input.get_axis("left", "right")
@@ -89,6 +91,11 @@ func _physics_process(delta: float) -> void:
 	elif not during_dash:
 	
 		if direction:
+			if direction == -1 and $Icon.flip_h == false:
+				$Icon.flip_h = true
+			elif direction == 1 and $Icon.flip_h == true:
+				$Icon.flip_h = false
+			
 			if abs(velocity.x) <= SPEED + (SPEED / 1.5):
 				
 				velocity.x = move_toward(velocity.x, SPEED * direction, acceleration_walk * delta)
@@ -96,6 +103,8 @@ func _physics_process(delta: float) -> void:
 				_standing(delta)
 		else:
 			_standing(delta)
+	
+
 	
 	move_and_slide()
 
@@ -112,12 +121,14 @@ func _standing(delta):
 
 
 func _knockback(knock_value):
-	knock_value *= 1.2
+	knock_value *= 2.0
+	
 	velocity += knock_value
 
 
 func _on_dash_dur_timeout() -> void:
 	during_dash = false
+	velocity.x = SPEED * sign(velocity.x)
 
 func _on_dash_cooldown_timeout() -> void:
 	wait_can_dash = true

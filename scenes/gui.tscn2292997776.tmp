@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://24awp6djh3i1"]
+
+[ext_resource type="Texture2D" uid="uid://d35rnsiek7acx" path="res://art/misc/gun_crosshair.png" id="1_efmwq"]
+[ext_resource type="Script" uid="uid://css5n4w6u8ky7" path="res://scripts/gui.gd" id="1_mfius"]
+[ext_resource type="Script" uid="uid://dl6mcy7l1osla" path="res://scripts/cursor.gd" id="3_ynd5l"]
+
+[node name="GUI" type="CanvasLayer" unique_id=310219774]
+script = ExtResource("1_mfius")
+
+[node name="Cursor" type="Sprite2D" parent="." unique_id=1765548287]
+texture = ExtResource("1_efmwq")
+script = ExtResource("3_ynd5l")
+
+[node name="Timer" type="Timer" parent="Cursor" unique_id=1463939080]

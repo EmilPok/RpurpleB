@@ -1,14 +1,14 @@
 extends CharacterBody2D
 
-var SPEED = 600.0
+var SPEED = 90.0
 
-var single_jump = -800.0
-var hold_jump = -15.0
+var single_jump = -180.0
+var hold_jump = -7.5
 
 var speed_falling = 2.0
 
-var acceleration_walk = 15000.0
-var acceleration_air = 1000.0
+var acceleration_walk = 1200.0
+var acceleration_air = 600.0
 
 var can_jump = true
 var during_jump = false
@@ -21,8 +21,11 @@ var active = true
 @onready var Gun = $Rotation_point
 @onready var Gun_sprite = $Rotation_point/Gun
 @onready var Gun_pivot = $Rotation_point/Pivot
+@onready var icon = $Icon
 
-var bullet = preload("res://bullet.tscn")
+@export var GUI : CanvasLayer
+
+var bullet = preload("res://scenes/bullet.tscn")
 
 var can_shoot = true
 
@@ -49,8 +52,14 @@ func _physics_process(delta: float) -> void:
 		return
 	
 	Gun.look_at(get_global_mouse_position())
+	var mouse_left := get_global_mouse_position().x < global_position.x
+	icon.flip_h = mouse_left
+	Gun_sprite.flip_v = mouse_left 
+	
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot:
+		GUI.cursor._shoot()
+		
 		can_shoot = false
 		$Shoot_cooldown.start()
 		

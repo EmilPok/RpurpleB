@@ -11,10 +11,19 @@ config_version=5
 [application]
 
 config/name="gamejam"
-run/main_scene="uid://deotlyst3v2p8"
+run/main_scene="uid://rs2fbwgne3wq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=240
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+mouse_cursor/custom_image="uid://d35rnsiek7acx"
 
 [input]
 
@@ -58,13 +67,19 @@ up={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="tiles"
+2d_physics/layer_2="players"
+2d_physics/layer_3="one way plat"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
-2d/default_gravity=1809.461
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"

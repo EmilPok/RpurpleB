@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbv15oqqtv3bg"]
+
+[ext_resource type="Script" uid="uid://cxbtsm8sbdlgj" path="res://scripts/moving_block.gd" id="1_836u2"]
+[ext_resource type="Texture2D" uid="uid://bfjfydj83jvvg" path="res://art/misc/platform.png" id="2_sy65f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(30, 3)
+
+[node name="Moving_block" type="Node2D" unique_id=1392415192]
+script = ExtResource("1_836u2")
+
+[node name="Moving_block" type="Node2D" parent="." unique_id=380016871]
+
+[node name="icon" type="Sprite2D" parent="Moving_block" unique_id=432622643]
+texture = ExtResource("2_sy65f")
+hframes = 3
+
+[node name="Collision" type="StaticBody2D" parent="Moving_block" unique_id=75066616]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Moving_block/Collision" unique_id=2026281387]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_g4v7s")
