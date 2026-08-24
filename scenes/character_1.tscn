@@ -1,33 +1,115 @@
 [gd_scene format=3 uid="uid://d7u0mhs8jn2t"]
 
 [ext_resource type="Script" uid="uid://x2ycciryuxk0" path="res://scripts/character_1.gd" id="1_ui45g"]
-[ext_resource type="Texture2D" uid="uid://bumh5if4xovdf" path="res://icon.svg" id="2_f06a8"]
+[ext_resource type="Texture2D" uid="uid://6vqjxccnfhbl" path="res://art/misc/now_red.png" id="2_l55i8"]
+[ext_resource type="Texture2D" uid="uid://rfcr6lvtggfi" path="res://art/characters/b.png" id="2_p0pq8"]
+[ext_resource type="Shader" uid="uid://dy8swvx71s6e2" path="res://shaders/flash.gdshader" id="3_47oof"]
+[ext_resource type="Texture2D" uid="uid://bcrqklyi2ky6b" path="res://art/misc/GUN.png" id="3_sbsjf"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("3_47oof")
+shader_parameter/flash_color = Color(0.9098039, 0.30588236, 0.2509804, 1)
+shader_parameter/flash_value = 0.0
+
+[sub_resource type="Animation" id="Animation_2wmww"]
+resource_name = "now_me"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:material:shader_parameter/flash_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("now_me_icon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("now_me_icon:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.033271722, 0, 0, 0, 1, -0.050061613, 0, 0, 0, 1, -0.033271722, 0, 0, 0, 1, -0.050061613, 0, 0, 0, 1, -0.033271722, 0, 0, 0, 1, -0.050061613, 0, 0, 0, 1, -0.033271722, 0, 0, 0, 1, -0.050061613, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("now_me_icon:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(-15, -0.25, 0, 0.25, 0, -19, -0.033271722, 0.6666667, 0, 0, -15, -0.050061613, -0.6666667, 0, 0, -19, -0.033271722, 0.6666667, 0, 0, -15, -0.050061613, -0.6666667, 0, 0, -19, -0.033271722, 0.6666667, 0, 0, -15, -0.050061613, -0.6666667, 0, 0, -19, -0.033271722, 0.6666667, 0, 0, -15, -0.050061613, -0.6666667, 0, 0),
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2)
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("now_me_icon:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.8004533, 2),
+"transitions": PackedFloat32Array(1, 4.4382915, 90.50979),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tfkyx"]
+_data = {
+&"now_me": SubResource("Animation_2wmww")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l82gq"]
-size = Vector2(140, 128)
+size = Vector2(8.5, 14)
 
 [node name="Character_1" type="CharacterBody2D" unique_id=1347863031]
 collision_layer = 2
 script = ExtResource("1_ui45g")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390438291]
-position = Vector2(0, 2)
-shape = SubResource("RectangleShape2D_l82gq")
+[node name="now_me_icon" type="Sprite2D" parent="." unique_id=1053035485]
+visible = false
+position = Vector2(1, -15)
+texture = ExtResource("2_l55i8")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1987698618]
-modulate = Color(1, 0.2784314, 1, 1)
-position = Vector2(2, 1)
-texture = ExtResource("2_f06a8")
+material = SubResource("ShaderMaterial_g4v7s")
+texture = ExtResource("2_p0pq8")
+hframes = 11
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786981151]
+libraries/ = SubResource("AnimationLibrary_tfkyx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=390438291]
+position = Vector2(0.25, 1)
+shape = SubResource("RectangleShape2D_l82gq")
 
 [node name="Rotation_point" type="Marker2D" parent="." unique_id=1506511493]
 
 [node name="Gun" type="Sprite2D" parent="Rotation_point" unique_id=1557632044]
-position = Vector2(146, 1)
-scale = Vector2(1, 0.171875)
-texture = ExtResource("2_f06a8")
+position = Vector2(11, 2)
+texture = ExtResource("3_sbsjf")
 
 [node name="Pivot" type="Marker2D" parent="Rotation_point" unique_id=1911494738]
-position = Vector2(208, 0)
+position = Vector2(22, 1)
 
 [node name="Shoot_cooldown" type="Timer" parent="." unique_id=1840948671]
 wait_time = 0.2

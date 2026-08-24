@@ -1,20 +1,20 @@
 extends CharacterBody2D
 
-var SPEED = 600.0
+var SPEED = 100.0
 
-var single_jump = -800.0
+var single_jump = -260.0
 var hold_jump = -15.0
 
 var speed_falling = 2.0
 
-var dash_velocity = 1000.0
-var dash_vertical_velocity = 600.0
+var dash_velocity = 350.0
+var dash_vertical_velocity = 260.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
 
-var acceleration_walk = 15000.0
-var acceleration_air = 1000.0
+var acceleration_walk = 1200.0
+var acceleration_air = 600.0
 
 var active = false
 
@@ -121,6 +121,7 @@ func _knockback(knock_value):
 
 func _on_dash_dur_timeout() -> void:
 	during_dash = false
+	velocity.x = SPEED * sign(velocity.x)
 
 func _on_dash_cooldown_timeout() -> void:
 	wait_can_dash = true
