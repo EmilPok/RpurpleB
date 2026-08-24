@@ -87,6 +87,7 @@ collision_mask = 5
 script = ExtResource("1_66c7w")
 
 [node name="now_me_icon" type="Sprite2D" parent="." unique_id=1615047510]
+visible = false
 position = Vector2(0, -15)
 texture = ExtResource("2_ryofq")
 
