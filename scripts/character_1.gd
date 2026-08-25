@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var main = get_tree().current_scene
+
 var SPEED = 90.0
 
 var single_jump = -180.0
@@ -132,6 +134,8 @@ func _physics_process(delta: float) -> void:
 		new_bullet.rotation_offset = Gun.rotation
 		new_bullet.global_position = Gun_pivot.global_position
 		add_sibling(new_bullet)
+		
+		main.shot_bullets.append(new_bullet)
 		
 		var camera_shake = Vector2(shake_power, 0.0)
 		camera_shake = camera_shake.rotated(Gun.rotation + deg_to_rad(180))

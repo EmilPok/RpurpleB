@@ -7,6 +7,22 @@
 [ext_resource type="PackedScene" uid="uid://tf0x6voo2kg0" path="res://scenes/change_player.tscn" id="5_tbgi4"]
 [ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="6_tefeu"]
 
+[sub_resource type="Animation" id="Animation_tipki"]
+resource_name = "End_transition"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.57434916, 1),
+"update": 0,
+"values": [Vector2(-360, 0), Vector2(0, 0)]
+}
+
 [sub_resource type="Animation" id="Animation_tefeu"]
 length = 0.001
 tracks/0/type = "value"
@@ -64,6 +80,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tipki"]
 _data = {
+&"End_transition": SubResource("Animation_tipki"),
 &"RESET": SubResource("Animation_tefeu"),
 &"circle": SubResource("Animation_o6xl0")
 }
@@ -108,8 +125,10 @@ offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
-[node name="Circle_trans_time" type="Timer" parent="." unique_id=1000476811]
-wait_time = 0.5
-one_shot = true
-
-[connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]
+[node name="Transition_Background" type="ColorRect" parent="." unique_id=1507161774]
+z_index = 1000
+custom_minimum_size = Vector2(320, 180)
+offset_left = -360.0
+offset_right = -39.999756
+offset_bottom = 180.0
+color = Color(0.007843138, 0.53333336, 0.81960785, 1)

@@ -1,6 +1,7 @@
 extends Control
 
 func _ready() -> void:
+	
 	var cables = [
 		$LevelSelector/Level1/LevelConnector,
 		$LevelSelector/Level2/LevelConnector,
@@ -12,21 +13,31 @@ func _ready() -> void:
 		$LevelSelector/Level3
 	]
 	
+	var last_cable = 1
+	
+	if Global.levels_completed <= Global.last_levels_completed:
+		last_cable = 0
+
 	for i in cables.size():
-		if i < Global.levels_completed - 1:
+		if i < Global.levels_completed - last_cable:
 			cables[i].set_connector()
 			if i + 1 < levels.size():
 				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
 	
 	if Global.finished:
-		$Transition_Animations.play("level_selector_on")
-		await $Transition_Animations.animation_finished
+		$Transition_Background_2.show()
 		
-		var i = Global.levels_completed - 1
-		cables[i].connect_levels()
-		await cables[i].get_node("AnimationPlayer").animation_finished
-		if i + 1 < levels.size():
-			levels[i + 1].get_node("MostlyPurpleLevel").visible = true
+		$AnimationPlayer.play("level_selector_half")
+		
+		await $AnimationPlayer.animation_finished
+		
+		if Global.levels_completed > Global.last_levels_completed:
+			Global.last_levels_completed = Global.levels_completed
+			var i = Global.levels_completed - 1
+			cables[i].connect_levels()
+			await cables[i].get_node("AnimationPlayer").animation_finished
+			if i + 1 < levels.size():
+				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
 	
 	Global.finished = false
 
@@ -48,17 +59,26 @@ func _on_back_button_pressed() -> void:
 	if $LevelSelector.visible:
 		$Transition_Animations.play("level_selector_off")
 
+func _start_transition(num):
+	if Global.levels_completed < num - 1:
+		return
+	
+	Global.selected_level = num
+	
+	$AnimationPlayer.play("circle")
+	$Circle_trans_time.start()
+
+func _on_circle_trans_time_timeout() -> void:
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
 # LEVEL 1 LOAD #####
 func _on_button_pressed() -> void:
-	Global.selected_level = 1
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	_start_transition(1)
 
 # LEVEL 2 LOAD #####
 func _on_button_2_pressed() -> void:
-	Global.selected_level = 2
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	_start_transition(2)
 
 # LEVEL 3 LOAD #####
 func _on_button_3_pressed() -> void:
-	Global.selected_level = 3
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	_start_transition(3)

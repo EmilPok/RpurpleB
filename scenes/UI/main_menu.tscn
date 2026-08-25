@@ -31,8 +31,9 @@
 [ext_resource type="Texture2D" uid="uid://dn6xmst0p80bo" path="res://art/UI/numbers/one.png" id="27_ww2wg"]
 [ext_resource type="Texture2D" uid="uid://duq0vugp8bdgp" path="res://art/UI/numbers/two.png" id="29_a7i4r"]
 [ext_resource type="Texture2D" uid="uid://bnxdxkb2w20vf" path="res://art/UI/numbers/three.png" id="31_8d054"]
-[ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="33_8d054"]
-[ext_resource type="Script" uid="uid://kmucfijrpacm" path="res://scripts/blue_crosshair.gd" id="33_a7i4r"]
+[ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="32_a7i4r"]
+[ext_resource type="Script" uid="uid://d56510j2ch3f" path="res://scripts/blue_crosshair.gd" id="33_8d054"]
+[ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="34_8d054"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -277,6 +278,139 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_yonvy")
 
+[sub_resource type="Animation" id="Animation_tefeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle_trans/ColorRect:material:shader_parameter/_Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_trans/Black_screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition_Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-320, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_o6xl0"]
+resource_name = "circle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Circle_trans/ColorRect:material:shader_parameter/_Progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.0, 0.999999977648]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Circle_trans/Black_screen:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.44, 0.45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_8d054"]
+resource_name = "level_selector_half"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1.2557172, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LevelSelector:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition_Background_2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8d054"]
+_data = {
+&"RESET": SubResource("Animation_tefeu"),
+&"circle": SubResource("Animation_o6xl0"),
+&"level_selector_half": SubResource("Animation_8d054")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_726sv"]
+shader = ExtResource("34_8d054")
+shader_parameter/_CirclePosition = Vector2(0.5, 0.5)
+shader_parameter/_Progress = 0.0
+shader_parameter/_Smoothness = 0.0999999977648
+shader_parameter/_Background = Color(0, 0, 0, 1)
+
 [node name="MainMenu" type="Control" unique_id=2050352890]
 layout_mode = 3
 anchors_preset = 15
@@ -290,7 +424,6 @@ script = ExtResource("1_d6l81")
 libraries/ = SubResource("AnimationLibrary_afaap")
 
 [node name="Background" type="TextureRect" parent="." unique_id=794989512]
-visible = false
 texture_repeat = 2
 material = SubResource("ShaderMaterial_g4v7s")
 layout_mode = 1
@@ -585,17 +718,48 @@ texture_normal = ExtResource("23_6gm0r")
 z_index = 1000
 custom_minimum_size = Vector2(320, 180)
 layout_mode = 0
-offset_left = 320.0
-offset_right = 640.00024
+offset_left = -320.0
+offset_right = 0.00024414063
 offset_bottom = 180.0
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
-[node name="Cursor" type="CanvasLayer" parent="." unique_id=1629406475]
+[node name="Cursor" type="CanvasLayer" parent="." unique_id=136855318]
 
-[node name="BlueCrosshair" type="Sprite2D" parent="Cursor" unique_id=1174317983]
-position = Vector2(60, 70)
-texture = ExtResource("33_8d054")
-script = ExtResource("33_a7i4r")
+[node name="BlueCrosshair" type="Sprite2D" parent="Cursor" unique_id=233852175]
+position = Vector2(48, 93)
+texture = ExtResource("32_a7i4r")
+script = ExtResource("33_8d054")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620200610]
+libraries/ = SubResource("AnimationLibrary_8d054")
+
+[node name="Circle_trans" type="CanvasLayer" parent="." unique_id=60283643]
+
+[node name="ColorRect" type="ColorRect" parent="Circle_trans" unique_id=240968004]
+material = SubResource("ShaderMaterial_726sv")
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+
+[node name="Black_screen" type="ColorRect" parent="Circle_trans" unique_id=1421405057]
+visible = false
+offset_right = 320.0
+offset_bottom = 180.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Circle_trans_time" type="Timer" parent="." unique_id=347921271]
+wait_time = 0.5
+one_shot = true
+
+[node name="Transition_Background_2" type="ColorRect" parent="." unique_id=125641927]
+visible = false
+z_index = 1000
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_right = 320.00024
+offset_bottom = 180.0
+color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
 [connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
@@ -606,3 +770,4 @@ script = ExtResource("33_a7i4r")
 [connection signal="pressed" from="LevelSelector/Level2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="LevelSelector/Level3/Button3" to="." method="_on_button_3_pressed"]
 [connection signal="pressed" from="LevelSelector/BackButton2" to="." method="_on_back_button_pressed"]
+[connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]

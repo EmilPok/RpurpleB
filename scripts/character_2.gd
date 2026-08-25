@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+@onready var main = get_tree().current_scene
+
 var SPEED = 100.0
 
 var single_jump = -180.0
