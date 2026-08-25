@@ -5,28 +5,24 @@ var scene_file = ".tscn"
 
 @export var Amount_of_levels : int
 
-
 var last_level : Node2D = null
-
 var reset_position = Vector2(1000.0, 1000.0)
 
 func _ready() -> void:
 	randomize()
-	_next_level()
+	_reset_level()
 
-
-func _next_level():
-
-	Global.selected_level += 1
+func _reset_level():
 	$AnimationPlayer.play("circle")
 	$Circle_trans_time.start()
 
+func _level_completed():
+	if Global.selected_level > Global.levels_completed:
+		Global.levels_completed = Global.selected_level
+	Global.finished = true
+	get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
+
 func _on_circle_trans_time_timeout() -> void:
-	
-	if Global.selected_level == Amount_of_levels + 1:
-		get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
-		return
-	
 	var level = levels_path + str(Global.selected_level) + scene_file
 	
 	if last_level:
@@ -34,13 +30,13 @@ func _on_circle_trans_time_timeout() -> void:
 	
 	$Character_1.global_position = reset_position
 	$Character_2.global_position = reset_position
+	
 	var new_level = load(level).instantiate()
 	new_level.global_position = Vector2.ZERO
 	call_deferred("add_child", new_level)
 	
 	$Character_1.global_position = new_level.get_node("Character_1_pos").global_position
 	$Character_2.global_position = new_level.get_node("Character_2_pos").global_position
-	
 	
 	last_level = new_level
 	$AnimationPlayer.play_backwards("circle")
@@ -49,12 +45,3 @@ func _on_circle_trans_time_timeout() -> void:
 	$Character_1.Camera = new_level.get_node("Camera2D")
 	$Character_1.Camera_orginal_pos = new_level.get_node("Camera2D").global_position
 	$Change_Player._reset()
-
-func _reset_level():
-	$AnimationPlayer.play("circle")
-	$Circle_trans_time.start()
-
-func _level_completed():
-	if Global.selected_level > Global.levels_completed:
-		Global.levels_completed += 1
-	_next_level()
