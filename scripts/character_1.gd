@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		taking_gun = false
 		gun_out = true
 		Gun_sprite.visible = true
-		#Engine.time_scale = 0.1 # TEST
+		Engine.time_scale = 0.1 # TEST
 	
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
@@ -123,7 +123,7 @@ func _physics_process(delta: float) -> void:
 		gun_out = false
 		Gun_sprite.visible = false
 		$Rotation_point/Gun_dis.emitting = true
-		#Engine.time_scale = 1.0
+		Engine.time_scale = 1.0
 		$Icon.play("Idle")
 		
 		can_shoot = false
