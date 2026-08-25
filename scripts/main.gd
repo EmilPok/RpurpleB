@@ -3,8 +3,8 @@ extends Node2D
 var levels_path = "res://scenes/levels/level_"
 var scene_file = ".tscn"
 
-@export var current_level : int
-@export var levels_amount : int
+@export var Amount_of_levels : int
+
 
 var last_level : Node2D = null
 
@@ -12,28 +12,28 @@ var reset_position = Vector2(1000.0, 1000.0)
 
 func _ready() -> void:
 	randomize()
-	
-	current_level -= 1
 	_next_level()
 
 
 func _next_level():
-	current_level += 1
+
+	Global.selected_level += 1
 	$AnimationPlayer.play("circle")
 	$Circle_trans_time.start()
 
 func _on_circle_trans_time_timeout() -> void:
-	if current_level == levels_amount:
+	
+	if Global.selected_level == Amount_of_levels + 1:
+		get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
 		return
 	
-	var level = levels_path + str(current_level) + scene_file
+	var level = levels_path + str(Global.selected_level) + scene_file
 	
 	if last_level:
 		last_level.queue_free()
 	
 	$Character_1.global_position = reset_position
 	$Character_2.global_position = reset_position
-	
 	var new_level = load(level).instantiate()
 	new_level.global_position = Vector2.ZERO
 	call_deferred("add_child", new_level)
@@ -53,3 +53,8 @@ func _on_circle_trans_time_timeout() -> void:
 func _reset_level():
 	$AnimationPlayer.play("circle")
 	$Circle_trans_time.start()
+
+func _level_completed():
+	if Global.selected_level > Global.levels_completed:
+		Global.levels_completed += 1
+	_next_level()

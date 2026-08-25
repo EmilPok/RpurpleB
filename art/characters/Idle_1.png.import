@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgs7ubxnuoxvo"
-path="res://.godot/imported/bgxd.png-5f0cc95992ecf0d2b7a60fabacee9f8d.ctex"
+uid="uid://d2uylw7ymltj4"
+path="res://.godot/imported/Idle_1.png-a2e4a1ac9a4b1aa4bc621779f6c40978.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/bgxd.png"
-dest_files=["res://.godot/imported/bgxd.png-5f0cc95992ecf0d2b7a60fabacee9f8d.ctex"]
+source_file="res://art/characters/Idle_1.png"
+dest_files=["res://.godot/imported/Idle_1.png-a2e4a1ac9a4b1aa4bc621779f6c40978.ctex"]
 
 [params]
 

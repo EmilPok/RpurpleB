@@ -34,7 +34,7 @@ var taking_gun = false
 
 var Camera : Camera2D
 var Camera_orginal_pos = Vector2.ZERO
-var shake_power = 2
+var shake_power = 4
 var camera_lerp_power = 1
 
 var bullet = preload("res://scenes/bullet.tscn")
@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		taking_gun = false
 		gun_out = true
 		Gun_sprite.visible = true
-		#Engine.time_scale = 0.1 # TEST
+		Engine.time_scale = 0.1 # TEST
 	
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
@@ -118,12 +118,11 @@ func _physics_process(delta: float) -> void:
 			$Icon.flip_h = direction < 0 
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot and gun_out:
-		_screen_shake()
 		GUI.cursor._shoot()
 		gun_out = false
 		Gun_sprite.visible = false
 		$Rotation_point/Gun_dis.emitting = true
-		#Engine.time_scale = 1.0
+		Engine.time_scale = 1.0
 		$Icon.play("Idle")
 		
 		can_shoot = false
@@ -133,6 +132,10 @@ func _physics_process(delta: float) -> void:
 		new_bullet.rotation_offset = Gun.rotation
 		new_bullet.global_position = Gun_pivot.global_position
 		add_sibling(new_bullet)
+		
+		var camera_shake = Vector2(shake_power, 0.0)
+		camera_shake = camera_shake.rotated(Gun.rotation + deg_to_rad(180))
+		Camera.global_position += camera_shake
 		
 
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
@@ -154,6 +157,7 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		if abs(velocity.x) <= SPEED + (SPEED / 1.5):
 			velocity.x = move_toward(velocity.x, SPEED * direction, acceleration_walk * delta)
+			$Icon.play("Walk")
 		else:
 			_standing(delta)
 	else:
@@ -164,6 +168,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _standing(delta):
+	if $Icon.animation == "Walk":
+		$Icon.play("Idle")
+	
 	if is_on_floor():
 		velocity.x = move_toward(velocity.x, 0, acceleration_walk * delta)
 	else:
@@ -200,13 +207,3 @@ func _on_look_around_timeout() -> void:
 	if $Icon.animation == "Idle":
 		$Icon.play("LookAround")
 	$Look_around.start(randf_range(4.0, 9.0))
-
-func _screen_shake():
-	var random_x_val = randi_range(-shake_power, shake_power)
-	while random_x_val == 0:
-		random_x_val = randi_range(-shake_power, shake_power)
-	var random_y_val = randi_range(-shake_power, shake_power)
-	while random_y_val == 0:
-		random_y_val = randi_range(-shake_power, shake_power)
-	Camera.global_position.x += random_x_val
-	Camera.global_position.y += random_y_val

@@ -18,7 +18,7 @@ func _ready() -> void:
 func _on_body_entered(_body: Node2D) -> void:
 	$Sprite.frame = 1
 	if other_button.active:
-		main._next_level()
+		main._level_completed()
 	active = true
 
 func _on_body_exited(_body: Node2D) -> void:

@@ -5,15 +5,21 @@
 [ext_resource type="Texture2D" uid="uid://rfcr6lvtggfi" path="res://art/characters/b.png" id="2_p0pq8"]
 [ext_resource type="Shader" uid="uid://dy8swvx71s6e2" path="res://shaders/flash.gdshader" id="3_l55i8"]
 [ext_resource type="Texture2D" uid="uid://bcrqklyi2ky6b" path="res://art/misc/GUN.png" id="3_sbsjf"]
+[ext_resource type="Texture2D" uid="uid://d2uylw7ymltj4" path="res://art/characters/Idle_1.png" id="4_47oof"]
+[ext_resource type="Texture2D" uid="uid://d4b2mry8012q8" path="res://art/characters/Walk_1.png" id="6_2wmww"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryofq"]
 shader = ExtResource("3_l55i8")
 shader_parameter/flash_color = Color(0.9098039, 0.30588236, 0.2509804, 1)
 shader_parameter/flash_value = 0.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_sbsjf"]
-atlas = ExtResource("2_p0pq8")
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpbxe"]
+atlas = ExtResource("4_47oof")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vltoi"]
+atlas = ExtResource("4_47oof")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l55i8"]
 atlas = ExtResource("2_p0pq8")
@@ -59,15 +65,26 @@ region = Rect2(144, 0, 16, 16)
 atlas = ExtResource("2_p0pq8")
 region = Rect2(160, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_1stbm"]
+atlas = ExtResource("6_2wmww")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp6d2"]
+atlas = ExtResource("6_2wmww")
+region = Rect2(16, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_l55i8"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_sbsjf")
+"texture": SubResource("AtlasTexture_tpbxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vltoi")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -88,7 +105,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o12to")
 }],
-"loop": false,
+"loop": 0,
 "name": &"LookAround",
 "speed": 5.0
 }, {
@@ -108,14 +125,20 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_qsh3i")
 }],
-"loop": false,
+"loop": 0,
 "name": &"TakeAGun",
 "speed": 7.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1stbm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp6d2")
+}],
+"loop": 1,
 "name": &"Walk",
-"speed": 5.0
+"speed": 4.0
 }]
 
 [sub_resource type="Animation" id="Animation_l55i8"]
@@ -201,7 +224,7 @@ texture = ExtResource("2_l55i8")
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1916461415]
 material = SubResource("ShaderMaterial_ryofq")
 sprite_frames = SubResource("SpriteFrames_l55i8")
-animation = &"LookAround"
+animation = &"Walk"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786981151]

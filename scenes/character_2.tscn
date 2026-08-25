@@ -4,7 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://b1q58i2l4osiu" path="res://art/characters/a.png" id="2_afpa3"]
 [ext_resource type="Shader" uid="uid://dy8swvx71s6e2" path="res://shaders/flash.gdshader" id="2_n74hp"]
 [ext_resource type="Texture2D" uid="uid://bqsb317lca1ci" path="res://art/misc/now_blue.png" id="2_ryofq"]
+[ext_resource type="Texture2D" uid="uid://ng75fq2rbwme" path="res://art/characters/Idle_2.png" id="5_jdd3b"]
 [ext_resource type="AudioStream" uid="uid://dnmkgx2asmcsn" path="res://sounds/woosh.mp3" id="5_jqnby"]
+[ext_resource type="Texture2D" uid="uid://ql7ttd2qfgot" path="res://art/characters/Walk_2.png" id="6_3fubo"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryofq"]
 shader = ExtResource("2_n74hp")
@@ -48,8 +50,20 @@ atlas = ExtResource("2_afpa3")
 region = Rect2(144, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbb61"]
-atlas = ExtResource("2_afpa3")
+atlas = ExtResource("5_jdd3b")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_go4in"]
+atlas = ExtResource("5_jdd3b")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnq6x"]
+atlas = ExtResource("6_3fubo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7ygr"]
+atlas = ExtResource("6_3fubo")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i4thp"]
 animations = [{
@@ -66,37 +80,51 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4j4yg")
 }],
-"loop": false,
+"loop": 0,
 "name": &"Blink",
 "speed": 10.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_n74hp")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_ryofq")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_jqnby")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_05wn2")
 }, {
-"duration": 1.0,
+"duration": 0.3,
 "texture": SubResource("AtlasTexture_r4dws")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Dash",
 "speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fbb61")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_go4in")
 }],
-"loop": true,
+"loop": 1,
 "name": &"Idle",
-"speed": 15.0
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnq6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7ygr")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 4.0
 }]
 
 [sub_resource type="Animation" id="Animation_ryofq"]
@@ -203,8 +231,9 @@ texture = ExtResource("2_ryofq")
 material = SubResource("ShaderMaterial_ryofq")
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_i4thp")
-animation = &"Dash"
+animation = &"Walk"
 autoplay = "Idle"
+frame_progress = 0.57242674
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=578662714]
 libraries/ = SubResource("AnimationLibrary_jdd3b")

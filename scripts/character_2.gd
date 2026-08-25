@@ -9,8 +9,8 @@ var falling_down_velocity_max = 120.0
 var speed_falling = 1.5
 var max_falling_speed = 400.0
 
-var dash_velocity = 350.0
-var dash_vertical_velocity = 180.0
+var dash_velocity = 150.0
+var dash_vertical_velocity = 100.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
@@ -163,7 +163,7 @@ func _physics_process(delta: float) -> void:
 				$Icon.flip_h = false
 			
 			if abs(velocity.x) <= SPEED + (SPEED / 1.5):
-				
+				$Icon.play("Walk")
 				velocity.x = move_toward(velocity.x, SPEED * direction, acceleration_walk * delta)
 			else:
 				_standing(delta)
@@ -185,6 +185,7 @@ func _standing(delta):
 		velocity.x = move_toward(velocity.x, 0, acceleration_walk * delta)
 	else:
 		velocity.x = move_toward(velocity.x, 0, acceleration_air * delta)
+	$Icon.play("Idle")
 
 
 func _knockback(knock_value):
