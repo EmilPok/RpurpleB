@@ -31,6 +31,8 @@
 [ext_resource type="Texture2D" uid="uid://dn6xmst0p80bo" path="res://art/UI/numbers/one.png" id="27_ww2wg"]
 [ext_resource type="Texture2D" uid="uid://duq0vugp8bdgp" path="res://art/UI/numbers/two.png" id="29_a7i4r"]
 [ext_resource type="Texture2D" uid="uid://bnxdxkb2w20vf" path="res://art/UI/numbers/three.png" id="31_8d054"]
+[ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="33_8d054"]
+[ext_resource type="Script" uid="uid://kmucfijrpacm" path="res://scripts/blue_crosshair.gd" id="33_a7i4r"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -581,10 +583,17 @@ texture_normal = ExtResource("23_6gm0r")
 z_index = 1000
 custom_minimum_size = Vector2(320, 180)
 layout_mode = 0
-offset_left = -320.0
-offset_right = 0.00024414063
+offset_left = 320.0
+offset_right = 640.00024
 offset_bottom = 180.0
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
+
+[node name="Cursor" type="CanvasLayer" parent="." unique_id=1629406475]
+
+[node name="BlueCrosshair" type="Sprite2D" parent="Cursor" unique_id=1174317983]
+position = Vector2(60, 70)
+texture = ExtResource("33_8d054")
+script = ExtResource("33_a7i4r")
 
 [connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]

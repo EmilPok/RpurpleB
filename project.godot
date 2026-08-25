@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="gamejam"
-run/main_scene="uid://dhu7d5mfju5tc"
+run/main_scene="uid://cx2g0ltvi6ufk"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 run/max_fps=240
 
@@ -26,7 +26,6 @@ window/size/viewport_height=180
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="canvas_items"
-mouse_cursor/custom_image="uid://6rjgi7v78onx"
 
 [input]
 

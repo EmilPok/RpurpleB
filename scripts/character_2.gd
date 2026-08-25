@@ -9,8 +9,8 @@ var falling_down_velocity_max = 120.0
 var speed_falling = 1.5
 var max_falling_speed = 400.0
 
-var dash_velocity = 150.0
-var dash_vertical_velocity = 100.0
+var dash_velocity = 180.0
+var dash_vertical_velocity = 120.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
