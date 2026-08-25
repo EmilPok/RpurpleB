@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://cx2g0ltvi6ufk"]
 
+[ext_resource type="Script" uid="uid://blfiw8fwb0f16" path="res://scripts/UI/main_menu.gd" id="1_d6l81"]
 [ext_resource type="Texture2D" uid="uid://sr8mms8p6dtb" path="res://art/UI/menu_background.png" id="1_qwnig"]
 [ext_resource type="Shader" uid="uid://cp1dxnehmnbl5" path="res://shaders/bg_scroll.gdshader" id="1_yonvy"]
 [ext_resource type="Texture2D" uid="uid://dlek782kd02gd" path="res://art/UI/play_button.png" id="3_5jstl"]
@@ -10,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://dr2qwwe8txy3p" path="res://art/UI/exit_button.png" id="8_a1wsg"]
 [ext_resource type="Texture2D" uid="uid://t8r1ekv4s8wi" path="res://art/UI/credits_button_pressed.png" id="8_mf7fl"]
 [ext_resource type="Texture2D" uid="uid://erd1nyrmmejy" path="res://art/UI/exit_button_pressed.png" id="9_i7p8e"]
+[ext_resource type="Texture2D" uid="uid://id02yalta4gk" path="res://art/UI/credits_panel.png" id="12_a1wsg"]
+[ext_resource type="Script" uid="uid://c261ntsyo224o" path="res://scripts/UI/floating_panel_effect.gd" id="13_i7p8e"]
+[ext_resource type="Texture2D" uid="uid://cuv01i031curc" path="res://art/UI/credits_label.png" id="14_sfthw"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_yonvy")
@@ -21,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_d6l81")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=794989512]
 texture_repeat = 2
@@ -47,13 +52,14 @@ offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=516516008]
+[node name="MainButtons" type="VBoxContainer" parent="HBoxContainer" unique_id=516516008]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
 alignment = 1
 
-[node name="Play" type="TextureButton" parent="HBoxContainer/VBoxContainer" unique_id=728810482]
+[node name="Play" type="TextureButton" parent="HBoxContainer/MainButtons" unique_id=728810482]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -61,25 +67,69 @@ focus_mode = 0
 texture_normal = ExtResource("3_5jstl")
 texture_pressed = ExtResource("3_tfcbk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer" unique_id=137650592]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainButtons" unique_id=137650592]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Options" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=697400330]
+[node name="Options" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=697400330]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("5_um6dh")
 texture_pressed = ExtResource("6_mf7fl")
 
-[node name="Credits" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=236405677]
+[node name="Credits" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=236405677]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("7_d6l81")
 texture_pressed = ExtResource("8_mf7fl")
 
-[node name="TextureButton" type="TextureButton" parent="HBoxContainer/VBoxContainer/HBoxContainer" unique_id=1504686372]
+[node name="Exit" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=1504686372]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
+
+[node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
+script = ExtResource("13_i7p8e")
+
+[node name="Credits" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_a1wsg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits" unique_id=385974533]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -27.5
+offset_right = 27.5
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer" unique_id=89607871]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer/VBoxContainer" unique_id=835260933]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=594925242]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -18)
+texture = ExtResource("14_sfthw")
+
+[connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
