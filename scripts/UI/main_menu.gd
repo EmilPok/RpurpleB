@@ -1,7 +1,7 @@
 extends Control
 
 func _on_play_pressed() -> void:
-	pass
+	$Transition_Animations.play("level_selector_on")
 
 func _on_options_pressed() -> void:
 	pass
@@ -15,3 +15,5 @@ func _on_exit_pressed() -> void:
 func _on_back_button_pressed() -> void:
 	if $HBoxContainer/Credits_Smooth_Movement_Handl.visible == true:
 		$Transition_Animations.play("credits_off")
+	if $LevelSelector.visible == true:
+		$Transition_Animations.play("level_selector_off")
