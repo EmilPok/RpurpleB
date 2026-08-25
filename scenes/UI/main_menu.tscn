@@ -3,20 +3,137 @@
 [ext_resource type="Script" uid="uid://blfiw8fwb0f16" path="res://scripts/UI/main_menu.gd" id="1_d6l81"]
 [ext_resource type="Texture2D" uid="uid://sr8mms8p6dtb" path="res://art/UI/menu_background.png" id="1_qwnig"]
 [ext_resource type="Shader" uid="uid://cp1dxnehmnbl5" path="res://shaders/bg_scroll.gdshader" id="1_yonvy"]
-[ext_resource type="Texture2D" uid="uid://dlek782kd02gd" path="res://art/UI/play_button.png" id="3_5jstl"]
-[ext_resource type="Texture2D" uid="uid://88achoevdns" path="res://art/UI/play_button_clicked.png" id="3_tfcbk"]
-[ext_resource type="Texture2D" uid="uid://cgkveiveuytlu" path="res://art/UI/options_button.png" id="5_um6dh"]
-[ext_resource type="Texture2D" uid="uid://ynneya2aasaf" path="res://art/UI/options_button_pressed.png" id="6_mf7fl"]
-[ext_resource type="Texture2D" uid="uid://bhd6sy47ni3m6" path="res://art/UI/credits_button.png" id="7_d6l81"]
-[ext_resource type="Texture2D" uid="uid://dr2qwwe8txy3p" path="res://art/UI/exit_button.png" id="8_a1wsg"]
-[ext_resource type="Texture2D" uid="uid://t8r1ekv4s8wi" path="res://art/UI/credits_button_pressed.png" id="8_mf7fl"]
-[ext_resource type="Texture2D" uid="uid://erd1nyrmmejy" path="res://art/UI/exit_button_pressed.png" id="9_i7p8e"]
+[ext_resource type="Texture2D" uid="uid://dlek782kd02gd" path="res://art/UI/buttons/play_button.png" id="3_5jstl"]
+[ext_resource type="Texture2D" uid="uid://88achoevdns" path="res://art/UI/buttons/play_button_clicked.png" id="3_tfcbk"]
+[ext_resource type="Texture2D" uid="uid://cgkveiveuytlu" path="res://art/UI/buttons/options_button.png" id="5_um6dh"]
+[ext_resource type="Texture2D" uid="uid://ynneya2aasaf" path="res://art/UI/buttons/options_button_pressed.png" id="6_mf7fl"]
+[ext_resource type="Texture2D" uid="uid://bhd6sy47ni3m6" path="res://art/UI/buttons/credits_button.png" id="7_d6l81"]
+[ext_resource type="Texture2D" uid="uid://dr2qwwe8txy3p" path="res://art/UI/buttons/exit_button.png" id="8_a1wsg"]
+[ext_resource type="Texture2D" uid="uid://t8r1ekv4s8wi" path="res://art/UI/buttons/credits_button_pressed.png" id="8_mf7fl"]
+[ext_resource type="Texture2D" uid="uid://erd1nyrmmejy" path="res://art/UI/buttons/exit_button_pressed.png" id="9_i7p8e"]
 [ext_resource type="Texture2D" uid="uid://id02yalta4gk" path="res://art/UI/credits_panel.png" id="12_a1wsg"]
 [ext_resource type="Script" uid="uid://c261ntsyo224o" path="res://scripts/UI/floating_panel_effect.gd" id="13_i7p8e"]
 [ext_resource type="Texture2D" uid="uid://cuv01i031curc" path="res://art/UI/credits_label.png" id="14_sfthw"]
+[ext_resource type="Texture2D" uid="uid://dqpbhe278ilpr" path="res://art/UI/text/arts.png" id="15_n3ahy"]
+[ext_resource type="Texture2D" uid="uid://dsm7gt8v3vynq" path="res://art/UI/text/kelpekk.png" id="16_scr1a"]
+[ext_resource type="Texture2D" uid="uid://wfg5ij0qg8pu" path="res://art/UI/text/code.png" id="17_nu0op"]
+[ext_resource type="Texture2D" uid="uid://d3bqujliqem5e" path="res://art/UI/text/design.png" id="18_6gm0r"]
+[ext_resource type="Texture2D" uid="uid://b23juyps1jvcu" path="res://art/UI/text/music.png" id="19_cj7n5"]
+[ext_resource type="Texture2D" uid="uid://dcspyfaibvs6c" path="res://art/UI/text/shaders.png" id="20_afaap"]
+[ext_resource type="Texture2D" uid="uid://dmdknt2qihps2" path="res://art/UI/text/sfx.png" id="21_gqbxs"]
+[ext_resource type="Texture2D" uid="uid://dpxtrcx3n6me" path="res://art/UI/text/gmail.png" id="22_1ss0f"]
+[ext_resource type="Texture2D" uid="uid://d2qitqabeppag" path="res://art/UI/buttons/back_button.png" id="23_6gm0r"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_yonvy")
+
+[sub_resource type="Animation" id="Animation_6gm0r"]
+resource_name = "credits_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.1383355, 0.29730204),
+"update": 0,
+"values": [Vector2(-320, 0), Vector2(320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition_Background:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.16862746, 0.6862745, 0.16862746, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Credits_Smooth_Movement_Handl:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_cj7n5"]
+resource_name = "credits_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.29730204, 3.1383355),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(-320, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition_Background:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.16862746, 0.6862745, 0.16862746, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Credits_Smooth_Movement_Handl:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_afaap"]
+_data = {
+&"credits_off": SubResource("Animation_6gm0r"),
+&"credits_on": SubResource("Animation_cj7n5")
+}
 
 [node name="MainMenu" type="Control" unique_id=2050352890]
 layout_mode = 3
@@ -27,7 +144,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_d6l81")
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=794989512]
+[node name="Background" type="TextureRect" parent="." unique_id=794989512]
 texture_repeat = 2
 material = SubResource("ShaderMaterial_g4v7s")
 layout_mode = 1
@@ -53,7 +170,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="MainButtons" type="VBoxContainer" parent="HBoxContainer" unique_id=516516008]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
@@ -91,9 +207,10 @@ texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
 
 [node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
+visible = false
 script = ExtResource("13_i7p8e")
 
-[node name="Credits" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
+[node name="Credits_Title" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -101,7 +218,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("12_a1wsg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits" unique_id=385974533]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits_Title" unique_id=385974533]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -111,17 +228,17 @@ offset_right = 27.5
 offset_bottom = 23.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer" unique_id=89607871]
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits_Title/HBoxContainer" unique_id=89607871]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer/VBoxContainer" unique_id=835260933]
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits_Title/HBoxContainer/VBoxContainer" unique_id=835260933]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=594925242]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl/Credits_Title/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=594925242]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -129,7 +246,84 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -18)
 texture = ExtResource("14_sfthw")
 
+[node name="TextConainer" type="Node2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=183272708]
+
+[node name="Arts" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=854290120]
+position = Vector2(-97, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("15_n3ahy")
+
+[node name="Kelpekk" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=1837542368]
+position = Vector2(-100.125, -16.375)
+texture = ExtResource("16_scr1a")
+
+[node name="Kelpekk2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=169571704]
+position = Vector2(-88, 31)
+texture = ExtResource("16_scr1a")
+
+[node name="Kelpekk3" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=968681954]
+position = Vector2(107, 32)
+texture = ExtResource("16_scr1a")
+
+[node name="Code" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=1410491197]
+position = Vector2(97, -30)
+scale = Vector2(3, 3)
+texture = ExtResource("17_nu0op")
+
+[node name="Design" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=678328380]
+position = Vector2(90, 11)
+scale = Vector2(3, 3)
+texture = ExtResource("18_6gm0r")
+
+[node name="Music" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=556183913]
+position = Vector2(-27, -20)
+scale = Vector2(3, 3)
+texture = ExtResource("19_cj7n5")
+
+[node name="Shaders" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=502964457]
+position = Vector2(-77, 16)
+scale = Vector2(3, 3)
+texture = ExtResource("20_afaap")
+
+[node name="Sfx" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=2023559849]
+position = Vector2(31, -20)
+scale = Vector2(3, 3)
+texture = ExtResource("21_gqbxs")
+
+[node name="Gmail" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=626920457]
+position = Vector2(80, 27)
+texture = ExtResource("22_1ss0f")
+
+[node name="Gmail2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextConainer" unique_id=2097861645]
+position = Vector2(99, -13)
+texture = ExtResource("22_1ss0f")
+
+[node name="BackButton" type="TextureButton" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=541694709]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 59.0
+offset_right = 32.0
+offset_bottom = 91.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("23_6gm0r")
+
+[node name="Transition_Background" type="ColorRect" parent="." unique_id=1983145882]
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_left = 320.0
+offset_right = 640.0
+offset_bottom = 180.0
+color = Color(0.16862746, 0.6862745, 0.16862746, 1)
+
+[node name="Transition_Animations" type="AnimationPlayer" parent="." unique_id=1657425511]
+libraries/ = SubResource("AnimationLibrary_afaap")
+
 [connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
