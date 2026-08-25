@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://scenes/moving_block.tscn" id="6_1q7iv"]
 [ext_resource type="PackedScene" uid="uid://dlqsb8wqqhyqo" path="res://scenes/doors.tscn" id="7_gj3kh"]
 [ext_resource type="PackedScene" uid="uid://cvaoho4dwuilx" path="res://scenes/end_button.tscn" id="8_myogd"]
+[ext_resource type="Texture2D" uid="uid://chegdjr13tb7t" path="res://art/misc/blue_totem.png" id="9_65guy"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(32, 3)
@@ -17,6 +18,14 @@ size = Vector2(16, 3)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_57qmd"]
 size = Vector2(8, 2)
+
+[sub_resource type="Gradient" id="Gradient_65guy"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_65guy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="maybe_level_0" type="Node2D" unique_id=529331912]
 
@@ -111,3 +120,15 @@ other_button = NodePath("../End_button")
 visible = false
 tile_map_data = PackedByteArray("AAAUAAAAAAADAAEAAAAUAAEAAAADAAEAAAAUAAIAAAADAAEAAAAUAAMAAAADAAEAAAAUAAQAAAADAAEAAAAUAAUAAAADAAEAAAAUAAYAAAADAAEAAAAUAAcAAAADAAEAAAAUAAgAAAADAAEAAAAUAAkAAAADAAEAAAAUAAoAAAADAAEAAAAUAAsAAAADAAEAAAAUAAwAAAADAAEAAAAUAA4AAAADAAEAAAAUAA0AAAADAAEAAAD//wAAAAAFAAEAAAD//wEAAAAFAAEAAAD//wIAAAAFAAEAAAD//wMAAAAFAAEAAAD//wQAAAAFAAEAAAD//wUAAAAFAAEAAAD//wYAAAAFAAEAAAD//wcAAAAFAAEAAAD//wgAAAAFAAEAAAD//wkAAAAFAAEAAAD//woAAAAFAAEAAAD//wsAAAAFAAEAAAD//wwAAAAFAAEAAAA=")
 tile_set = ExtResource("1_6ayib")
+
+[node name="BlueTotem" type="Sprite2D" parent="." unique_id=1416958107]
+position = Vector2(312, 144)
+texture = ExtResource("9_65guy")
+
+[node name="PointLight2D" type="PointLight2D" parent="BlueTotem" unique_id=1569353266]
+position = Vector2(1, 3)
+scale = Vector2(0.96875, 1.03125)
+color = Color(0, 0.40784314, 1, 1)
+energy = 0.56
+texture = SubResource("GradientTexture2D_g4v7s")
+texture_scale = 0.54
