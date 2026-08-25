@@ -1,5 +1,35 @@
 extends Control
 
+func _ready() -> void:
+	var cables = [
+		$LevelSelector/Level1/LevelConnector,
+		$LevelSelector/Level2/LevelConnector,
+		$LevelSelector/Level3/LevelConnector
+	]
+	var levels = [
+		$LevelSelector/Level1,
+		$LevelSelector/Level2,
+		$LevelSelector/Level3
+	]
+	for i in cables.size():
+		if i < Global.levels_completed - 1:
+			cables[i].set_connector()
+			if i + 1 < levels.size():
+				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
+	
+	if Global.finished:
+		$Transition_Animations.play("level_selector_on")
+		await $Transition_Animations.animation_finished
+		
+		var i = Global.levels_completed - 1
+		cables[i].connect_levels()
+		await cables[i].get_node("AnimationPlayer").animation_finished
+		if i + 1 < levels.size():
+			levels[i + 1].get_node("MostlyPurpleLevel").visible = true
+	
+	Global.finished = false
+	
+
 func _on_play_pressed() -> void:
 	$Transition_Animations.play("level_selector_on")
 

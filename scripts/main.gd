@@ -16,19 +16,20 @@ func _ready() -> void:
 	
 	#current_level -= 1
 	current_level = Global.selected_level - 1
-	_next_level()
+	_reset_level()
 
 
 func _next_level():
-	current_level += 1
+	Global.levels_completed = max(Global.levels_completed, Global.selected_level)
+	Global.finished = true
 	$AnimationPlayer.play("circle")
 	$Circle_trans_time.start()
 
 func _on_circle_trans_time_timeout() -> void:
-	if current_level == levels_amount:
-		Global.levels_completed = max(Global.levels_completed, current_level)
+	if Global.finished:
 		get_tree().change_scene_to_file("res://scenes/UI/main_menu.tscn")
-	
+		return
+		
 	var level = levels_path + str(current_level) + scene_file
 	
 	if last_level:

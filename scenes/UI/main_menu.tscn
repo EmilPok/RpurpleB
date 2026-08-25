@@ -511,13 +511,14 @@ flat = true
 position = Vector2(154, 92)
 texture = ExtResource("25_gqbxs")
 
-[node name="MostlyPurpleLevel2" type="Sprite2D" parent="LevelSelector/Level2" unique_id=971565743]
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level2" unique_id=971565743]
+visible = false
 texture = ExtResource("26_bocfi")
 
-[node name="Two" type="Sprite2D" parent="LevelSelector/Level2/MostlyPurpleLevel2" unique_id=2030784726]
+[node name="Two" type="Sprite2D" parent="LevelSelector/Level2/MostlyPurpleLevel" unique_id=2030784726]
 texture = ExtResource("29_a7i4r")
 
-[node name="LevelConnector2" parent="LevelSelector/Level2" unique_id=1818771879 instance=ExtResource("24_afaap")]
+[node name="LevelConnector" parent="LevelSelector/Level2" unique_id=1818771879 instance=ExtResource("24_afaap")]
 position = Vector2(3, -21)
 rotation = 3.1415925
 
@@ -537,13 +538,14 @@ flat = true
 position = Vector2(154, 25)
 texture = ExtResource("26_gqbxs")
 
-[node name="MostlyPurpleLevel3" type="Sprite2D" parent="LevelSelector/Level3" unique_id=98636667]
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level3" unique_id=98636667]
+visible = false
 texture = ExtResource("26_bocfi")
 
-[node name="Three" type="Sprite2D" parent="LevelSelector/Level3/MostlyPurpleLevel3" unique_id=1105605911]
+[node name="Three" type="Sprite2D" parent="LevelSelector/Level3/MostlyPurpleLevel" unique_id=1105605911]
 texture = ExtResource("31_8d054")
 
-[node name="LevelConnector3" parent="LevelSelector/Level3" unique_id=109640821 instance=ExtResource("24_afaap")]
+[node name="LevelConnector" parent="LevelSelector/Level3" unique_id=109640821 instance=ExtResource("24_afaap")]
 position = Vector2(21, 3)
 rotation = -1.5707964
 
