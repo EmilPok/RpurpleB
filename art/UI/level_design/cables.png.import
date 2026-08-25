@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr2qwwe8txy3p"
-path="res://.godot/imported/exit_button.png-f7cf701e8b269958d35b91f109462793.ctex"
+uid="uid://barg8tnci4xeg"
+path="res://.godot/imported/cables.png-39c0b82dcba5e5ccc305a578f2167124.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/exit_button.png"
-dest_files=["res://.godot/imported/exit_button.png-f7cf701e8b269958d35b91f109462793.ctex"]
+source_file="res://art/UI/level_design/cables.png"
+dest_files=["res://.godot/imported/cables.png-39c0b82dcba5e5ccc305a578f2167124.ctex"]
 
 [params]
 

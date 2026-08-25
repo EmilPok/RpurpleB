@@ -77,6 +77,7 @@ shader_parameter/_Background = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node2D" unique_id=1172100023]
 script = ExtResource("1_o5qli")
+levels_amount = 3
 
 [node name="GUI" parent="." unique_id=310219774 instance=ExtResource("2_0wfyh")]
 

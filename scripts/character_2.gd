@@ -6,11 +6,11 @@ var single_jump = -180.0
 var hold_jump = -7.5
 
 var falling_down_velocity_max = 120.0
-
-var speed_falling = 2.0
+var speed_falling = 1.5
+var max_falling_speed = 400.0
 
 var dash_velocity = 350.0
-var dash_vertical_velocity = 260.0
+var dash_vertical_velocity = 180.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
@@ -74,6 +74,8 @@ func _physics_process(delta: float) -> void:
 			$Icon.scale += scale_falling * delta
 		else:
 			velocity += get_gravity() * delta
+		if velocity.y > max_falling_speed:
+			velocity.y = max_falling_speed
 	last_velocity_y = velocity.y
 	
 	if not active:
@@ -101,7 +103,13 @@ func _physics_process(delta: float) -> void:
 	
 	var direction := Input.get_axis("left", "right")
 	
-	if Input.is_action_just_pressed("dash") and (direction or Input.is_action_pressed("up")) and can_dash:
+	if Input.is_action_just_pressed("dash") and can_dash:
+		if direction:
+			if direction == -1 and $Icon.flip_h == false:
+				$Icon.flip_h = true
+			elif direction == 1 and $Icon.flip_h == true:
+				$Icon.flip_h = false
+		
 		$Woosh.play()
 		shadow_frame = shadow_first_frame
 		_on_start_shadows_timeout()
@@ -112,9 +120,16 @@ func _physics_process(delta: float) -> void:
 			$Dash_part.direction.x = -1.0
 		elif direction == -1.0:
 			$Dash_part.direction.x = 1.0
-		else:
+		elif Input.is_action_pressed("up"):
 			$Dash_part.direction.x = 0.0
 			$Dash_part.direction.y = 1.0
+		elif Input.is_action_pressed("down"):
+			$Dash_part.direction.x = 0.0
+			$Dash_part.direction.y = -1.0
+		elif $Icon.flip_h:
+			$Dash_part.direction.x = 1.0
+		else:
+			$Dash_part.direction.x = -1.0
 			
 			
 		$Dash_part.emitting = true
@@ -123,9 +138,18 @@ func _physics_process(delta: float) -> void:
 		if direction:
 			velocity.x = dash_velocity * direction
 			velocity.y = 0.0
-		else:
+		elif Input.is_action_pressed("up"):
 			velocity.x = 0
 			velocity.y = -dash_vertical_velocity
+		elif Input.is_action_pressed("down"):
+			velocity.x = 0
+			velocity.y = dash_vertical_velocity
+		elif $Icon.flip_h:
+			velocity.x = -dash_velocity
+			velocity.y = 0.0
+		else:
+			velocity.x = dash_velocity
+			velocity.y = 0.0
 		$Dash_dur.start()
 		$Dash_cooldown.start()
 		

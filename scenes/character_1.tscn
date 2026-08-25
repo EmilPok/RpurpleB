@@ -213,7 +213,6 @@ position = Vector2(0.25, 1)
 shape = SubResource("RectangleShape2D_l82gq")
 
 [node name="Rotation_point" type="Marker2D" parent="." unique_id=1506511493]
-visible = false
 position = Vector2(0, 2)
 
 [node name="Gun" type="Sprite2D" parent="Rotation_point" unique_id=1557632044]
@@ -221,8 +220,20 @@ position = Vector2(11, 2)
 texture = ExtResource("3_sbsjf")
 
 [node name="Pivot" type="Marker2D" parent="Rotation_point" unique_id=1911494738]
-visible = false
 position = Vector2(22, 1)
+
+[node name="Gun_dis" type="CPUParticles2D" parent="Rotation_point" unique_id=519048782]
+position = Vector2(11, 1)
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 10.0
+initial_velocity_max = 20.0
+color = Color(0.9529412, 0.42352942, 0.3764706, 1)
 
 [node name="Shoot_cooldown" type="Timer" parent="." unique_id=1840948671]
 wait_time = 0.5

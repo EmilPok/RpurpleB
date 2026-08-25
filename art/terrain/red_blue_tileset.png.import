@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://88achoevdns"
-path="res://.godot/imported/play_button_clicked.png-092431811445b0a82315b080b8679ad3.ctex"
+uid="uid://bd8kkv41xa1mv"
+path="res://.godot/imported/red_blue_tileset.png-878d01127593f7dee08966569a105ddc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/UI/play_button_clicked.png"
-dest_files=["res://.godot/imported/play_button_clicked.png-092431811445b0a82315b080b8679ad3.ctex"]
+source_file="res://art/terrain/red_blue_tileset.png"
+dest_files=["res://.godot/imported/red_blue_tileset.png-878d01127593f7dee08966569a105ddc.ctex"]
 
 [params]
 

@@ -6,7 +6,8 @@ var single_jump = -180.0
 var hold_jump = -7.5
 
 var falling_down_velocity_max = 120.0
-var speed_falling = 2.0
+var speed_falling = 1.5
+var max_falling_speed = 400.0
 
 var acceleration_walk = 1200.0
 var acceleration_air = 600.0
@@ -31,6 +32,11 @@ var taking_gun = false
 
 @export var GUI : CanvasLayer
 
+var Camera : Camera2D
+var Camera_orginal_pos = Vector2.ZERO
+var shake_power = 2
+var camera_lerp_power = 1
+
 var bullet = preload("res://scenes/bullet.tscn")
 
 var can_shoot = true
@@ -44,8 +50,6 @@ var scale_hold_jump = Vector2(0.5, 1.5)
 var scale_single_jump = Vector2(0.7, 1.3)
 
 func _physics_process(delta: float) -> void:
-
-	
 	if $Icon.animation == "LookAround" and not $Icon.is_playing():
 		if $Icon.frame == 0:
 			$Icon.play("Idle")
@@ -55,6 +59,12 @@ func _physics_process(delta: float) -> void:
 	if $Icon.scale.x != 1.0:
 		$Icon.scale.x = lerp($Icon.scale.x, 1.0, squesh_weight * delta)
 		$Icon.scale.y = lerp($Icon.scale.y, 1.0, squesh_weight * delta)
+	
+	if Camera:
+		if Camera.global_position != Camera_orginal_pos:
+			Camera.global_position.x = lerp(Camera.global_position.x, Camera_orginal_pos.x, camera_lerp_power * delta)
+			Camera.global_position.y = lerp(Camera.global_position.y, Camera_orginal_pos.y, camera_lerp_power * delta)
+	
 	
 	if is_on_floor():
 		if last_velocity_y:
@@ -75,6 +85,10 @@ func _physics_process(delta: float) -> void:
 			velocity += get_gravity() * delta * speed_falling
 		else:
 			velocity += get_gravity() * delta
+		if velocity.y > max_falling_speed:
+			velocity.y = max_falling_speed
+		
+		
 	
 	if not active:
 		_standing(delta)
@@ -88,8 +102,8 @@ func _physics_process(delta: float) -> void:
 	if taking_gun and $Icon.animation == "TakeAGun" and not $Icon.is_playing():
 		taking_gun = false
 		gun_out = true
-		Gun.visible = true 
-		Engine.time_scale = 0.1
+		Gun_sprite.visible = true
+		#Engine.time_scale = 0.1 # TEST
 	
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
@@ -104,10 +118,12 @@ func _physics_process(delta: float) -> void:
 			$Icon.flip_h = direction < 0 
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot and gun_out:
+		_screen_shake()
 		GUI.cursor._shoot()
 		gun_out = false
-		Gun.visible = false
-		Engine.time_scale = 1.0
+		Gun_sprite.visible = false
+		$Rotation_point/Gun_dis.emitting = true
+		#Engine.time_scale = 1.0
 		$Icon.play("Idle")
 		
 		can_shoot = false
@@ -174,8 +190,23 @@ func _on_coyote_time_timeout() -> void:
 func _on_faster_jump_timeout() -> void:
 	faster_jump = false
 
+func _reset():
+	gun_out = false
+	Gun_sprite.visible = false
+	taking_gun = false
+	$Icon.play("Idle")
 
 func _on_look_around_timeout() -> void:
 	if $Icon.animation == "Idle":
 		$Icon.play("LookAround")
 	$Look_around.start(randf_range(4.0, 9.0))
+
+func _screen_shake():
+	var random_x_val = randi_range(-shake_power, shake_power)
+	while random_x_val == 0:
+		random_x_val = randi_range(-shake_power, shake_power)
+	var random_y_val = randi_range(-shake_power, shake_power)
+	while random_y_val == 0:
+		random_y_val = randi_range(-shake_power, shake_power)
+	Camera.global_position.x += random_x_val
+	Camera.global_position.y += random_y_val
