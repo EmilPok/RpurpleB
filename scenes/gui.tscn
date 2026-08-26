@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://d35rnsiek7acx" path="res://art/misc/gun_crosshair.png" id="1_efmwq"]
 [ext_resource type="Script" uid="uid://css5n4w6u8ky7" path="res://scripts/gui.gd" id="1_mfius"]
 [ext_resource type="Script" uid="uid://dl6mcy7l1osla" path="res://scripts/cursor.gd" id="3_ynd5l"]
+[ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="4_b8iy7"]
 
 [sub_resource type="Animation" id="Animation_ynd5l"]
 length = 0.001
@@ -68,9 +69,13 @@ _data = {
 [node name="GUI" type="CanvasLayer" unique_id=310219774]
 script = ExtResource("1_mfius")
 
-[node name="Cursor" type="Sprite2D" parent="." unique_id=1765548287]
+[node name="RedCursor" type="Sprite2D" parent="." unique_id=1765548287]
 texture = ExtResource("1_efmwq")
 script = ExtResource("3_ynd5l")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Cursor" unique_id=1124074021]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RedCursor" unique_id=1124074021]
 libraries/ = SubResource("AnimationLibrary_jqlde")
+
+[node name="BlueCursor" type="Sprite2D" parent="." unique_id=418695041]
+texture = ExtResource("4_b8iy7")
+script = ExtResource("3_ynd5l")

@@ -16,6 +16,7 @@ func _ready() -> void:
 	$Circle_trans/Black_screen.show()
 
 func _reset_level():
+	Engine.time_scale = 1.0
 	for i in shot_bullets:
 		if i:
 			i.queue_free()
@@ -46,6 +47,7 @@ func _reset_level():
 	$Change_Player._reset()
 
 func _level_completed():
+	Engine.time_scale = 1.0
 	$Character_1.active = false
 	$Character_2.active = false
 	

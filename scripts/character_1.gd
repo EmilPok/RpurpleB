@@ -120,7 +120,8 @@ func _physics_process(delta: float) -> void:
 			$Icon.flip_h = direction < 0 
 	
 	if Input.is_action_just_pressed("shoot") and can_shoot and gun_out:
-		GUI.cursor._shoot()
+		$Pop.play()
+		GUI.red_cursor._shoot()
 		gun_out = false
 		Gun_sprite.visible = false
 		$Rotation_point/Gun_dis.emitting = true
