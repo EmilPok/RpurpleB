@@ -16,6 +16,13 @@
 [ext_resource type="Texture2D" uid="uid://2ngjme5dkrce" path="res://art/UI/tutorial/move.png" id="14_ndtll"]
 [ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="15_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="16_iwr0g"]
+[ext_resource type="Texture2D" uid="uid://di2wxiy8qu4re" path="res://art/misc/tic_tac_toe.png" id="17_gmpev"]
+[ext_resource type="Texture2D" uid="uid://d2ehip64jf2ue" path="res://art/misc/red_chalk.png" id="18_mkypq"]
+[ext_resource type="Texture2D" uid="uid://dom7l1nkfiq18" path="res://art/misc/blue_chalk.png" id="19_ndtll"]
+[ext_resource type="Texture2D" uid="uid://tm35yq1u3wq" path="res://art/misc/standing_chalk.png" id="20_7h2jl"]
+[ext_resource type="Texture2D" uid="uid://dmtmcmtj267l4" path="res://art/misc/blue_there.png" id="21_ndtll"]
+[ext_resource type="Texture2D" uid="uid://k07vooeudki5" path="res://art/misc/red_there.png" id="22_7h2jl"]
+[ext_resource type="Texture2D" uid="uid://bwqucx6fiajit" path="res://art/UI/tutorial/useful.png" id="23_7h2jl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(32, 3)
@@ -116,58 +123,88 @@ visible = false
 tile_map_data = PackedByteArray("AAAUAAAAAAADAAEAAAAUAAEAAAADAAEAAAAUAAIAAAADAAEAAAAUAAMAAAADAAEAAAAUAAQAAAADAAEAAAAUAAUAAAADAAEAAAAUAAYAAAADAAEAAAAUAAcAAAADAAEAAAAUAAgAAAADAAEAAAAUAAkAAAADAAEAAAAUAAoAAAADAAEAAAAUAAsAAAADAAEAAAAUAAwAAAADAAEAAAAUAA4AAAADAAEAAAAUAA0AAAADAAEAAAD//wAAAAAFAAEAAAD//wEAAAAFAAEAAAD//wIAAAAFAAEAAAD//wMAAAAFAAEAAAD//wQAAAAFAAEAAAD//wUAAAAFAAEAAAD//wYAAAAFAAEAAAD//wcAAAAFAAEAAAD//wgAAAAFAAEAAAD//wkAAAAFAAEAAAD//woAAAAFAAEAAAD//wsAAAAFAAEAAAD//wwAAAAFAAEAAAA=")
 tile_set = ExtResource("1_6ayib")
 
-[node name="Spacebar" type="Sprite2D" parent="." unique_id=2012126472]
+[node name="BackgroundDecoration" type="Node2D" parent="." unique_id=1929565502]
+
+[node name="Spacebar" type="Sprite2D" parent="BackgroundDecoration" unique_id=2012126472]
 position = Vector2(36, 110)
 texture = ExtResource("6_mm8aj")
 
-[node name="To" type="Sprite2D" parent="." unique_id=420682028]
+[node name="To" type="Sprite2D" parent="BackgroundDecoration" unique_id=420682028]
 position = Vector2(52, 110)
 texture = ExtResource("7_wtwp4")
 
-[node name="Jump" type="Sprite2D" parent="." unique_id=286900924]
+[node name="Jump" type="Sprite2D" parent="BackgroundDecoration" unique_id=286900924]
 position = Vector2(65, 110)
 texture = ExtResource("8_iwr0g")
 
-[node name="Shift" type="Sprite2D" parent="." unique_id=884662440]
+[node name="Shift" type="Sprite2D" parent="BackgroundDecoration" unique_id=884662440]
 position = Vector2(36, 124)
 texture = ExtResource("9_bahl2")
 
-[node name="To2" type="Sprite2D" parent="." unique_id=499090594]
+[node name="To2" type="Sprite2D" parent="BackgroundDecoration" unique_id=499090594]
 position = Vector2(52, 124)
 texture = ExtResource("7_wtwp4")
 
-[node name="Skills" type="Sprite2D" parent="." unique_id=1621949821]
+[node name="Skills" type="Sprite2D" parent="BackgroundDecoration" unique_id=1621949821]
 position = Vector2(66, 124)
 texture = ExtResource("10_np2pn")
 
-[node name="Alt" type="Sprite2D" parent="." unique_id=1164840980]
+[node name="Alt" type="Sprite2D" parent="BackgroundDecoration" unique_id=1164840980]
 position = Vector2(36, 138)
 texture = ExtResource("11_v6ha0")
 
-[node name="To3" type="Sprite2D" parent="." unique_id=194222887]
+[node name="To3" type="Sprite2D" parent="BackgroundDecoration" unique_id=194222887]
 position = Vector2(52, 138)
 texture = ExtResource("7_wtwp4")
 
-[node name="Characters" type="Sprite2D" parent="." unique_id=830225319]
+[node name="Characters" type="Sprite2D" parent="BackgroundDecoration" unique_id=830225319]
 position = Vector2(67, 138)
 texture = ExtResource("12_gmpev")
 
-[node name="Wasd" type="Sprite2D" parent="." unique_id=55408722]
+[node name="Wasd" type="Sprite2D" parent="BackgroundDecoration" unique_id=55408722]
 position = Vector2(36, 93)
 texture = ExtResource("13_mkypq")
 
-[node name="To4" type="Sprite2D" parent="." unique_id=1530423748]
+[node name="To4" type="Sprite2D" parent="BackgroundDecoration" unique_id=1530423748]
 position = Vector2(53, 94)
 texture = ExtResource("7_wtwp4")
 
-[node name="Move" type="Sprite2D" parent="." unique_id=656235536]
+[node name="Move" type="Sprite2D" parent="BackgroundDecoration" unique_id=656235536]
 position = Vector2(66, 94)
 texture = ExtResource("14_ndtll")
 
-[node name="Decor1" type="Sprite2D" parent="." unique_id=706745619]
+[node name="Decor1" type="Sprite2D" parent="BackgroundDecoration" unique_id=706745619]
 position = Vector2(72, 150)
 texture = ExtResource("15_wtwp4")
 
-[node name="Chalk" type="Sprite2D" parent="." unique_id=372322218]
+[node name="Chalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=372322218]
 position = Vector2(47, 156)
 texture = ExtResource("16_iwr0g")
+
+[node name="TicTacToe" type="Sprite2D" parent="BackgroundDecoration" unique_id=1326021731]
+position = Vector2(200, 146)
+texture = ExtResource("17_gmpev")
+
+[node name="StandingChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1737607126]
+position = Vector2(186, 156)
+texture = ExtResource("20_7h2jl")
+
+[node name="BlueChalk" type="Sprite2D" parent="." unique_id=1016164436]
+position = Vector2(207, 156)
+texture = ExtResource("19_ndtll")
+
+[node name="RedChalk" type="Sprite2D" parent="." unique_id=1076338508]
+position = Vector2(200, 156)
+texture = ExtResource("18_mkypq")
+
+[node name="BlueThere" type="Sprite2D" parent="." unique_id=47751538]
+position = Vector2(249, 147)
+texture = ExtResource("21_ndtll")
+
+[node name="RedThere" type="Sprite2D" parent="." unique_id=709618701]
+position = Vector2(152, 119)
+texture = ExtResource("22_7h2jl")
+
+[node name="Useful" type="Sprite2D" parent="." unique_id=859349546]
+position = Vector2(32, 152)
+texture = ExtResource("23_7h2jl")
