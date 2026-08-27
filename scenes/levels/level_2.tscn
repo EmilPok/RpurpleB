@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dra4hwim6nip" path="res://scenes/button.tscn" id="3_qpwj6"]
 [ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://scenes/moving_block.tscn" id="4_ibugp"]
 [ext_resource type="Texture2D" uid="uid://bulvg5a4w4gmi" path="res://art/misc/arrow.png" id="5_l37oo"]
+[ext_resource type="Texture2D" uid="uid://dfvcw0ome8nrv" path="res://art/UI/tutorial/protip_blue.png" id="6_ibugp"]
+[ext_resource type="Texture2D" uid="uid://c2e3fwj8xdhvr" path="res://art/UI/tutorial/protip_blue_red_part.png" id="7_8qukl"]
 
 [node name="level_2" type="Node2D" unique_id=389029467]
 
@@ -99,3 +101,11 @@ texture = ExtResource("5_l37oo")
 z_index = -2
 position = Vector2(112, 84)
 texture = ExtResource("5_l37oo")
+
+[node name="ProtipBlue" type="Sprite2D" parent="." unique_id=1976926649]
+position = Vector2(61, 95)
+texture = ExtResource("6_ibugp")
+
+[node name="ProtipBlueRedPart" type="Sprite2D" parent="." unique_id=1662906503]
+position = Vector2(67, 114)
+texture = ExtResource("7_8qukl")
