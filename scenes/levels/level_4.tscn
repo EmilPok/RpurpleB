@@ -7,6 +7,9 @@
 [ext_resource type="Script" uid="uid://cqyvq8b32bpq0" path="res://scripts/died.gd" id="5_um320"]
 [ext_resource type="PackedScene" uid="uid://dlqsb8wqqhyqo" path="res://scenes/doors.tscn" id="6_rej77"]
 [ext_resource type="Texture2D" uid="uid://bulvg5a4w4gmi" path="res://art/misc/arrow.png" id="7_5vn0v"]
+[ext_resource type="Texture2D" uid="uid://b412gyokjdvm8" path="res://art/UI/tutorial/hold.png" id="8_ts8eg"]
+[ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="9_um320"]
+[ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="10_glw47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glw47"]
 size = Vector2(484, 20)
@@ -190,5 +193,35 @@ texture = ExtResource("7_5vn0v")
 z_index = -2
 position = Vector2(112, 84)
 texture = ExtResource("7_5vn0v")
+
+[node name="Hold" type="Sprite2D" parent="." unique_id=1684972035]
+position = Vector2(262, 31)
+texture = ExtResource("8_ts8eg")
+
+[node name="Chalk3" type="Sprite2D" parent="." unique_id=1841067352]
+position = Vector2(62, 124)
+texture = ExtResource("9_um320")
+
+[node name="Chalk4" type="Sprite2D" parent="." unique_id=825034848]
+position = Vector2(297, 124)
+texture = ExtResource("9_um320")
+
+[node name="Decor2" type="Sprite2D" parent="." unique_id=948189265]
+position = Vector2(42, 87)
+texture = ExtResource("10_glw47")
+flip_h = true
+
+[node name="Decor3" type="Sprite2D" parent="." unique_id=123141695]
+position = Vector2(267, 97)
+texture = ExtResource("10_glw47")
+
+[node name="Decor4" type="Sprite2D" parent="." unique_id=1369139410]
+position = Vector2(121, 144)
+texture = ExtResource("10_glw47")
+
+[node name="Decor5" type="Sprite2D" parent="." unique_id=574155086]
+position = Vector2(214, 35)
+texture = ExtResource("10_glw47")
+flip_h = true
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

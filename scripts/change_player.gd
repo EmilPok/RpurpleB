@@ -17,8 +17,6 @@ func _input(event: InputEvent) -> void:
 
 
 func _reset():
-	player_1.active = true
-	player_2.active = false
 	player_2.get_node("now_me_icon").hide()
 	player_1.get_node("AnimationPlayer").seek(0.0)
 	player_1.get_node("AnimationPlayer").play("now_me")

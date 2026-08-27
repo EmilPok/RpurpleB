@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://scenes/moving_block.tscn" id="4_w2i51"]
 [ext_resource type="Script" uid="uid://cqyvq8b32bpq0" path="res://scripts/died.gd" id="5_xsrpe"]
 [ext_resource type="PackedScene" uid="uid://dlqsb8wqqhyqo" path="res://scenes/doors.tscn" id="6_0kxia"]
+[ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="7_ene4w"]
+[ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="8_h6r4t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wreli"]
 size = Vector2(484, 20)
@@ -49,11 +51,12 @@ offset_bottom = 310.0
 color = Color(0.7921569, 0.6431373, 0.8627451, 1)
 metadata/_edit_lock_ = true
 
-[node name="Button2" parent="." unique_id=1079946355 node_paths=PackedStringArray("object", "second_object") instance=ExtResource("3_h6r4t")]
+[node name="Button2" parent="." unique_id=1079946355 node_paths=PackedStringArray("object", "second_object", "third_object") instance=ExtResource("3_h6r4t")]
 position = Vector2(86, 120)
 rotation = 3.1415927
 object = NodePath("../Moving_block3")
 second_object = NodePath("../Moving_block2")
+third_object = NodePath("")
 
 [node name="Button3" parent="." unique_id=1620713505 node_paths=PackedStringArray("object", "second_object") instance=ExtResource("3_h6r4t")]
 position = Vector2(52, 72)
@@ -119,5 +122,26 @@ z_index = 1
 position = Vector2(0, 6)
 tile_map_data = PackedByteArray("AAAPAAEAAAAFAAIAAAAPAAAAAAAFAAEAAAAPAP//AAAFAAEAAAAPAP7/AAAFAAEAAAAPAP3/AAAFAAEAAAAPAPz/AAAFAAEAAAAOAAEAAAAEAAIAAAANAAEAAAAEAAIAAAAMAAEAAAAEAAIAAAALAAEAAAADAAIAAAALAAAAAAADAAEAAAALAP//AAADAAEAAAALAP7/AAADAAEAAAALAP3/AAADAAEAAAALAPz/AAADAAEAAAAOAP//AAAEAAEAAAAOAAAAAAAEAAEAAAANAAAAAAAEAAEAAAAMAAAAAAAEAAEAAAAMAP//AAAEAAEAAAANAP//AAAEAAEAAAANAP7/AAAEAAEAAAANAP3/AAAEAAEAAAAMAP3/AAAEAAEAAAAMAP7/AAAEAAEAAAANAPz/AAAEAAEAAAAOAPz/AAAEAAEAAAAOAP3/AAAEAAEAAAAOAP7/AAAEAAEAAAAMAPz/AAAEAAEAAAA=")
 tile_set = ExtResource("1_7snfr")
+
+[node name="Chalk3" type="Sprite2D" parent="." unique_id=1882698495]
+position = Vector2(207, 92)
+texture = ExtResource("7_ene4w")
+
+[node name="Chalk4" type="Sprite2D" parent="." unique_id=667724885]
+position = Vector2(132, 92)
+texture = ExtResource("7_ene4w")
+
+[node name="Decor2" type="Sprite2D" parent="." unique_id=300893632]
+position = Vector2(201, 144)
+texture = ExtResource("8_h6r4t")
+
+[node name="Decor3" type="Sprite2D" parent="." unique_id=238243730]
+position = Vector2(184, 69)
+texture = ExtResource("8_h6r4t")
+flip_h = true
+
+[node name="Decor4" type="Sprite2D" parent="." unique_id=709423624]
+position = Vector2(38, 43)
+texture = ExtResource("8_h6r4t")
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

@@ -10,7 +10,8 @@ func _ready() -> void:
 		$LevelSelector/Level5/LevelConnector,
 		$LevelSelector/Level6/LevelConnector,
 		$LevelSelector/Level7/LevelConnector,
-		$LevelSelector/Level8/LevelConnector
+		$LevelSelector/Level8/LevelConnector,
+		$LevelSelector/Level9/LevelConnector
 	]
 	var levels = [
 		$LevelSelector/Level1,
@@ -20,7 +21,8 @@ func _ready() -> void:
 		$LevelSelector/Level5,
 		$LevelSelector/Level6,
 		$LevelSelector/Level7,
-		$LevelSelector/Level8
+		$LevelSelector/Level8,
+		$LevelSelector/Level9
 	]
 	
 	var last_cable = 1
@@ -97,3 +99,5 @@ func _on_button_7_pressed() -> void:
 	_start_transition(7)
 func _on_button_8_pressed() -> void:
 	_start_transition(8)
+func _on_button_9_pressed() -> void:
+	_start_transition(9)

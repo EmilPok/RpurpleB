@@ -6,6 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://scenes/moving_block.tscn" id="4_ugcn1"]
 [ext_resource type="Texture2D" uid="uid://bulvg5a4w4gmi" path="res://art/misc/arrow.png" id="5_ftfob"]
 [ext_resource type="Script" uid="uid://cqyvq8b32bpq0" path="res://scripts/died.gd" id="5_pimnq"]
+[ext_resource type="Texture2D" uid="uid://diay2jf4i3eim" path="res://art/UI/tutorial/shift.png" id="7_pimnq"]
+[ext_resource type="Texture2D" uid="uid://bk6vq4umvrmld" path="res://art/UI/tutorial/to.png" id="8_2bnyt"]
+[ext_resource type="Texture2D" uid="uid://b4t11kk4d6sll" path="res://art/UI/tutorial/skills.png" id="9_n6eey"]
+[ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="10_2bnyt"]
+[ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="11_n6eey"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l37oo"]
 size = Vector2(484, 20)
@@ -214,5 +219,41 @@ z_index = -2
 position = Vector2(112, 84)
 rotation = 3.1415927
 texture = ExtResource("5_ftfob")
+
+[node name="Shift" type="Sprite2D" parent="." unique_id=1061918595]
+position = Vector2(48, 100)
+texture = ExtResource("7_pimnq")
+
+[node name="To2" type="Sprite2D" parent="." unique_id=994488635]
+position = Vector2(64, 100)
+texture = ExtResource("8_2bnyt")
+
+[node name="Skills" type="Sprite2D" parent="." unique_id=1565759135]
+position = Vector2(74, 100)
+texture = ExtResource("9_n6eey")
+region_enabled = true
+region_rect = Rect2(13.700905, 0, 8.299095, 6)
+
+[node name="Chalk3" type="Sprite2D" parent="." unique_id=1441921464]
+position = Vector2(56, 124)
+texture = ExtResource("10_2bnyt")
+
+[node name="Decor2" type="Sprite2D" parent="." unique_id=1664122607]
+position = Vector2(209, 148)
+texture = ExtResource("11_n6eey")
+
+[node name="Decor3" type="Sprite2D" parent="." unique_id=1088620876]
+position = Vector2(76, 25)
+texture = ExtResource("11_n6eey")
+flip_h = true
+
+[node name="Decor4" type="Sprite2D" parent="." unique_id=1225199709]
+position = Vector2(202, 72)
+texture = ExtResource("11_n6eey")
+
+[node name="Decor5" type="Sprite2D" parent="." unique_id=57175973]
+position = Vector2(134, 112)
+texture = ExtResource("11_n6eey")
+flip_h = true
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

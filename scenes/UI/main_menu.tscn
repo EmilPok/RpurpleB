@@ -37,6 +37,10 @@
 [ext_resource type="Texture2D" uid="uid://dl4uh682oqq0s" path="res://art/UI/numbers/four.png" id="33_fnfsu"]
 [ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="34_8d054"]
 [ext_resource type="Texture2D" uid="uid://b15hkteep0jdy" path="res://art/UI/numbers/five.png" id="34_b6jqr"]
+[ext_resource type="Texture2D" uid="uid://co2a7c8fki02d" path="res://art/UI/numbers/nine.png" id="35_b6jqr"]
+[ext_resource type="Texture2D" uid="uid://ccnp03ifp001l" path="res://art/UI/numbers/six.png" id="35_co7qn"]
+[ext_resource type="Texture2D" uid="uid://3sj4q02n7m03" path="res://art/UI/numbers/seve.png" id="36_qvwvq"]
+[ext_resource type="Texture2D" uid="uid://cqaejykf8a23v" path="res://art/UI/numbers/eight.png" id="36_u15bo"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -777,7 +781,8 @@ visible = false
 texture = ExtResource("26_bocfi")
 
 [node name="Three" type="Sprite2D" parent="LevelSelector/Level6/MostlyPurpleLevel" unique_id=1624497539]
-texture = ExtResource("31_8d054")
+rotation = 1.5707964
+texture = ExtResource("35_co7qn")
 
 [node name="LevelConnector" parent="LevelSelector/Level6" unique_id=500971888 instance=ExtResource("24_afaap")]
 position = Vector2(-3, 21)
@@ -804,7 +809,8 @@ visible = false
 texture = ExtResource("26_bocfi")
 
 [node name="Three" type="Sprite2D" parent="LevelSelector/Level7/MostlyPurpleLevel" unique_id=759059364]
-texture = ExtResource("31_8d054")
+rotation = 3.1415927
+texture = ExtResource("36_qvwvq")
 
 [node name="LevelConnector" parent="LevelSelector/Level7" unique_id=1409715397 instance=ExtResource("24_afaap")]
 position = Vector2(-3, 21)
@@ -831,7 +837,7 @@ visible = false
 texture = ExtResource("26_bocfi")
 
 [node name="Three" type="Sprite2D" parent="LevelSelector/Level8/MostlyPurpleLevel" unique_id=1161799589]
-texture = ExtResource("31_8d054")
+texture = ExtResource("36_u15bo")
 
 [node name="LevelConnector" parent="LevelSelector/Level8" unique_id=821791921 instance=ExtResource("24_afaap")]
 position = Vector2(-3, 21)
@@ -847,6 +853,34 @@ offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
 flat = true
+
+[node name="Level9" type="Sprite2D" parent="LevelSelector" unique_id=952366219]
+position = Vector2(250, 25)
+rotation = -3.1415927
+texture = ExtResource("25_726sv")
+
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level9" unique_id=1131351783]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Three" type="Sprite2D" parent="LevelSelector/Level9/MostlyPurpleLevel" unique_id=328046949]
+rotation = 3.1415927
+texture = ExtResource("35_b6jqr")
+
+[node name="Button9" type="Button" parent="LevelSelector/Level9" unique_id=1673314761]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="LevelConnector" parent="LevelSelector/Level9" unique_id=2000744009 instance=ExtResource("24_afaap")]
+position = Vector2(-3, 53)
 
 [node name="Transition_Background" type="ColorRect" parent="." unique_id=1983145882]
 z_index = 1000
@@ -909,4 +943,5 @@ color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 [connection signal="pressed" from="LevelSelector/Level6/Button6" to="." method="_on_button_6_pressed"]
 [connection signal="pressed" from="LevelSelector/Level7/Button7" to="." method="_on_button_7_pressed"]
 [connection signal="pressed" from="LevelSelector/Level8/Button8" to="." method="_on_button_8_pressed"]
+[connection signal="pressed" from="LevelSelector/Level9/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]

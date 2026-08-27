@@ -264,7 +264,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="Coyote_time" type="Timer" parent="." unique_id=1446615506]
-wait_time = 0.3
+wait_time = 0.2
 one_shot = true
 
 [node name="Faster_jump" type="Timer" parent="." unique_id=1955486852]

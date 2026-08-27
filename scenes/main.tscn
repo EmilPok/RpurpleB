@@ -135,3 +135,9 @@ offset_top = -210.0
 offset_right = -39.999756
 offset_bottom = 390.0
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
+
+[node name="Move_allow" type="Timer" parent="." unique_id=1638547810]
+wait_time = 0.05
+one_shot = true
+
+[connection signal="timeout" from="Move_allow" to="." method="_on_move_allow_timeout"]

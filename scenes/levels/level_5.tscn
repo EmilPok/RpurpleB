@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://cqyvq8b32bpq0" path="res://scripts/died.gd" id="5_um320"]
 [ext_resource type="PackedScene" uid="uid://dlqsb8wqqhyqo" path="res://scenes/doors.tscn" id="6_rej77"]
 [ext_resource type="Texture2D" uid="uid://bulvg5a4w4gmi" path="res://art/misc/arrow.png" id="7_5vn0v"]
+[ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="8_mxx4w"]
+[ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="9_vvoq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fsnos"]
 size = Vector2(484, 20)
@@ -182,7 +184,7 @@ rotation = 3.1415927
 texture = ExtResource("7_5vn0v")
 
 [node name="Died" type="Area2D" parent="." unique_id=923070061]
-position = Vector2(0, -19)
+position = Vector2(0, 6)
 collision_layer = 0
 collision_mask = 24
 script = ExtResource("5_um320")
@@ -193,5 +195,35 @@ shape = SubResource("RectangleShape2D_fsnos")
 
 [node name="Doors" parent="." unique_id=434340596 instance=ExtResource("6_rej77")]
 position = Vector2(217, 160)
+
+[node name="Chalk3" type="Sprite2D" parent="." unique_id=2037322641]
+position = Vector2(80, 140)
+texture = ExtResource("8_mxx4w")
+
+[node name="Chalk4" type="Sprite2D" parent="." unique_id=42411809]
+position = Vector2(202, 44)
+texture = ExtResource("8_mxx4w")
+
+[node name="Chalk5" type="Sprite2D" parent="." unique_id=1341309362]
+position = Vector2(291, 60)
+texture = ExtResource("8_mxx4w")
+
+[node name="Decor2" type="Sprite2D" parent="." unique_id=176308825]
+position = Vector2(33, 127)
+texture = ExtResource("9_vvoq0")
+flip_h = true
+
+[node name="Decor3" type="Sprite2D" parent="." unique_id=161318963]
+position = Vector2(113, 120)
+texture = ExtResource("9_vvoq0")
+
+[node name="Decor4" type="Sprite2D" parent="." unique_id=508744807]
+position = Vector2(268, 43)
+texture = ExtResource("9_vvoq0")
+flip_h = true
+
+[node name="Decor5" type="Sprite2D" parent="." unique_id=1543197316]
+position = Vector2(51, 45)
+texture = ExtResource("9_vvoq0")
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]
