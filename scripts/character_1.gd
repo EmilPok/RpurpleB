@@ -67,6 +67,9 @@ func _physics_process(delta: float) -> void:
 			Camera.global_position.x = lerp(Camera.global_position.x, Camera_orginal_pos.x, camera_lerp_power * delta)
 			Camera.global_position.y = lerp(Camera.global_position.y, Camera_orginal_pos.y, camera_lerp_power * delta)
 	
+	if not is_on_floor() and $Coyote_time.is_stopped() and not did_coyote:
+		did_coyote = true
+		$Coyote_time.start()
 	
 	if is_on_floor():
 		if last_velocity_y:
@@ -75,11 +78,6 @@ func _physics_process(delta: float) -> void:
 			can_jump = true
 		if did_coyote:
 			did_coyote = false
-	
-	if not is_on_floor() and $Coyote_time.is_stopped() and not did_coyote:
-		
-		did_coyote = true
-		$Coyote_time.start()
 
 	if not is_on_floor():
 		if velocity.y >= falling_down_velocity_max:
@@ -105,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		taking_gun = false
 		gun_out = true
 		Gun_sprite.visible = true
-		Engine.time_scale = 0.1 # TEST
+		Engine.time_scale = 0.1
 	
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
@@ -137,6 +135,12 @@ func _physics_process(delta: float) -> void:
 		
 		main.shot_bullets.append(new_bullet)
 		
+		velocity = Vector2.RIGHT.rotated(new_bullet.rotation_offset + deg_to_rad(180)) * new_bullet.SPEED * 0.3
+
+		velocity.y = 0.0
+		did_coyote = true
+		can_jump = false
+		
 		var camera_shake = Vector2(shake_power, 0.0)
 		camera_shake = camera_shake.rotated(Gun.rotation + deg_to_rad(180))
 		Camera.global_position += camera_shake
@@ -153,7 +157,7 @@ func _physics_process(delta: float) -> void:
 		_jump()
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0:
-		velocity.y += hold_jump
+		velocity.y += hold_jump * Engine.time_scale
 		$Icon.scale += scale_hold_jump * delta
 	else:
 		during_jump = false

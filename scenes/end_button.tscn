@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bs2ttefu75b7b" path="res://art/misc/Buttons/button_red.png" id="2_f866a"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rfjtf"]
-size = Vector2(18, 3)
+size = Vector2(12, 3)
 
 [node name="End_buttons" type="Area2D" unique_id=213298147]
 collision_layer = 0
@@ -12,6 +12,7 @@ collision_mask = 0
 script = ExtResource("1_jmw10")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1296958781]
+visible = false
 position = Vector2(0, 5.5)
 shape = SubResource("RectangleShape2D_rfjtf")
 

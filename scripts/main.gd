@@ -10,12 +10,26 @@ var reset_position = Vector2(1000.0, 1000.0)
 
 var shot_bullets = []
 
+var playing_anim = false
+
+func _process(_delta: float) -> void:
+	if playing_anim and Engine.time_scale != 1.0:
+		Engine.time_scale = 1.0
+
 func _ready() -> void:
 	randomize()
 	_reset_level()
 	$Circle_trans/Black_screen.show()
 
 func _reset_level():
+	$Character_1.active = true
+	$Character_2.active = true
+	
+	if playing_anim:
+		playing_anim = false
+	
+	Engine.time_scale = 1.0
+	
 	for i in shot_bullets:
 		if i:
 			i.queue_free()
@@ -46,6 +60,7 @@ func _reset_level():
 	$Change_Player._reset()
 
 func _level_completed():
+	Engine.time_scale = 1.0
 	$Character_1.active = false
 	$Character_2.active = false
 	
@@ -60,9 +75,15 @@ func _level_completed():
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/UI/main_menu.tscn")
 
 func _died():
+	playing_anim = true
 	$AnimationPlayer.play("circle")
+	$Character_1.active = false
+	$Character_2.active = false
 	await $AnimationPlayer.animation_finished
 	_reset_level()
-	
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset"):
+		_died()
 	
 	

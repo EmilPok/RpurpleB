@@ -1,20 +1,27 @@
 extends Area2D
 
-@export var is_blue = true
-@export var is_red = true
+@export var can_blue = true
+@export var can_red = true
+
+@export var hold = false
+@export var time_hold = 0.5
 
 var blue_button = preload("res://art/misc/Buttons/button_blue.png")
 var red_button = preload("res://art/misc/Buttons/button_red.png")
 
 @export var object: Node2D
+@export var second_object : Node2D
 
 var can_press = true
+var one_timer = false
 
 var touching_characters = []
 
 func _ready() -> void:
-	if not (is_blue and is_red):
-		if is_blue:
+	$Time_pressed.wait_time = time_hold
+	
+	if not (can_blue and can_red):
+		if can_blue:
 			$Sprite.texture = blue_button
 			set_collision_layer_value(6, false)
 			set_collision_mask_value(4, false)
@@ -26,9 +33,14 @@ func _ready() -> void:
 func _iam_button():
 	if not can_press:
 		return
+	one_timer = true
 	
 	object._active()
+	if second_object:
+		second_object._active()
+	
 	$Sprite.frame = 1
+	
 	
 	can_press = false
 	
@@ -36,13 +48,22 @@ func _iam_button():
 		$Time_pressed.start()
 
 func _on_time_pressed_timeout() -> void:
-	$Sprite.frame = 0
+	if not one_timer:
+		return
+	one_timer = false
 	can_press = true
+	if hold:
+		object._active()
+	$Sprite.frame = 0
+	
+	
 func _on_body_exited(body: Node2D) -> void:
+	
 	touching_characters.remove_at(touching_characters.find(body))
 	
-	if touching_characters.is_empty():
-		$Time_pressed.start()
+	if touching_characters.is_empty() and $Sprite.frame == 1:
+		if $Time_pressed.is_inside_tree():
+			$Time_pressed.start()
 
 func _on_body_entered(body: Node2D) -> void:
 	touching_characters.append(body)

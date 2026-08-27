@@ -45,10 +45,6 @@ region = Rect2(112, 0, 16, 16)
 atlas = ExtResource("2_afpa3")
 region = Rect2(128, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_r4dws"]
-atlas = ExtResource("2_afpa3")
-region = Rect2(144, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbb61"]
 atlas = ExtResource("5_jdd3b")
 region = Rect2(0, 0, 16, 16)
@@ -96,13 +92,10 @@ animations = [{
 }, {
 "duration": 0.3,
 "texture": SubResource("AtlasTexture_05wn2")
-}, {
-"duration": 0.3,
-"texture": SubResource("AtlasTexture_r4dws")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"Dash",
-"speed": 15.0
+"speed": 7.5
 }, {
 "frames": [{
 "duration": 1.0,
@@ -231,9 +224,8 @@ texture = ExtResource("2_ryofq")
 material = SubResource("ShaderMaterial_ryofq")
 position = Vector2(-1, -1)
 sprite_frames = SubResource("SpriteFrames_i4thp")
-animation = &"Walk"
+animation = &"Dash"
 autoplay = "Idle"
-frame_progress = 0.57242674
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=578662714]
 libraries/ = SubResource("AnimationLibrary_jdd3b")

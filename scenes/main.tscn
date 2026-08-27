@@ -13,7 +13,7 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Transition_Background:position")
+tracks/0/path = NodePath("Circle_trans/Transition_Background:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -125,10 +125,11 @@ offset_right = 320.0
 offset_bottom = 180.0
 color = Color(0, 0, 0, 1)
 
-[node name="Transition_Background" type="ColorRect" parent="." unique_id=1507161774]
+[node name="Transition_Background" type="ColorRect" parent="Circle_trans" unique_id=1507161774]
 z_index = 1000
 custom_minimum_size = Vector2(320, 180)
 offset_left = -360.0
+offset_top = -210.0
 offset_right = -39.999756
-offset_bottom = 180.0
+offset_bottom = 390.0
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)

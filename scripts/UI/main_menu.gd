@@ -5,12 +5,22 @@ func _ready() -> void:
 	var cables = [
 		$LevelSelector/Level1/LevelConnector,
 		$LevelSelector/Level2/LevelConnector,
-		$LevelSelector/Level3/LevelConnector
+		$LevelSelector/Level3/LevelConnector,
+		$LevelSelector/Level4/LevelConnector,
+		$LevelSelector/Level5/LevelConnector,
+		$LevelSelector/Level6/LevelConnector,
+		$LevelSelector/Level7/LevelConnector,
+		$LevelSelector/Level8/LevelConnector
 	]
 	var levels = [
 		$LevelSelector/Level1,
 		$LevelSelector/Level2,
-		$LevelSelector/Level3
+		$LevelSelector/Level3,
+		$LevelSelector/Level4,
+		$LevelSelector/Level5,
+		$LevelSelector/Level6,
+		$LevelSelector/Level7,
+		$LevelSelector/Level8
 	]
 	
 	var last_cable = 1
@@ -71,14 +81,19 @@ func _start_transition(num):
 func _on_circle_trans_time_timeout() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
-# LEVEL 1 LOAD #####
 func _on_button_pressed() -> void:
 	_start_transition(1)
-
-# LEVEL 2 LOAD #####
 func _on_button_2_pressed() -> void:
 	_start_transition(2)
-
-# LEVEL 3 LOAD #####
 func _on_button_3_pressed() -> void:
 	_start_transition(3)
+func _on_button_4_pressed() -> void:
+	_start_transition(4)
+func _on_button_5_pressed() -> void:
+	_start_transition(5)
+func _on_button_6_pressed() -> void:
+	_start_transition(6)
+func _on_button_7_pressed() -> void:
+	_start_transition(7)
+func _on_button_8_pressed() -> void:
+	_start_transition(8)

@@ -4,32 +4,41 @@ extends Node2D
 @export var flipped = false
 @onready var Icon = $Moving_block/Icon
 
+@export var horizontal = false
+
 var active = false
 
 
 func _ready() -> void:
-	if flipped:
+	if flipped or horizontal:
 		Icon.flip_v = false
 		$Moving_block/Collision.position.y -= 1.0
+		
+		
+		
 
 func _active():
 	var tween = create_tween()
 	
 	if not active:
 		tween.tween_property($Moving_block, "position", end_point_pos, 0.8).set_trans(Tween.TRANS_CUBIC)
-		Icon.flip_v = not Icon.flip_v 
-		Icon.play("Anim")
-		$Stop_anim.start()
+		if not horizontal:
+			Icon.flip_v = not Icon.flip_v
+			Icon.play("Anim")
 	else:
-		Icon.flip_v = not Icon.flip_v 
 		tween.tween_property($Moving_block, "position", Vector2.ZERO, 0.8).set_trans(Tween.TRANS_CUBIC)
-		Icon.play("Anim")
-		$Stop_anim.start()
-		
-	if Icon.flip_v == true:
-		$Moving_block/Collision.position.y += 1.0
-	else:
-		$Moving_block/Collision.position.y -= 1.0
+		if not horizontal:
+			Icon.flip_v = not Icon.flip_v 
+			Icon.play("Anim")
+	
+
+	$Stop_anim.start()
+	
+	if not horizontal:
+		if Icon.flip_v == true:
+			$Moving_block/Collision.position.y += 1.0
+		else:
+			$Moving_block/Collision.position.y -= 1.0
 	
 	active = not active
 

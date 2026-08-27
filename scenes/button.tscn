@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://tp413n71kax3" path="res://art/misc/Buttons/button.png" id="2_rhj8v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n4tde"]
-size = Vector2(18, 3)
+size = Vector2(12, 3)
 
 [node name="Button" type="Area2D" unique_id=1079946355]
 collision_layer = 32

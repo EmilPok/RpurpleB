@@ -25,6 +25,7 @@
 [ext_resource type="Texture2D" uid="uid://dpxtrcx3n6me" path="res://art/UI/text/gmail.png" id="22_1ss0f"]
 [ext_resource type="Texture2D" uid="uid://d2qitqabeppag" path="res://art/UI/buttons/back_button.png" id="23_6gm0r"]
 [ext_resource type="PackedScene" uid="uid://dugp7x1de6feb" path="res://scenes/UI/level_connector.tscn" id="24_afaap"]
+[ext_resource type="Texture2D" uid="uid://cracidc64bs1t" path="res://art/UI/level_design/level_stage_start.png" id="25_726sv"]
 [ext_resource type="Texture2D" uid="uid://mw2hs006xd58" path="res://art/UI/level_design/level_stage.png" id="25_gqbxs"]
 [ext_resource type="Texture2D" uid="uid://cha13i0jnwm4d" path="res://art/UI/level_design/mostly_purple_level.png" id="26_bocfi"]
 [ext_resource type="Texture2D" uid="uid://b4truypqexabg" path="res://art/UI/level_design/level_stage_to_left.png" id="26_gqbxs"]
@@ -33,7 +34,9 @@
 [ext_resource type="Texture2D" uid="uid://bnxdxkb2w20vf" path="res://art/UI/numbers/three.png" id="31_8d054"]
 [ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="32_a7i4r"]
 [ext_resource type="Script" uid="uid://d56510j2ch3f" path="res://scripts/blue_crosshair.gd" id="33_8d054"]
+[ext_resource type="Texture2D" uid="uid://dl4uh682oqq0s" path="res://art/UI/numbers/four.png" id="33_fnfsu"]
 [ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="34_8d054"]
+[ext_resource type="Texture2D" uid="uid://b15hkteep0jdy" path="res://art/UI/numbers/five.png" id="34_b6jqr"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -616,9 +619,22 @@ texture_normal = ExtResource("23_6gm0r")
 [node name="LevelSelector" type="Node2D" parent="." unique_id=280259287]
 visible = false
 
+[node name="BackButton2" type="TextureButton" parent="LevelSelector" unique_id=684062295]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 68.0
+offset_bottom = 35.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("23_6gm0r")
+
 [node name="Level1" type="Sprite2D" parent="LevelSelector" unique_id=1574176337]
-position = Vector2(154, 159)
-texture = ExtResource("25_gqbxs")
+position = Vector2(116, 159)
+texture = ExtResource("25_726sv")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level1" unique_id=1878750789]
 texture = ExtResource("26_bocfi")
@@ -643,7 +659,7 @@ grow_vertical = 2
 flat = true
 
 [node name="Level2" type="Sprite2D" parent="LevelSelector" unique_id=1584697939]
-position = Vector2(154, 92)
+position = Vector2(116, 92)
 texture = ExtResource("25_gqbxs")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level2" unique_id=971565743]
@@ -670,7 +686,7 @@ grow_vertical = 2
 flat = true
 
 [node name="Level3" type="Sprite2D" parent="LevelSelector" unique_id=943792369]
-position = Vector2(154, 25)
+position = Vector2(116, 25)
 texture = ExtResource("26_gqbxs")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level3" unique_id=98636667]
@@ -696,23 +712,141 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="LevelStageToLeft2" type="Sprite2D" parent="LevelSelector" unique_id=1949511541]
-position = Vector2(221, 25)
+[node name="Level4" type="Sprite2D" parent="LevelSelector" unique_id=1949511541]
+position = Vector2(183, 25)
 rotation = 1.5707964
 texture = ExtResource("26_gqbxs")
 
-[node name="BackButton2" type="TextureButton" parent="LevelSelector" unique_id=684062295]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 4.0
-offset_top = 3.0
-offset_right = 68.0
-offset_bottom = 35.0
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level4" unique_id=225607900]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Two" type="Sprite2D" parent="LevelSelector/Level4/MostlyPurpleLevel" unique_id=2025899050]
+rotation = -1.5707964
+texture = ExtResource("33_fnfsu")
+
+[node name="LevelConnector" parent="LevelSelector/Level4" unique_id=1757880247 instance=ExtResource("24_afaap")]
+position = Vector2(21, 3)
+rotation = -1.5707964
+
+[node name="Button4" type="Button" parent="LevelSelector/Level4" unique_id=1669419346]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
 grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("23_6gm0r")
+grow_vertical = 2
+flat = true
+
+[node name="Level5" type="Sprite2D" parent="LevelSelector" unique_id=115041617]
+position = Vector2(183, 92)
+texture = ExtResource("25_gqbxs")
+
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level5" unique_id=837371298]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Two" type="Sprite2D" parent="LevelSelector/Level5/MostlyPurpleLevel" unique_id=65497658]
+texture = ExtResource("34_b6jqr")
+
+[node name="LevelConnector" parent="LevelSelector/Level5" unique_id=2739953 instance=ExtResource("24_afaap")]
+position = Vector2(-3, 21)
+
+[node name="Button5" type="Button" parent="LevelSelector/Level5" unique_id=319389126]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Level6" type="Sprite2D" parent="LevelSelector" unique_id=1361347794]
+position = Vector2(183, 159)
+rotation = -1.5707964
+texture = ExtResource("26_gqbxs")
+
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level6" unique_id=1655505544]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Three" type="Sprite2D" parent="LevelSelector/Level6/MostlyPurpleLevel" unique_id=1624497539]
+texture = ExtResource("31_8d054")
+
+[node name="LevelConnector" parent="LevelSelector/Level6" unique_id=500971888 instance=ExtResource("24_afaap")]
+position = Vector2(-3, 21)
+
+[node name="Button6" type="Button" parent="LevelSelector/Level6" unique_id=1652367466]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Level7" type="Sprite2D" parent="LevelSelector" unique_id=1964018817]
+position = Vector2(250, 159)
+rotation = -3.1415927
+texture = ExtResource("26_gqbxs")
+
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level7" unique_id=1394961306]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Three" type="Sprite2D" parent="LevelSelector/Level7/MostlyPurpleLevel" unique_id=759059364]
+texture = ExtResource("31_8d054")
+
+[node name="LevelConnector" parent="LevelSelector/Level7" unique_id=1409715397 instance=ExtResource("24_afaap")]
+position = Vector2(-3, 21)
+
+[node name="Button7" type="Button" parent="LevelSelector/Level7" unique_id=1681496002]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="Level8" type="Sprite2D" parent="LevelSelector" unique_id=2036554959]
+position = Vector2(250, 92)
+rotation = -3.1415927
+texture = ExtResource("25_gqbxs")
+
+[node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level8" unique_id=1946427542]
+visible = false
+texture = ExtResource("26_bocfi")
+
+[node name="Three" type="Sprite2D" parent="LevelSelector/Level8/MostlyPurpleLevel" unique_id=1161799589]
+texture = ExtResource("31_8d054")
+
+[node name="LevelConnector" parent="LevelSelector/Level8" unique_id=821791921 instance=ExtResource("24_afaap")]
+position = Vector2(-3, 21)
+
+[node name="Button8" type="Button" parent="LevelSelector/Level8" unique_id=46146055]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = -48.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Transition_Background" type="ColorRect" parent="." unique_id=1983145882]
 z_index = 1000
@@ -766,8 +900,13 @@ color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelSelector/BackButton2" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="LevelSelector/Level1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LevelSelector/Level2/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="LevelSelector/Level3/Button3" to="." method="_on_button_3_pressed"]
-[connection signal="pressed" from="LevelSelector/BackButton2" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="LevelSelector/Level4/Button4" to="." method="_on_button_4_pressed"]
+[connection signal="pressed" from="LevelSelector/Level5/Button5" to="." method="_on_button_5_pressed"]
+[connection signal="pressed" from="LevelSelector/Level6/Button6" to="." method="_on_button_6_pressed"]
+[connection signal="pressed" from="LevelSelector/Level7/Button7" to="." method="_on_button_7_pressed"]
+[connection signal="pressed" from="LevelSelector/Level8/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]

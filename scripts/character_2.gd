@@ -4,7 +4,7 @@ extends CharacterBody2D
 
 var SPEED = 100.0
 
-var single_jump = -180.0
+var single_jump = -185.0
 var hold_jump = -7.5
 
 var falling_down_velocity_max = 120.0
@@ -41,10 +41,12 @@ var scale_falling = Vector2(1.9, 0.1)
 var scale_hold_jump = Vector2(0.5, 1.5)
 var scale_single_jump = Vector2(0.7, 1.3)
 
+
 func player_2():
 	pass
 
 func _physics_process(delta: float) -> void:
+	
 	if $Icon.animation == "Blink" and not $Icon.is_playing():
 		$Icon.play("Idle")
 	
@@ -98,7 +100,7 @@ func _physics_process(delta: float) -> void:
 		_jump()
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0 and not during_dash:
-		velocity.y += hold_jump
+		velocity.y += hold_jump * Engine.time_scale
 		$Icon.scale += scale_hold_jump * delta
 	else:
 		during_jump = false
