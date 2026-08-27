@@ -96,7 +96,9 @@ shader_parameter/_Background = Color(0, 0, 0, 1)
 script = ExtResource("1_o5qli")
 Amount_of_levels = 3
 
-[node name="GUI" parent="." unique_id=310219774 instance=ExtResource("2_0wfyh")]
+[node name="GUI" parent="." unique_id=310219774 node_paths=PackedStringArray("character1", "character2") instance=ExtResource("2_0wfyh")]
+character1 = NodePath("../Character_1")
+character2 = NodePath("../Character_2")
 
 [node name="Character_1" parent="." unique_id=1347863031 node_paths=PackedStringArray("GUI") instance=ExtResource("3_jyhfs")]
 position = Vector2(-15, 0)

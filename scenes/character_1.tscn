@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bcrqklyi2ky6b" path="res://art/misc/GUN.png" id="3_sbsjf"]
 [ext_resource type="Texture2D" uid="uid://d2uylw7ymltj4" path="res://art/characters/Idle_1.png" id="4_47oof"]
 [ext_resource type="Texture2D" uid="uid://d4b2mry8012q8" path="res://art/characters/Walk_1.png" id="6_2wmww"]
+[ext_resource type="AudioStream" uid="uid://u3bjevnvn3fp" path="res://sounds/pop.mp3" id="8_tfkyx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ryofq"]
 shader = ExtResource("3_l55i8")
@@ -272,6 +273,9 @@ one_shot = true
 
 [node name="Look_around" type="Timer" parent="." unique_id=1971798085]
 autostart = true
+
+[node name="Pop" type="AudioStreamPlayer" parent="." unique_id=833429060]
+stream = ExtResource("8_tfkyx")
 
 [connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="timeout" from="Coyote_time" to="." method="_on_coyote_time_timeout"]
