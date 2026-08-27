@@ -188,12 +188,6 @@ position = Vector2(236, 139.5)
 rotation = -1.5707964
 texture = ExtResource("5_q0wsq")
 
-[node name="Arrow16" type="Sprite2D" parent="Arrows4" unique_id=1054613705]
-z_index = -2
-position = Vector2(252, 139.5)
-rotation = -1.5707964
-texture = ExtResource("5_q0wsq")
-
 [node name="Arrow6" type="Sprite2D" parent="Arrows4" unique_id=762266997]
 z_index = -2
 position = Vector2(172, 139.5)
