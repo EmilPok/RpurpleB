@@ -47,7 +47,6 @@ func _reset_level():
 	
 	$Character_1.global_position = reset_position
 	$Character_2.global_position = reset_position
-	print(level)
 
 	var new_level = load(level).instantiate()
 	new_level.global_position = Vector2.ZERO

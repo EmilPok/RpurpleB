@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bulvg5a4w4gmi" path="res://art/misc/arrow.png" id="5_l37oo"]
 [ext_resource type="Texture2D" uid="uid://dfvcw0ome8nrv" path="res://art/UI/tutorial/protip_blue.png" id="6_ibugp"]
 [ext_resource type="Texture2D" uid="uid://c2e3fwj8xdhvr" path="res://art/UI/tutorial/protip_blue_red_part.png" id="7_8qukl"]
+[ext_resource type="Texture2D" uid="uid://diay2jf4i3eim" path="res://art/UI/tutorial/shift.png" id="8_qsp8v"]
+[ext_resource type="Texture2D" uid="uid://bk6vq4umvrmld" path="res://art/UI/tutorial/to.png" id="9_nt80m"]
+[ext_resource type="Texture2D" uid="uid://b4t11kk4d6sll" path="res://art/UI/tutorial/skills.png" id="10_brxtv"]
+[ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="11_nt80m"]
 
 [node name="level_2" type="Node2D" unique_id=389029467]
 
@@ -103,9 +107,30 @@ position = Vector2(112, 84)
 texture = ExtResource("5_l37oo")
 
 [node name="ProtipBlue" type="Sprite2D" parent="." unique_id=1976926649]
-position = Vector2(61, 95)
+position = Vector2(219, 72)
 texture = ExtResource("6_ibugp")
 
 [node name="ProtipBlueRedPart" type="Sprite2D" parent="." unique_id=1662906503]
-position = Vector2(67, 114)
+position = Vector2(225, 91)
 texture = ExtResource("7_8qukl")
+
+[node name="Shift" type="Sprite2D" parent="." unique_id=1873292215]
+position = Vector2(41, 91)
+texture = ExtResource("8_qsp8v")
+
+[node name="To2" type="Sprite2D" parent="." unique_id=1818385701]
+position = Vector2(57, 91)
+texture = ExtResource("9_nt80m")
+
+[node name="Skills" type="Sprite2D" parent="." unique_id=1477175750]
+position = Vector2(71, 91)
+texture = ExtResource("10_brxtv")
+
+[node name="Decor4" type="Sprite2D" parent="." unique_id=2114080103]
+position = Vector2(38, 113)
+texture = ExtResource("11_nt80m")
+flip_h = true
+
+[node name="Decor5" type="Sprite2D" parent="." unique_id=1046544437]
+position = Vector2(157, 64)
+texture = ExtResource("11_nt80m")
