@@ -11,6 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://b4t11kk4d6sll" path="res://art/UI/tutorial/skills.png" id="9_n6eey"]
 [ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="10_2bnyt"]
 [ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="11_n6eey"]
+[ext_resource type="Texture2D" uid="uid://dkdte2n04wt48" path="res://art/UI/tutorial/protip_red.png" id="12_f6egh"]
+[ext_resource type="Texture2D" uid="uid://d2ehip64jf2ue" path="res://art/misc/red_chalk.png" id="13_t4txi"]
+[ext_resource type="Texture2D" uid="uid://bwagx3f0pmnbi" path="res://art/UI/tutorial/blue_art.png" id="14_apo5x"]
+[ext_resource type="Texture2D" uid="uid://dom7l1nkfiq18" path="res://art/misc/blue_chalk.png" id="15_josfm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l37oo"]
 size = Vector2(484, 20)
@@ -255,5 +259,21 @@ texture = ExtResource("11_n6eey")
 position = Vector2(134, 112)
 texture = ExtResource("11_n6eey")
 flip_h = true
+
+[node name="ProtipRed" type="Sprite2D" parent="." unique_id=1523129265]
+position = Vector2(73, 114)
+texture = ExtResource("12_f6egh")
+
+[node name="RedChalk" type="Sprite2D" parent="." unique_id=1350617608]
+position = Vector2(75, 124)
+texture = ExtResource("13_t4txi")
+
+[node name="BlueArt" type="Sprite2D" parent="." unique_id=889794940]
+position = Vector2(257, 113)
+texture = ExtResource("14_apo5x")
+
+[node name="BlueChalk" type="Sprite2D" parent="." unique_id=44955205]
+position = Vector2(281, 140)
+texture = ExtResource("15_josfm")
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

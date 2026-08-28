@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b412gyokjdvm8" path="res://art/UI/tutorial/hold.png" id="8_ts8eg"]
 [ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="9_um320"]
 [ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="10_glw47"]
+[ext_resource type="Texture2D" uid="uid://d2ehip64jf2ue" path="res://art/misc/red_chalk.png" id="11_4wsov"]
+[ext_resource type="Texture2D" uid="uid://bjaolu0bri0we" path="res://art/UI/tutorial/protip_blue2.png" id="12_hsvsk"]
+[ext_resource type="Texture2D" uid="uid://dom7l1nkfiq18" path="res://art/misc/blue_chalk.png" id="13_fcb7b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_glw47"]
 size = Vector2(484, 20)
@@ -223,5 +226,17 @@ texture = ExtResource("10_glw47")
 position = Vector2(214, 35)
 texture = ExtResource("10_glw47")
 flip_h = true
+
+[node name="RedChalk" type="Sprite2D" parent="." unique_id=56113328]
+position = Vector2(276, 44)
+texture = ExtResource("11_4wsov")
+
+[node name="ProtipBlue2" type="Sprite2D" parent="." unique_id=452969946]
+position = Vector2(278, 107)
+texture = ExtResource("12_hsvsk")
+
+[node name="BlueChalk" type="Sprite2D" parent="." unique_id=1635580395]
+position = Vector2(266, 124)
+texture = ExtResource("13_fcb7b")
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

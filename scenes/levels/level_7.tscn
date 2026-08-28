@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://cqyvq8b32bpq0" path="res://scripts/died.gd" id="6_ivh0c"]
 [ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="7_u1w5x"]
 [ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="8_posk4"]
+[ext_resource type="Texture2D" uid="uid://tm35yq1u3wq" path="res://art/misc/standing_chalk.png" id="9_sjq8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7x7cx"]
 size = Vector2(484, 20)
@@ -216,10 +217,6 @@ shape = SubResource("RectangleShape2D_7x7cx")
 position = Vector2(55, 155)
 texture = ExtResource("7_u1w5x")
 
-[node name="Chalk4" type="Sprite2D" parent="." unique_id=287452375]
-position = Vector2(135, 139)
-texture = ExtResource("7_u1w5x")
-
 [node name="Decor2" type="Sprite2D" parent="." unique_id=1920920428]
 position = Vector2(33, 127)
 texture = ExtResource("8_posk4")
@@ -237,5 +234,9 @@ texture = ExtResource("8_posk4")
 position = Vector2(246, 33)
 texture = ExtResource("8_posk4")
 flip_h = true
+
+[node name="StandingChalk" type="Sprite2D" parent="." unique_id=2133577235]
+position = Vector2(130, 139)
+texture = ExtResource("9_sjq8i")
 
 [connection signal="body_entered" from="Died" to="Died" method="_on_body_entered"]

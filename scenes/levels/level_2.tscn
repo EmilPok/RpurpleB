@@ -11,6 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://bk6vq4umvrmld" path="res://art/UI/tutorial/to.png" id="9_nt80m"]
 [ext_resource type="Texture2D" uid="uid://b4t11kk4d6sll" path="res://art/UI/tutorial/skills.png" id="10_brxtv"]
 [ext_resource type="Texture2D" uid="uid://dwuhxek3ooenw" path="res://art/UI/tutorial/decor1.png" id="11_nt80m"]
+[ext_resource type="Texture2D" uid="uid://dom7l1nkfiq18" path="res://art/misc/blue_chalk.png" id="12_r88tb"]
+[ext_resource type="Texture2D" uid="uid://8ly85tjeh4fo" path="res://art/misc/chalk.png" id="13_1yj8c"]
+[ext_resource type="Texture2D" uid="uid://d2ehip64jf2ue" path="res://art/misc/red_chalk.png" id="14_ndlae"]
 
 [node name="level_2" type="Node2D" unique_id=389029467]
 
@@ -106,31 +109,45 @@ z_index = -2
 position = Vector2(112, 84)
 texture = ExtResource("5_l37oo")
 
-[node name="ProtipBlue" type="Sprite2D" parent="." unique_id=1976926649]
+[node name="BackgroundDecoration" type="Node2D" parent="." unique_id=99721494]
+
+[node name="ProtipBlue" type="Sprite2D" parent="BackgroundDecoration" unique_id=1976926649]
 position = Vector2(219, 72)
 texture = ExtResource("6_ibugp")
 
-[node name="ProtipBlueRedPart" type="Sprite2D" parent="." unique_id=1662906503]
+[node name="ProtipBlueRedPart" type="Sprite2D" parent="BackgroundDecoration" unique_id=1662906503]
 position = Vector2(225, 91)
 texture = ExtResource("7_8qukl")
 
-[node name="Shift" type="Sprite2D" parent="." unique_id=1873292215]
+[node name="Shift" type="Sprite2D" parent="BackgroundDecoration" unique_id=1873292215]
 position = Vector2(41, 91)
 texture = ExtResource("8_qsp8v")
 
-[node name="To2" type="Sprite2D" parent="." unique_id=1818385701]
+[node name="To2" type="Sprite2D" parent="BackgroundDecoration" unique_id=1818385701]
 position = Vector2(57, 91)
 texture = ExtResource("9_nt80m")
 
-[node name="Skills" type="Sprite2D" parent="." unique_id=1477175750]
+[node name="Skills" type="Sprite2D" parent="BackgroundDecoration" unique_id=1477175750]
 position = Vector2(71, 91)
 texture = ExtResource("10_brxtv")
 
-[node name="Decor4" type="Sprite2D" parent="." unique_id=2114080103]
+[node name="Decor4" type="Sprite2D" parent="BackgroundDecoration" unique_id=2114080103]
 position = Vector2(38, 113)
 texture = ExtResource("11_nt80m")
 flip_h = true
 
-[node name="Decor5" type="Sprite2D" parent="." unique_id=1046544437]
+[node name="Decor5" type="Sprite2D" parent="BackgroundDecoration" unique_id=1046544437]
 position = Vector2(157, 64)
 texture = ExtResource("11_nt80m")
+
+[node name="BlueChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1164152204]
+position = Vector2(200, 108)
+texture = ExtResource("12_r88tb")
+
+[node name="Chalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1253853000]
+position = Vector2(85, 124)
+texture = ExtResource("13_1yj8c")
+
+[node name="RedChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=654669718]
+position = Vector2(171, 108)
+texture = ExtResource("14_ndlae")

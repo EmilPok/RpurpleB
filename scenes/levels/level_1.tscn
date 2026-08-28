@@ -107,35 +107,35 @@ position = Vector2(200, 146)
 texture = ExtResource("17_gmpev")
 
 [node name="StandingChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1737607126]
-position = Vector2(186, 156)
+position = Vector2(178, 156)
 texture = ExtResource("20_7h2jl")
 
-[node name="BlueChalk" type="Sprite2D" parent="." unique_id=1016164436]
+[node name="BlueChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1016164436]
 position = Vector2(207, 156)
 texture = ExtResource("19_ndtll")
 
-[node name="RedChalk" type="Sprite2D" parent="." unique_id=1076338508]
+[node name="RedChalk" type="Sprite2D" parent="BackgroundDecoration" unique_id=1076338508]
 position = Vector2(200, 156)
 texture = ExtResource("18_mkypq")
 
-[node name="BlueThere" type="Sprite2D" parent="." unique_id=47751538]
+[node name="BlueThere" type="Sprite2D" parent="BackgroundDecoration" unique_id=47751538]
 position = Vector2(249, 147)
 texture = ExtResource("21_ndtll")
 
-[node name="RedThere" type="Sprite2D" parent="." unique_id=709618701]
+[node name="RedThere" type="Sprite2D" parent="BackgroundDecoration" unique_id=709618701]
 position = Vector2(152, 119)
 texture = ExtResource("22_7h2jl")
 
-[node name="Useful" type="Sprite2D" parent="." unique_id=859349546]
-position = Vector2(32, 152)
+[node name="Useful" type="Sprite2D" parent="BackgroundDecoration" unique_id=859349546]
+position = Vector2(49, 120)
 texture = ExtResource("23_7h2jl")
 
-[node name="Decor4" type="Sprite2D" parent="." unique_id=1973263372]
+[node name="Decor4" type="Sprite2D" parent="BackgroundDecoration" unique_id=1973263372]
 position = Vector2(102, 127)
 texture = ExtResource("15_wtwp4")
 flip_h = true
 
-[node name="Decor5" type="Sprite2D" parent="." unique_id=502116566]
+[node name="Decor5" type="Sprite2D" parent="BackgroundDecoration" unique_id=502116566]
 position = Vector2(34, 130)
 texture = ExtResource("15_wtwp4")
 flip_h = true
