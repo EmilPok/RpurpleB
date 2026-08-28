@@ -12,7 +12,7 @@ var speed_falling = 1.5
 var max_falling_speed = 400.0
 
 var dash_velocity = 180.0
-var dash_vertical_velocity = 120.0
+var dash_vertical_multiplier = 2.0 / 3.0
 var during_dash = false
 var can_dash = true
 var wait_can_dash = false
@@ -108,6 +108,19 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("left", "right")
 	
 	if Input.is_action_just_pressed("dash") and can_dash:
+		var dash_direction = Input.get_vector("left", "right", "up", "down")
+		if dash_direction == Vector2.ZERO:
+			if $Icon.flip_h:
+				dash_direction = 1.0
+			else:
+				dash_direction = -1.0
+		$Dash_part.direction = dash_direction * -1
+		$Dash_part.emitting = true
+		
+		var temp_dash_velocity = dash_direction * dash_velocity
+		temp_dash_velocity.y *= dash_vertical_multiplier
+		velocity = temp_dash_velocity
+		
 		if direction:
 			if direction == -1 and $Icon.flip_h == false:
 				$Icon.flip_h = true
@@ -119,41 +132,11 @@ func _physics_process(delta: float) -> void:
 		_on_start_shadows_timeout()
 		$Icon.play("Dash")
 		
-		$Dash_part.direction.y = 0.0
-		if direction == 1.0:
-			$Dash_part.direction.x = -1.0
-		elif direction == -1.0:
-			$Dash_part.direction.x = 1.0
-		elif Input.is_action_pressed("up"):
-			$Dash_part.direction.x = 0.0
-			$Dash_part.direction.y = 1.0
-		elif Input.is_action_pressed("down"):
-			$Dash_part.direction.x = 0.0
-			$Dash_part.direction.y = -1.0
-		elif $Icon.flip_h:
-			$Dash_part.direction.x = 1.0
-		else:
-			$Dash_part.direction.x = -1.0
 			
 			
 		$Dash_part.emitting = true
 		during_dash = true
 		can_dash = false
-		if direction:
-			velocity.x = dash_velocity * direction
-			velocity.y = 0.0
-		elif Input.is_action_pressed("up"):
-			velocity.x = 0
-			velocity.y = -dash_vertical_velocity
-		elif Input.is_action_pressed("down"):
-			velocity.x = 0
-			velocity.y = dash_vertical_velocity
-		elif $Icon.flip_h:
-			velocity.x = -dash_velocity
-			velocity.y = 0.0
-		else:
-			velocity.x = dash_velocity
-			velocity.y = 0.0
 		$Dash_dur.start()
 		$Dash_cooldown.start()
 		

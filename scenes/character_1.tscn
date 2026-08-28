@@ -46,10 +46,6 @@ region = Rect2(64, 0, 16, 16)
 atlas = ExtResource("2_p0pq8")
 region = Rect2(64, 0, 16, 16)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aclxv"]
-atlas = ExtResource("2_p0pq8")
-region = Rect2(96, 0, 16, 16)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ugrg"]
 atlas = ExtResource("2_p0pq8")
 region = Rect2(112, 0, 16, 16)
@@ -111,19 +107,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_aclxv")
-}, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_4ugrg")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_dcl4c")
 }, {
-"duration": 1.0,
+"duration": 0.8,
 "texture": SubResource("AtlasTexture_2vf1k")
 }, {
-"duration": 1.0,
+"duration": 0.01,
 "texture": SubResource("AtlasTexture_qsh3i")
 }],
 "loop": 0,
@@ -225,7 +218,7 @@ texture = ExtResource("2_l55i8")
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1916461415]
 material = SubResource("ShaderMaterial_ryofq")
 sprite_frames = SubResource("SpriteFrames_l55i8")
-animation = &"Walk"
+animation = &"TakeAGun"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786981151]

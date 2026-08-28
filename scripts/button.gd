@@ -1,5 +1,7 @@
 extends Area2D
 
+var hold_button_text = preload("res://art/misc/Buttons/hold_button.png")
+
 @onready var main = get_tree().current_scene
 
 @export var can_blue = true
@@ -18,6 +20,10 @@ var one_timer = false
 var touching_characters = []
 
 func _ready() -> void:
+	if hold:
+		$Sprite.texture = hold_button_text
+		$Sprite.modulate = Color(0.8, 0.8, 0.8, 1.0)
+	
 	$Time_pressed.wait_time = time_hold
 	
 	if not (can_blue and can_red):

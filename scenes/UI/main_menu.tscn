@@ -285,6 +285,33 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("1_yonvy")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u15bo"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h18h7"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udkvx"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5no5"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcduc"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th7s7"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbenk"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu61"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwj3j"]
+bg_color = Color(1, 1, 1, 0)
+
 [sub_resource type="Animation" id="Animation_tefeu"]
 length = 0.001
 tracks/0/type = "value"
@@ -425,7 +452,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_d6l81")
+metadata/_edit_lock_ = true
 
 [node name="Transition_Animations" type="AnimationPlayer" parent="." unique_id=1657425511]
 libraries/ = SubResource("AnimationLibrary_afaap")
@@ -443,7 +472,9 @@ offset_right = 8.0
 offset_bottom = 6.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("1_qwnig")
+metadata/_edit_lock_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740064179]
 layout_mode = 1
@@ -458,11 +489,13 @@ offset_right = 4.0
 offset_bottom = 4.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="MainButtons" type="VBoxContainer" parent="HBoxContainer" unique_id=516516008]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 4
+mouse_filter = 2
 alignment = 1
 
 [node name="Node2D" type="Node2D" parent="HBoxContainer/MainButtons" unique_id=325697204]
@@ -482,6 +515,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+mouse_filter = 2
 texture = ExtResource("4_1ss0f")
 
 [node name="Play" type="TextureButton" parent="HBoxContainer/MainButtons" unique_id=728810482]
@@ -495,6 +529,7 @@ texture_pressed = ExtResource("3_tfcbk")
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainButtons" unique_id=137650592]
 layout_mode = 2
 size_flags_horizontal = 4
+mouse_filter = 2
 
 [node name="Options" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=697400330]
 layout_mode = 2
@@ -525,6 +560,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 texture = ExtResource("12_a1wsg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/CreditsTitle" unique_id=385974533]
@@ -660,7 +696,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_u15bo")
 
 [node name="Level2" type="Sprite2D" parent="LevelSelector" unique_id=1584697939]
 position = Vector2(116, 92)
@@ -687,7 +723,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_h18h7")
 
 [node name="Level3" type="Sprite2D" parent="LevelSelector" unique_id=943792369]
 position = Vector2(116, 25)
@@ -714,7 +750,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_udkvx")
 
 [node name="Level4" type="Sprite2D" parent="LevelSelector" unique_id=1949511541]
 position = Vector2(183, 25)
@@ -743,7 +779,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_l5no5")
 
 [node name="Level5" type="Sprite2D" parent="LevelSelector" unique_id=115041617]
 position = Vector2(183, 92)
@@ -769,7 +805,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_bcduc")
 
 [node name="Level6" type="Sprite2D" parent="LevelSelector" unique_id=1361347794]
 position = Vector2(183, 159)
@@ -797,7 +833,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_th7s7")
 
 [node name="Level7" type="Sprite2D" parent="LevelSelector" unique_id=1964018817]
 position = Vector2(250, 159)
@@ -825,7 +861,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_pbenk")
 
 [node name="Level8" type="Sprite2D" parent="LevelSelector" unique_id=2036554959]
 position = Vector2(250, 92)
@@ -852,7 +888,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_8nu61")
 
 [node name="Level9" type="Sprite2D" parent="LevelSelector" unique_id=952366219]
 position = Vector2(250, 25)
@@ -877,7 +913,7 @@ offset_right = -48.0
 offset_bottom = -48.0
 grow_horizontal = 2
 grow_vertical = 2
-flat = true
+theme_override_styles/normal = SubResource("StyleBoxFlat_qwj3j")
 
 [node name="LevelConnector" parent="LevelSelector/Level9" unique_id=2000744009 instance=ExtResource("24_afaap")]
 position = Vector2(-3, 53)
@@ -908,6 +944,7 @@ material = SubResource("ShaderMaterial_726sv")
 offset_right = 320.0
 offset_bottom = 180.0
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="Black_screen" type="ColorRect" parent="Circle_trans" unique_id=1421405057]
 visible = false
@@ -915,6 +952,7 @@ offset_right = 320.0
 offset_bottom = 180.0
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
 [node name="Circle_trans_time" type="Timer" parent="." unique_id=347921271]
 wait_time = 0.5
@@ -927,13 +965,32 @@ custom_minimum_size = Vector2(320, 180)
 layout_mode = 0
 offset_right = 320.00024
 offset_bottom = 180.0
+mouse_filter = 2
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
+[connection signal="button_down" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="button_down" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_button_down"]
+[connection signal="mouse_entered" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_exited"]
 [connection signal="pressed" from="LevelSelector/BackButton2" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="LevelSelector/Level1/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="LevelSelector/Level2/Button2" to="." method="_on_button_2_pressed"]

@@ -1,5 +1,8 @@
 extends Control
 
+var hover_dark = 0.6
+var hover_dark_color = Color(hover_dark, hover_dark, hover_dark, 1.0)
+
 func _ready() -> void:
 	
 	var cables = [
@@ -66,6 +69,8 @@ func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_back_button_pressed() -> void:
+	$LevelSelector/BackButton2.modulate  = Color.WHITE
+	
 	if $HBoxContainer/Credits_Smooth_Movement_Handl.visible:
 		$Transition_Animations.play("credits_off")
 	if $LevelSelector.visible:
@@ -101,3 +106,43 @@ func _on_button_8_pressed() -> void:
 	_start_transition(8)
 func _on_button_9_pressed() -> void:
 	_start_transition(9)
+# Przepraszam za to co jest tutaj, (spieszyło mi się) (proszę nie zamorduj mnie)
+func _on_play_mouse_entered() -> void:
+	$HBoxContainer/MainButtons/Play.modulate = hover_dark_color
+func _on_play_mouse_exited() -> void:
+	$HBoxContainer/MainButtons/Play.modulate = Color.WHITE
+func _on_options_mouse_entered() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = hover_dark_color
+func _on_options_mouse_exited() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = Color.WHITE
+func _on_credits_mouse_entered() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = hover_dark_color
+func _on_credits_mouse_exited() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+func _on_exit_mouse_entered() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Exit.modulate = hover_dark_color
+func _on_exit_mouse_exited() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Exit.modulate = Color.WHITE
+func _on_back_button_mouse_entered() -> void:
+	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = hover_dark_color
+func _on_back_button_mouse_exited() -> void:
+	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
+func _on_back_button_2_mouse_entered() -> void:
+	$LevelSelector/BackButton2.modulate = hover_dark_color
+func _on_back_button_2_mouse_exited() -> void:
+	$LevelSelector/BackButton2.modulate = Color.WHITE
+
+func _on_play_button_down() -> void:
+	$HBoxContainer/MainButtons/Play.modulate = Color.WHITE
+func _on_options_button_down() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = Color.WHITE
+func _on_credits_button_down() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+func _on_exit_button_down() -> void:
+	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+
+
+func _on_back_button_button_down() -> void:
+	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color(0.4, 0.4, 0.4, 1.0)
+func _on_back_button_2_button_down() -> void:
+	$LevelSelector/BackButton2.modulate  = Color(0.4, 0.4, 0.4, 1.0)

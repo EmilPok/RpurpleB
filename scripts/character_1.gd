@@ -103,7 +103,7 @@ func _physics_process(delta: float) -> void:
 		taking_gun = false
 		gun_out = true
 		Gun_sprite.visible = true
-		#Engine.time_scale = 0.1
+		Engine.time_scale = 0.1
 	
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
