@@ -28,3 +28,18 @@ func _active():
 func _on_animation_player_animation_finished(_anim_name: StringName) -> void:
 	if not active:
 		$Sign.texture = close_sign
+		$Stuck.call_deferred("set_monitoring", true)
+		$Stop_monitoring.start()
+	
+func _on_stop_monitoring_timeout() -> void:
+	$Stuck.call_deferred("set_monitoring", false)
+
+
+func _on_stuck_body_entered(body: Node2D) -> void:
+	var stuck_vector = global_position.x - body.global_position.x
+	if stuck_vector > 0.0:
+		body.global_position = $Tp_pos.global_position
+	else:
+		body.global_position = $Tp_pos2.global_position
+		
+	
