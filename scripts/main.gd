@@ -18,8 +18,6 @@ func _process(_delta: float) -> void:
 		Engine.time_scale = 1.0
 
 func _ready() -> void:
-
-	
 	randomize()
 	_reset_level()
 	$Circle_trans/Black_screen.show()
@@ -94,9 +92,23 @@ func _died():
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("reset"):
+		if $AnimationPlayer.is_playing():
+			return
 		_died()
 
 func _on_move_allow_timeout() -> void:
 	$Character_1.active = true
 	$Character_2.active = false
 	active_button = true
+
+func _back():
+	if $AnimationPlayer.is_playing():
+		return
+	
+	$Character_1.active = false
+	$Character_2.active = false
+	$AnimationPlayer.play("End_transition")
+	Global.do_anim = true
+	await $AnimationPlayer.animation_finished
+	
+	get_tree().call_deferred("change_scene_to_file", "res://scenes/UI/main_menu.tscn")

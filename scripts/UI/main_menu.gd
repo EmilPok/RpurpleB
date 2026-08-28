@@ -55,6 +55,11 @@ func _ready() -> void:
 				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
 	
 	Global.finished = false
+	
+	if Global.do_anim:
+		Global.do_anim = false
+		$AnimationPlayer.play("level_selector_half")
+	
 
 func _on_play_pressed() -> void:
 	$Transition_Animations.play("level_selector_on")

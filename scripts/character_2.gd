@@ -111,9 +111,9 @@ func _physics_process(delta: float) -> void:
 		var dash_direction = Input.get_vector("left", "right", "up", "down")
 		if dash_direction == Vector2.ZERO:
 			if $Icon.flip_h:
-				dash_direction = 1.0
+				dash_direction.x = -1.0
 			else:
-				dash_direction = -1.0
+				dash_direction.x = 1.0
 		$Dash_part.direction = dash_direction * -1
 		$Dash_part.emitting = true
 		

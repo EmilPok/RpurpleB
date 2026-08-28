@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://b2lbuxbsgi1no" path="res://scenes/character_2.tscn" id="4_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://tf0x6voo2kg0" path="res://scenes/change_player.tscn" id="5_tbgi4"]
 [ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="6_tefeu"]
+[ext_resource type="Texture2D" uid="uid://bre6vrhb3j252" path="res://art/UI/X_button.png" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://b5wp5ax83mxm7" path="res://scripts/UI/back_button.gd" id="8_tipki"]
 
 [sub_resource type="Animation" id="Animation_tipki"]
 resource_name = "End_transition"
@@ -96,16 +98,12 @@ shader_parameter/_Background = Color(0, 0, 0, 1)
 script = ExtResource("1_o5qli")
 Amount_of_levels = 3
 
-[node name="GUI" parent="." unique_id=310219774 node_paths=PackedStringArray("character1", "character2") instance=ExtResource("2_0wfyh")]
-character1 = NodePath("../Character_1")
-character2 = NodePath("../Character_2")
-
 [node name="Character_1" parent="." unique_id=1347863031 node_paths=PackedStringArray("GUI") instance=ExtResource("3_jyhfs")]
 position = Vector2(-15, 0)
 GUI = NodePath("../GUI")
 
 [node name="Character_2" parent="." unique_id=1518678440 instance=ExtResource("4_tbgi4")]
-position = Vector2(15, 0)
+position = Vector2(16, 1)
 
 [node name="Change_Player" parent="." unique_id=350997356 node_paths=PackedStringArray("player_1", "player_2") instance=ExtResource("5_tbgi4")]
 player_1 = NodePath("../Character_1")
@@ -116,10 +114,20 @@ libraries/ = SubResource("AnimationLibrary_tipki")
 
 [node name="Circle_trans" type="CanvasLayer" parent="." unique_id=1578152919]
 
+[node name="Back_button" type="TextureButton" parent="Circle_trans" unique_id=684727155]
+z_index = -1
+offset_left = 7.0
+offset_top = 3.0
+offset_right = 22.0
+offset_bottom = 18.0
+texture_normal = ExtResource("7_o6xl0")
+script = ExtResource("8_tipki")
+
 [node name="ColorRect" type="ColorRect" parent="Circle_trans" unique_id=242601296]
 material = SubResource("ShaderMaterial_o6xl0")
 offset_right = 320.0
 offset_bottom = 180.0
+mouse_filter = 2
 
 [node name="Black_screen" type="ColorRect" parent="Circle_trans" unique_id=646299022]
 visible = false
@@ -131,13 +139,20 @@ color = Color(0, 0, 0, 1)
 z_index = 1000
 custom_minimum_size = Vector2(320, 180)
 offset_left = -360.0
-offset_top = -210.0
 offset_right = -39.999756
-offset_bottom = 390.0
+offset_bottom = 600.0
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
 [node name="Move_allow" type="Timer" parent="." unique_id=1638547810]
 wait_time = 0.05
 one_shot = true
 
+[node name="GUI" parent="." unique_id=310219774 node_paths=PackedStringArray("character1", "character2") instance=ExtResource("2_0wfyh")]
+character1 = NodePath("../Character_1")
+character2 = NodePath("../Character_2")
+
+[connection signal="button_down" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_texture_button_button_down"]
+[connection signal="mouse_entered" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_mouse_exited"]
+[connection signal="pressed" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_texture_button_pressed"]
 [connection signal="timeout" from="Move_allow" to="." method="_on_move_allow_timeout"]

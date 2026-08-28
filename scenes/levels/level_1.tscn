@@ -27,6 +27,7 @@ offset_left = -26.0
 offset_top = -7.0
 offset_right = 346.0
 offset_bottom = 253.0
+mouse_filter = 2
 color = Color(0.7921569, 0.6431373, 0.8627451, 1)
 
 [node name="platforms" type="TileMapLayer" parent="." unique_id=1635333448]
