@@ -19,9 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dsm7gt8v3vynq" path="res://art/UI/text/kelpekk.png" id="16_scr1a"]
 [ext_resource type="Texture2D" uid="uid://wfg5ij0qg8pu" path="res://art/UI/text/code.png" id="17_nu0op"]
 [ext_resource type="Texture2D" uid="uid://d3bqujliqem5e" path="res://art/UI/text/design.png" id="18_6gm0r"]
-[ext_resource type="Texture2D" uid="uid://b23juyps1jvcu" path="res://art/UI/text/music.png" id="19_cj7n5"]
 [ext_resource type="Texture2D" uid="uid://dcspyfaibvs6c" path="res://art/UI/text/shaders.png" id="20_afaap"]
-[ext_resource type="Texture2D" uid="uid://dmdknt2qihps2" path="res://art/UI/text/sfx.png" id="21_gqbxs"]
 [ext_resource type="Texture2D" uid="uid://dpxtrcx3n6me" path="res://art/UI/text/gmail.png" id="22_1ss0f"]
 [ext_resource type="Texture2D" uid="uid://d2qitqabeppag" path="res://art/UI/buttons/back_button.png" id="23_6gm0r"]
 [ext_resource type="PackedScene" uid="uid://dugp7x1de6feb" path="res://scenes/UI/level_connector.tscn" id="24_afaap"]
@@ -285,36 +283,6 @@ _data = {
 &"level_selector_on": SubResource("Animation_54m0d")
 }
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
-shader = ExtResource("1_yonvy")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u15bo"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h18h7"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udkvx"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5no5"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcduc"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th7s7"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbenk"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu61"]
-bg_color = Color(1, 1, 1, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwj3j"]
-bg_color = Color(1, 1, 1, 0)
-
 [sub_resource type="Animation" id="Animation_tefeu"]
 length = 0.001
 tracks/0/type = "value"
@@ -441,6 +409,36 @@ _data = {
 &"level_selector_half": SubResource("Animation_8d054")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("1_yonvy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u15bo"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h18h7"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_udkvx"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l5no5"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bcduc"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_th7s7"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbenk"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8nu61"]
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qwj3j"]
+bg_color = Color(1, 1, 1, 0)
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_726sv"]
 shader = ExtResource("34_8d054")
 shader_parameter/_CirclePosition = Vector2(0.5, 0.5)
@@ -461,6 +459,9 @@ metadata/_edit_lock_ = true
 
 [node name="Transition_Animations" type="AnimationPlayer" parent="." unique_id=1657425511]
 libraries/ = SubResource("AnimationLibrary_afaap")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620200610]
+libraries/ = SubResource("AnimationLibrary_8d054")
 
 [node name="Background" type="TextureRect" parent="." unique_id=794989512]
 texture_repeat = 2
@@ -623,20 +624,10 @@ position = Vector2(90, 11)
 scale = Vector2(3, 3)
 texture = ExtResource("18_6gm0r")
 
-[node name="Music" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=556183913]
-position = Vector2(-27, -20)
-scale = Vector2(3, 3)
-texture = ExtResource("19_cj7n5")
-
 [node name="Shaders" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=502964457]
 position = Vector2(-77, 16)
 scale = Vector2(3, 3)
 texture = ExtResource("20_afaap")
-
-[node name="Sfx" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=2023559849]
-position = Vector2(31, -20)
-scale = Vector2(3, 3)
-texture = ExtResource("21_gqbxs")
 
 [node name="Gmail" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=626920457]
 position = Vector2(80, 27)
@@ -941,9 +932,6 @@ position = Vector2(48, 93)
 texture = ExtResource("32_a7i4r")
 script = ExtResource("33_8d054")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620200610]
-libraries/ = SubResource("AnimationLibrary_8d054")
-
 [node name="Circle_trans" type="CanvasLayer" parent="." unique_id=60283643]
 
 [node name="ColorRect" type="ColorRect" parent="Circle_trans" unique_id=240968004]
@@ -961,10 +949,6 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="Circle_trans_time" type="Timer" parent="." unique_id=347921271]
-wait_time = 0.5
-one_shot = true
-
 [node name="Transition_Background_2" type="ColorRect" parent="." unique_id=125641927]
 visible = false
 z_index = 1000
@@ -975,6 +959,14 @@ offset_bottom = 180.0
 mouse_filter = 2
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
+[node name="Circle_trans_time" type="Timer" parent="." unique_id=347921271]
+wait_time = 0.5
+one_shot = true
+
+[node name="Loading_timer" type="Timer" parent="." unique_id=605548118]
+wait_time = 0.3
+one_shot = true
+
 [node name="Loading" type="AudioStreamPlayer" parent="." unique_id=1062525413]
 stream = ExtResource("42_62nw6")
 volume_db = -10.0
@@ -982,10 +974,6 @@ volume_db = -10.0
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1468933656]
 stream = ExtResource("43_himyh")
 volume_db = -10.0
-
-[node name="Loading_timer" type="Timer" parent="." unique_id=605548118]
-wait_time = 0.3
-one_shot = true
 
 [node name="Collect" type="AudioStreamPlayer" parent="." unique_id=1486842719]
 stream = ExtResource("44_himyh")
