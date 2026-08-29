@@ -104,7 +104,12 @@ func _physics_process(delta: float) -> void:
 		gun_out = true
 		Gun_sprite.visible = true
 		Engine.time_scale = 0.1
-	
+		main.get_node("Music").pitch_scale = 0.5
+		var mat = GUI.get_node("ColorRect").material
+		create_tween().tween_property(mat, "shader_parameter/aberration_x", 0.03, 0.15)
+		create_tween().tween_property(mat, "shader_parameter/aberration_y", 0.03, 0.15)
+		create_tween().tween_property(GUI.get_node("ColorRect2"), "modulate:a", 0.35, 0.15)
+		create_tween().tween_property(mat, "shader_parameter/desaturation", 0.8, 0.15)
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
 		var mouse_left := get_global_mouse_position().x < global_position.x
@@ -124,6 +129,12 @@ func _physics_process(delta: float) -> void:
 		Gun_sprite.visible = false
 		$Rotation_point/Gun_dis.emitting = true
 		Engine.time_scale = 1.0
+		main.get_node("Music").pitch_scale = 1.0
+		var mat = GUI.get_node("ColorRect").material
+		create_tween().tween_property(mat, "shader_parameter/aberration_x", 0.0, 0.05)
+		create_tween().tween_property(mat, "shader_parameter/aberration_y", 0.0, 0.05)
+		create_tween().tween_property(GUI.get_node("ColorRect2"), "modulate:a", 0.0, 0.05)
+		create_tween().tween_property(mat, "shader_parameter/desaturation", 0.0, 0.05)
 		$Icon.play("Idle")
 		
 		can_shoot = false

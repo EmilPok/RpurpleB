@@ -8,6 +8,7 @@
 [ext_resource type="Shader" uid="uid://c5q8p30mm0d7g" path="res://shaders/circle.gdshader" id="6_tefeu"]
 [ext_resource type="Texture2D" uid="uid://bre6vrhb3j252" path="res://art/UI/X_button.png" id="7_o6xl0"]
 [ext_resource type="Script" uid="uid://b5wp5ax83mxm7" path="res://scripts/UI/back_button.gd" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://vi100fckokfr" path="res://sounds/music/level_background_music.mp3" id="9_85g3d"]
 
 [sub_resource type="Animation" id="Animation_tipki"]
 resource_name = "End_transition"
@@ -150,6 +151,11 @@ one_shot = true
 [node name="GUI" parent="." unique_id=310219774 node_paths=PackedStringArray("character1", "character2") instance=ExtResource("2_0wfyh")]
 character1 = NodePath("../Character_1")
 character2 = NodePath("../Character_2")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1707471709]
+stream = ExtResource("9_85g3d")
+volume_db = -20.0
+autoplay = true
 
 [connection signal="button_down" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_texture_button_button_down"]
 [connection signal="mouse_entered" from="Circle_trans/Back_button" to="Circle_trans/Back_button" method="_on_mouse_entered"]
