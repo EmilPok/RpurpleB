@@ -5,6 +5,8 @@ var scene_file = ".tscn"
 
 @export var Amount_of_levels : int
 
+var sus_button : Sprite2D
+
 var last_level : Node2D = null
 var reset_position = Vector2(1000.0, 1000.0)
 
@@ -13,11 +15,20 @@ var shot_bullets = []
 var playing_anim = false
 var active_button = true
 
+var visible_tip = false
+var invis_button = false
+
 func _process(_delta: float) -> void:
 	if playing_anim and Engine.time_scale != 1.0:
 		Engine.time_scale = 1.0
 
+
 func _ready() -> void:
+	
+	if Global.selected_level == 9:
+		$Circle_trans/Help.show()
+		$Circle_trans/Help.disabled = false
+	
 	randomize()
 	_reset_level()
 	$Circle_trans/Black_screen.show()
@@ -102,6 +113,8 @@ func _on_move_allow_timeout() -> void:
 	active_button = true
 
 func _back():
+	$click.play()
+	
 	if $AnimationPlayer.is_playing():
 		return
 	
@@ -112,3 +125,25 @@ func _back():
 	await $AnimationPlayer.animation_finished
 	
 	get_tree().call_deferred("change_scene_to_file", "res://scenes/UI/main_menu.tscn")
+
+func _help():
+	$click.play()
+	if not visible_tip:
+		$AnimationPlayer2.play("slide")
+	else:
+		$AnimationPlayer2.play_backwards("slide")
+	visible_tip = not visible_tip
+	_on_button_anim_timeout()
+
+
+func _on_button_anim_timeout() -> void:
+	var tween = create_tween()
+	if not invis_button:
+		tween.tween_property(sus_button, "modulate", Color(1.0, 1.0, 1.0, 0.2), 0.3)
+		$Button_anim.start()
+	else:
+		tween.tween_property(sus_button, "modulate", Color(1.0, 1.0, 1.0, 1.0), 0.3)
+		if visible_tip:
+			$Button_anim.start()
+	invis_button = not invis_button
+	

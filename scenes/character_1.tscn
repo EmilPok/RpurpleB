@@ -218,7 +218,7 @@ texture = ExtResource("2_l55i8")
 [node name="Icon" type="AnimatedSprite2D" parent="." unique_id=1916461415]
 material = SubResource("ShaderMaterial_ryofq")
 sprite_frames = SubResource("SpriteFrames_l55i8")
-animation = &"TakeAGun"
+animation = &"Idle"
 autoplay = "Idle"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1786981151]

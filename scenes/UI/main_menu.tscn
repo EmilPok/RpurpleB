@@ -41,6 +41,9 @@
 [ext_resource type="Texture2D" uid="uid://ccnp03ifp001l" path="res://art/UI/numbers/six.png" id="35_co7qn"]
 [ext_resource type="Texture2D" uid="uid://3sj4q02n7m03" path="res://art/UI/numbers/seve.png" id="36_qvwvq"]
 [ext_resource type="Texture2D" uid="uid://cqaejykf8a23v" path="res://art/UI/numbers/eight.png" id="36_u15bo"]
+[ext_resource type="AudioStream" uid="uid://cx52vek0x1oph" path="res://sounds/loading.mp3" id="42_62nw6"]
+[ext_resource type="AudioStream" uid="uid://jyrukq6io31m" path="res://sounds/click.mp3" id="43_himyh"]
+[ext_resource type="AudioStream" uid="uid://d0ag3wp6dudyg" path="res://sounds/colllect.mp3" id="44_himyh"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -551,6 +554,7 @@ texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
 
 [node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
+visible = false
 script = ExtResource("13_i7p8e")
 
 [node name="CreditsTitle" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
@@ -971,6 +975,22 @@ offset_bottom = 180.0
 mouse_filter = 2
 color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 
+[node name="Loading" type="AudioStreamPlayer" parent="." unique_id=1062525413]
+stream = ExtResource("42_62nw6")
+volume_db = -10.0
+
+[node name="Click" type="AudioStreamPlayer" parent="." unique_id=1468933656]
+stream = ExtResource("43_himyh")
+volume_db = -10.0
+
+[node name="Loading_timer" type="Timer" parent="." unique_id=605548118]
+wait_time = 0.3
+one_shot = true
+
+[node name="Collect" type="AudioStreamPlayer" parent="." unique_id=1486842719]
+stream = ExtResource("44_himyh")
+volume_db = -10.0
+
 [connection signal="button_down" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_button_down"]
 [connection signal="mouse_entered" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_exited"]
@@ -1005,3 +1025,4 @@ color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 [connection signal="pressed" from="LevelSelector/Level8/Button8" to="." method="_on_button_8_pressed"]
 [connection signal="pressed" from="LevelSelector/Level9/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]
+[connection signal="timeout" from="Loading_timer" to="." method="_on_loading_timer_timeout"]

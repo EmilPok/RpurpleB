@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://n875pqs2ak0y"]
 
 [ext_resource type="TileSet" uid="uid://b8gubqbjc0uns" path="res://art/tiles.tres" id="1_6v45j"]
+[ext_resource type="Script" uid="uid://g6m8bkjytsb4" path="res://scripts/level_9.gd" id="1_m2cpo"]
 [ext_resource type="PackedScene" uid="uid://cvaoho4dwuilx" path="res://scenes/end_button.tscn" id="2_ltlq2"]
 [ext_resource type="PackedScene" uid="uid://dra4hwim6nip" path="res://scenes/button.tscn" id="3_6nuwh"]
 [ext_resource type="PackedScene" uid="uid://cbv15oqqtv3bg" path="res://scenes/moving_block.tscn" id="4_m2cpo"]
@@ -13,6 +14,7 @@
 size = Vector2(484, 20)
 
 [node name="level_9" type="Node2D" unique_id=948638129]
+script = ExtResource("1_m2cpo")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=991859291]
 position = Vector2(160, 98)

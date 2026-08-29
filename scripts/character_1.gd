@@ -222,10 +222,9 @@ func _reset():
 
 func _slow_motion_effect(on: bool) -> void:
 	var mat = GUI.get_node("ColorRect").material
-	mat.set_shader_parameter("aberration_x", 0.03 if on else 0.0)
-	mat.set_shader_parameter("aberration_y", 0.03 if on else 0.0)
-	mat.set_shader_parameter("desaturation", 0.8 if on else 0.0)
-	GUI.get_node("ColorRect2").modulate.a = 0.35 if on else 0.0
+	mat.set_shader_parameter("aberration_x", 0.02 if on else 0.0)
+	mat.set_shader_parameter("aberration_y", 0.02 if on else 0.0)
+	GUI.get_node("ColorRect2").modulate.a = 0.2 if on else 0.0
 
 func _on_look_around_timeout() -> void:
 	if $Icon.animation == "Idle":

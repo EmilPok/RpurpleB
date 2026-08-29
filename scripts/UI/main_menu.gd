@@ -50,7 +50,9 @@ func _ready() -> void:
 			Global.last_levels_completed = Global.levels_completed
 			var i = Global.levels_completed - 1
 			cables[i].connect_levels()
+			$Loading_timer.start()
 			await cables[i].get_node("AnimationPlayer").animation_finished
+			$Collect.play()
 			if i + 1 < levels.size():
 				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
 	
@@ -62,18 +64,22 @@ func _ready() -> void:
 	
 
 func _on_play_pressed() -> void:
+	$Click.play()
 	$Transition_Animations.play("level_selector_on")
 
 func _on_options_pressed() -> void:
+	$Click.play()
 	pass
 
 func _on_credits_pressed() -> void:
+	$Click.play()
 	$Transition_Animations.play("credits_on")
 
 func _on_exit_pressed() -> void:
 	get_tree().quit()
 
 func _on_back_button_pressed() -> void:
+	$Click.play()
 	$LevelSelector/BackButton2.modulate  = Color.WHITE
 	
 	if $HBoxContainer/Credits_Smooth_Movement_Handl.visible:
@@ -82,6 +88,7 @@ func _on_back_button_pressed() -> void:
 		$Transition_Animations.play("level_selector_off")
 
 func _start_transition(num):
+	$Click.play()
 	if Global.levels_completed < num - 1:
 		return
 	
@@ -111,7 +118,7 @@ func _on_button_8_pressed() -> void:
 	_start_transition(8)
 func _on_button_9_pressed() -> void:
 	_start_transition(9)
-# Przepraszam za to co jest tutaj, (spieszyło mi się) (proszę nie zamorduj mnie)
+
 func _on_play_mouse_entered() -> void:
 	$HBoxContainer/MainButtons/Play.modulate = hover_dark_color
 func _on_play_mouse_exited() -> void:
@@ -151,3 +158,7 @@ func _on_back_button_button_down() -> void:
 	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color(0.4, 0.4, 0.4, 1.0)
 func _on_back_button_2_button_down() -> void:
 	$LevelSelector/BackButton2.modulate  = Color(0.4, 0.4, 0.4, 1.0)
+
+
+func _on_loading_timer_timeout() -> void:
+	$Loading.play()

@@ -14,6 +14,8 @@ var hold_button_text = preload("res://art/misc/Buttons/hold_button.png")
 @export var second_object : Node2D
 @export var third_object : Node2D
 
+@onready var Sprite = $Sprite
+
 var can_press = true
 var one_timer = false
 
