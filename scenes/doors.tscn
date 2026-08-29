@@ -117,7 +117,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h18h7"]
-size = Vector2(8, 12)
+size = Vector2(10, 12)
 
 [node name="Doors" type="Node2D" unique_id=434340596]
 z_index = -1

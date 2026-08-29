@@ -76,7 +76,7 @@ end_point_pos = Vector2(-62, 0)
 horizontal = true
 
 [node name="Moving_block3" parent="." unique_id=833281625 instance=ExtResource("4_sjq8i")]
-position = Vector2(74, 114)
+position = Vector2(74, 112)
 end_point_pos = Vector2(0, 22)
 flipped = true
 
