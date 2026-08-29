@@ -69,7 +69,7 @@ func _on_play_pressed() -> void:
 
 func _on_options_pressed() -> void:
 	$Click.play()
-	pass
+	$Transition_Animations.play("options_on")
 
 func _on_credits_pressed() -> void:
 	$Click.play()
@@ -80,12 +80,18 @@ func _on_exit_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	$Click.play()
-	$LevelSelector/BackButton2.modulate  = Color.WHITE
+	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
+	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
+	$LevelSelector/BackButton2.modulate = Color.WHITE
+	
 	
 	if $HBoxContainer/Credits_Smooth_Movement_Handl.visible:
 		$Transition_Animations.play("credits_off")
 	if $LevelSelector.visible:
 		$Transition_Animations.play("level_selector_off")
+	if $HBoxContainer/Options.visible:
+		$Transition_Animations.play("options_off")
+	
 
 func _start_transition(num):
 	$Click.play()
@@ -159,6 +165,37 @@ func _on_back_button_button_down() -> void:
 func _on_back_button_2_button_down() -> void:
 	$LevelSelector/BackButton2.modulate  = Color(0.4, 0.4, 0.4, 1.0)
 
-
 func _on_loading_timer_timeout() -> void:
 	$Loading.play()
+
+
+func _change_audio(bus, value):
+	value /= 100.0
+	var bus_index = AudioServer.get_bus_index(bus)
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+
+
+func _on_h_slider_value_changed(value: float) -> void:
+	_change_audio("Music", value)
+func _on_h_slider_2_value_changed(value: float) -> void:
+	_change_audio("sfx", value)
+
+
+func _on_back_button_options_button_down() -> void:
+	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color(0.4, 0.4, 0.4, 1.0)
+func _on_back_button_options_mouse_entered() -> void:
+	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = hover_dark_color
+func _on_back_button_options_mouse_exited() -> void:
+	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
+
+
+func _on_h_slider_drag_started() -> void:
+	$Click_start.play()
+
+func _on_h_slider_2_drag_started() -> void:
+	$Click_start.play()
+
+func _on_h_slider_drag_ended(_value_changed: bool) -> void:
+	$Click_end.play()
+func _on_h_slider_2_drag_ended(_value_changed: bool) -> void:
+	$Click_end.play()

@@ -8,16 +8,19 @@ extends Node2D
 
 var active = false
 
+var no_sound = false
 
 func _ready() -> void:
 	if flipped or horizontal:
 		Icon.flip_v = false
 		$Moving_block/Collision.position.y -= 1.0
 		
-		
-		
-
+func _moving_platform():
+	pass
 func _active():
+	if not no_sound:
+		$Audio.start()
+	
 	var tween = create_tween()
 	
 	if not active:
@@ -45,3 +48,7 @@ func _active():
 
 func _on_stop_anim_timeout() -> void:
 	Icon.play("Idle")
+
+
+func _on_audio_timeout() -> void:
+	$Woosh.play()

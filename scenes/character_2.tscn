@@ -273,6 +273,7 @@ autostart = true
 [node name="Woosh" type="AudioStreamPlayer" parent="." unique_id=739706319]
 stream = ExtResource("5_jqnby")
 volume_db = -10.0
+bus = &"sfx"
 
 [connection signal="timeout" from="Dash_dur" to="." method="_on_dash_dur_timeout"]
 [connection signal="timeout" from="Dash_cooldown" to="." method="_on_dash_cooldown_timeout"]

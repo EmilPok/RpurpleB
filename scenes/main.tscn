@@ -213,10 +213,12 @@ character2 = NodePath("../Character_2")
 stream = ExtResource("9_85g3d")
 volume_db = -10.0
 autoplay = true
+bus = &"Music"
 
 [node name="click" type="AudioStreamPlayer" parent="." unique_id=1436602847]
 stream = ExtResource("10_choun")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=619016517]
 libraries/ = SubResource("AnimationLibrary_a8y0u")

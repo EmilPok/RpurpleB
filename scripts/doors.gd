@@ -7,6 +7,8 @@ var active= false
 var close_sign = preload("res://art/misc/Door/Close_sign.png")
 var open_sign = preload("res://art/misc/Door/Opening_sign.png")
 
+var no_sound = false
+
 func _ready() -> void:
 	if start_active:
 		active = true

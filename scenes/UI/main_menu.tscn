@@ -25,12 +25,18 @@
 [ext_resource type="Texture2D" uid="uid://dpxtrcx3n6me" path="res://art/UI/text/gmail.png" id="22_1ss0f"]
 [ext_resource type="Texture2D" uid="uid://d2qitqabeppag" path="res://art/UI/buttons/back_button.png" id="23_6gm0r"]
 [ext_resource type="PackedScene" uid="uid://dugp7x1de6feb" path="res://scenes/UI/level_connector.tscn" id="24_afaap"]
+[ext_resource type="Texture2D" uid="uid://ftidnq5ielhc" path="res://art/UI/option_panel.png" id="25_0vyrp"]
 [ext_resource type="Texture2D" uid="uid://cracidc64bs1t" path="res://art/UI/level_design/level_stage_start.png" id="25_726sv"]
 [ext_resource type="Texture2D" uid="uid://mw2hs006xd58" path="res://art/UI/level_design/level_stage.png" id="25_gqbxs"]
 [ext_resource type="Texture2D" uid="uid://cha13i0jnwm4d" path="res://art/UI/level_design/mostly_purple_level.png" id="26_bocfi"]
 [ext_resource type="Texture2D" uid="uid://b4truypqexabg" path="res://art/UI/level_design/level_stage_to_left.png" id="26_gqbxs"]
+[ext_resource type="Texture2D" uid="uid://hadtixkcw4di" path="res://art/UI/options_head.png" id="26_pm66n"]
+[ext_resource type="Texture2D" uid="uid://dhpid6cy04es8" path="res://art/UI/Music_label.png" id="27_wt33a"]
 [ext_resource type="Texture2D" uid="uid://dn6xmst0p80bo" path="res://art/UI/numbers/one.png" id="27_ww2wg"]
+[ext_resource type="Texture2D" uid="uid://q177e4j4x717" path="res://art/UI/SFX_label.png" id="28_cfh5a"]
 [ext_resource type="Texture2D" uid="uid://duq0vugp8bdgp" path="res://art/UI/numbers/two.png" id="29_a7i4r"]
+[ext_resource type="Texture2D" uid="uid://ddbqpegglvl3v" path="res://art/UI/grabber_icon.png" id="29_pm66n"]
+[ext_resource type="Texture2D" uid="uid://dj7jvg1b1e86x" path="res://art/UI/grabber_icon_pressed.png" id="30_wt33a"]
 [ext_resource type="Texture2D" uid="uid://bnxdxkb2w20vf" path="res://art/UI/numbers/three.png" id="31_8d054"]
 [ext_resource type="Texture2D" uid="uid://6rjgi7v78onx" path="res://art/UI/blue_crosshair.png" id="32_a7i4r"]
 [ext_resource type="Script" uid="uid://d56510j2ch3f" path="res://scripts/blue_crosshair.gd" id="33_8d054"]
@@ -44,6 +50,8 @@
 [ext_resource type="AudioStream" uid="uid://cx52vek0x1oph" path="res://sounds/loading.mp3" id="42_62nw6"]
 [ext_resource type="AudioStream" uid="uid://jyrukq6io31m" path="res://sounds/click.mp3" id="43_himyh"]
 [ext_resource type="AudioStream" uid="uid://d0ag3wp6dudyg" path="res://sounds/colllect.mp3" id="44_himyh"]
+[ext_resource type="AudioStream" uid="uid://c701b4k84ew0m" path="res://sounds/click.wav" id="51_6irp5"]
+[ext_resource type="AudioStream" uid="uid://4gbhmf70xfwx" path="res://sounds/un_click.wav" id="51_cfh5a"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -70,6 +78,42 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Transition_Background:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition_Background:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HBoxContainer/Options:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_6gm0r"]
@@ -276,13 +320,117 @@ tracks/3/keys = {
 "values": [false, true]
 }
 
+[sub_resource type="Animation" id="Animation_pm66n"]
+resource_name = "options_off"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.4392157, 0.2627451, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition_Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(3.14, 3.2),
+"update": 0,
+"values": [Vector2(-320, 0), Vector2(320, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/Options:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_wt33a"]
+resource_name = "options_on"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Transition_Background:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.4392157, 0.2627451, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Transition_Background:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.297, 1),
+"update": 0,
+"values": [Vector2(320, 0), Vector2(-320, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HBoxContainer/Options:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_afaap"]
 _data = {
 &"RESET": SubResource("Animation_gqbxs"),
 &"credits_off": SubResource("Animation_6gm0r"),
 &"credits_on": SubResource("Animation_cj7n5"),
 &"level_selector_off": SubResource("Animation_1ss0f"),
-&"level_selector_on": SubResource("Animation_54m0d")
+&"level_selector_on": SubResource("Animation_54m0d"),
+&"options_off": SubResource("Animation_pm66n"),
+&"options_on": SubResource("Animation_wt33a")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
@@ -352,6 +500,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(-320, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Transition_Background:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.4392157, 0.2627451, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_o6xl0"]
@@ -432,6 +592,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Transition_Background:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.007843138, 0.53333336, 0.81960785, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8d054"]
@@ -662,6 +834,84 @@ grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("23_6gm0r")
+
+[node name="Options" type="Node2D" parent="HBoxContainer" unique_id=171070589]
+visible = false
+script = ExtResource("13_i7p8e")
+
+[node name="CreditsTitle" type="TextureRect" parent="HBoxContainer/Options" unique_id=234227501]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("25_0vyrp")
+
+[node name="BackButton_options" type="TextureButton" parent="HBoxContainer/Options/CreditsTitle" unique_id=334974544]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.0
+offset_top = 107.0
+offset_right = 32.0
+offset_bottom = 139.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("23_6gm0r")
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle" unique_id=1626366308]
+layout_mode = 0
+offset_left = 75.5
+offset_right = 180.5
+offset_bottom = 35.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+offset_transform_enabled = true
+offset_transform_position = Vector2(0, -18)
+texture = ExtResource("26_pm66n")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Options/CreditsTitle" unique_id=1991210696]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 23.0
+offset_right = 224.0
+offset_bottom = 114.0
+theme_override_constants/separation = 19
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer" unique_id=1639673232]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Music_label" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1544280740]
+layout_mode = 2
+texture = ExtResource("27_wt33a")
+
+[node name="SFX_label" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1516809411]
+layout_mode = 2
+texture = ExtResource("28_cfh5a")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer" unique_id=1202394318]
+custom_minimum_size = Vector2(100.32, 0)
+layout_mode = 2
+theme_override_constants/separation = 18
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=1313862846]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("30_wt33a")
+theme_override_icons/grabber_highlight = ExtResource("29_pm66n")
+min_value = 0.001
+value = 100.0
+
+[node name="HSlider2" type="HSlider" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=337796625]
+layout_mode = 2
+focus_mode = 0
+theme_override_icons/grabber = ExtResource("30_wt33a")
+theme_override_icons/grabber_highlight = ExtResource("29_pm66n")
+value = 100.0
 
 [node name="LevelSelector" type="Node2D" parent="." unique_id=280259287]
 visible = false
@@ -932,7 +1182,7 @@ layout_mode = 0
 offset_left = -320.0
 offset_right = 0.00024414063
 offset_bottom = 180.0
-color = Color(0.007843138, 0.53333336, 0.81960785, 1)
+color = Color(1, 0.4392157, 0.2627451, 1)
 
 [node name="Cursor" type="CanvasLayer" parent="." unique_id=136855318]
 
@@ -978,10 +1228,12 @@ color = Color(0.007843138, 0.53333336, 0.81960785, 1)
 [node name="Loading" type="AudioStreamPlayer" parent="." unique_id=1062525413]
 stream = ExtResource("42_62nw6")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="Click" type="AudioStreamPlayer" parent="." unique_id=1468933656]
 stream = ExtResource("43_himyh")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="Loading_timer" type="Timer" parent="." unique_id=605548118]
 wait_time = 0.3
@@ -989,6 +1241,15 @@ one_shot = true
 
 [node name="Collect" type="AudioStreamPlayer" parent="." unique_id=1486842719]
 stream = ExtResource("44_himyh")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="Click_start" type="AudioStreamPlayer" parent="." unique_id=182541588]
+stream = ExtResource("51_6irp5")
+volume_db = -10.0
+
+[node name="Click_end" type="AudioStreamPlayer" parent="." unique_id=1725502342]
+stream = ExtResource("51_cfh5a")
 volume_db = -10.0
 
 [connection signal="button_down" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_button_down"]
@@ -1011,6 +1272,16 @@ volume_db = -10.0
 [connection signal="mouse_entered" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_entered"]
 [connection signal="mouse_exited" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_exited"]
 [connection signal="pressed" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_button_down"]
+[connection signal="mouse_entered" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_pressed"]
+[connection signal="drag_ended" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_started"]
+[connection signal="value_changed" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="drag_ended" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_ended"]
+[connection signal="drag_started" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_started"]
+[connection signal="value_changed" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="button_down" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_button_down"]
 [connection signal="mouse_entered" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_exited"]

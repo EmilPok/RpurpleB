@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxbtsm8sbdlgj" path="res://scripts/moving_block.gd" id="1_836u2"]
 [ext_resource type="Texture2D" uid="uid://bfjfydj83jvvg" path="res://art/misc/platform.png" id="2_sy65f"]
+[ext_resource type="AudioStream" uid="uid://dm7xagno6m3b5" path="res://sounds/wosh_2.mp3" id="3_sy65f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(30, 3)
@@ -64,4 +65,14 @@ flip_v = true
 wait_time = 0.6
 one_shot = true
 
+[node name="Woosh" type="AudioStreamPlayer" parent="." unique_id=1130486578]
+stream = ExtResource("3_sy65f")
+volume_db = -10.0
+bus = &"sfx"
+
+[node name="Audio" type="Timer" parent="." unique_id=1884211899]
+wait_time = 0.1
+one_shot = true
+
 [connection signal="timeout" from="Stop_anim" to="." method="_on_stop_anim_timeout"]
+[connection signal="timeout" from="Audio" to="." method="_on_audio_timeout"]

@@ -16,11 +16,14 @@ func _ready() -> void:
 		set_collision_mask_value(4, true)
 
 func _on_body_entered(_body: Node2D) -> void:
+	$Pressed.play()
 	$Sprite.frame = 1
 	if other_button.active:
 		main._level_completed()
 	active = true
 
 func _on_body_exited(_body: Node2D) -> void:
+	if $Unpressed.is_inside_tree():
+		$Unpressed.play()
 	$Sprite.frame = 0
 	active = false

@@ -269,6 +269,8 @@ autostart = true
 
 [node name="Pop" type="AudioStreamPlayer" parent="." unique_id=833429060]
 stream = ExtResource("8_tfkyx")
+volume_db = -10.0
+bus = &"sfx"
 
 [connection signal="timeout" from="Shoot_cooldown" to="." method="_on_shoot_cooldown_timeout"]
 [connection signal="timeout" from="Coyote_time" to="." method="_on_coyote_time_timeout"]

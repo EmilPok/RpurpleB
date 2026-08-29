@@ -42,10 +42,30 @@ func _iam_button():
 	
 	one_timer = true
 	
+	var first_object_moving = false
+	if object.has_method("_moving_platform"):
+		first_object_moving = true
+	var did_two_objects = false
+	
+	$Pressed.play()
+	object.no_sound = false
 	object._active()
 	if second_object:
+		second_object.no_sound = false
+		if first_object_moving and second_object.has_method("_moving_platform"):
+			second_object.no_sound = true
+		elif not first_object_moving and not second_object.has_method("_moving_platform"):
+			second_object.no_sound = true
+			did_two_objects = true
 		second_object._active()
 	if third_object:
+		third_object.no_sound = false
+		if did_two_objects:
+			third_object.no_sound = true
+		elif first_object_moving and third_object.has_method("_moving_platform"):
+			second_object.no_sound = true
+		elif not first_object_moving and not third_object.has_method("_moving_platform"):
+			second_object.no_sound = true
 		third_object._active()
 	
 	$Sprite.frame = 1
@@ -64,6 +84,7 @@ func _on_time_pressed_timeout() -> void:
 	if hold:
 		object._active()
 	$Sprite.frame = 0
+	$Unpressed.play()
 	
 	
 func _on_body_exited(body: Node2D) -> void:

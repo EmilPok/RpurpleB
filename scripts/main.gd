@@ -25,6 +25,10 @@ func _process(_delta: float) -> void:
 
 func _ready() -> void:
 	
+	$Music.volume_db = -20.0
+	var tween = create_tween()
+	tween.tween_property($Music, "volume_db", -10.0, 2.0)
+	
 	if Global.selected_level == 9:
 		$Circle_trans/Help.show()
 		$Circle_trans/Help.disabled = false

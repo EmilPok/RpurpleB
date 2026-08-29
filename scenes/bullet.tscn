@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cinm3fsw4wci6" path="res://scripts/bullet.gd" id="1_v7oki"]
 [ext_resource type="Texture2D" uid="uid://74sew1oadhog" path="res://art/misc/gun_bullet.png" id="2_y25gk"]
+[ext_resource type="AudioStream" uid="uid://bd5nrpve7jtnv" path="res://sounds/laserShoot.wav" id="3_l5glv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v8qja"]
 size = Vector2(7, 5)
@@ -77,6 +78,11 @@ color_ramp = SubResource("Gradient_ryofq")
 [node name="Destroy_bullet" type="Timer" parent="." unique_id=1796541563]
 wait_time = 3.0
 one_shot = true
+
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1991803585]
+stream = ExtResource("3_l5glv")
+volume_db = -10.0
+bus = &"sfx"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

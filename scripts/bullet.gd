@@ -38,6 +38,7 @@ func _destroy_bullet():
 	$Particles.emitting = false
 	$CollisionShape2D.set_deferred("disabled", true)
 	$Destroy_bullet.start()
+	$hit.play()
 
 func _on_timer_timeout() -> void:
 	queue_free()
