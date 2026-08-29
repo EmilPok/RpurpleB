@@ -551,7 +551,6 @@ texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
 
 [node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
-visible = false
 script = ExtResource("13_i7p8e")
 
 [node name="CreditsTitle" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
@@ -641,6 +640,10 @@ texture = ExtResource("22_1ss0f")
 
 [node name="Gmail2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=2097861645]
 position = Vector2(99, -13)
+texture = ExtResource("22_1ss0f")
+
+[node name="Gmail2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer/Gmail2" unique_id=619232047]
+position = Vector2(-157, 52)
 texture = ExtResource("22_1ss0f")
 
 [node name="BackButton" type="TextureButton" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=541694709]

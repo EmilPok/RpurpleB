@@ -251,7 +251,7 @@ position = Vector2(175, 40)
 texture = ExtResource("10_q0wsq")
 
 [node name="BulletWall2" type="Sprite2D" parent="." unique_id=719861119]
-position = Vector2(108, 39)
+position = Vector2(109, 40)
 texture = ExtResource("10_q0wsq")
 flip_v = true
 
