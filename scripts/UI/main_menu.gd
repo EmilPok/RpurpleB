@@ -5,6 +5,7 @@ var hover_dark_color = Color(hover_dark, hover_dark, hover_dark, 1.0)
 
 func _ready() -> void:
 	
+	
 	var cables = [
 		$LevelSelector/Level1/LevelConnector,
 		$LevelSelector/Level2/LevelConnector,
@@ -50,9 +51,11 @@ func _ready() -> void:
 			Global.last_levels_completed = Global.levels_completed
 			var i = Global.levels_completed - 1
 			cables[i].connect_levels()
-			$Loading_timer.start()
+			if not Global.levels_completed == 9:
+				$Loading_timer.start()
 			await cables[i].get_node("AnimationPlayer").animation_finished
-			$Collect.play()
+			if not Global.levels_completed == 9:
+				$Collect.play()
 			if i + 1 < levels.size():
 				levels[i + 1].get_node("MostlyPurpleLevel").visible = true
 	
