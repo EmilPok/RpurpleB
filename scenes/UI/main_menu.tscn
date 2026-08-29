@@ -1235,10 +1235,12 @@ bus = &"sfx"
 [node name="Click_start" type="AudioStreamPlayer" parent="." unique_id=182541588]
 stream = ExtResource("51_6irp5")
 volume_db = -10.0
+bus = &"sfx"
 
 [node name="Click_end" type="AudioStreamPlayer" parent="." unique_id=1725502342]
 stream = ExtResource("51_cfh5a")
 volume_db = -10.0
+bus = &"sfx"
 
 [connection signal="button_down" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_button_down"]
 [connection signal="mouse_entered" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_entered"]
