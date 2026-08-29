@@ -105,11 +105,7 @@ func _physics_process(delta: float) -> void:
 		Gun_sprite.visible = true
 		Engine.time_scale = 0.1
 		main.get_node("Music").pitch_scale = 0.5
-		var mat = GUI.get_node("ColorRect").material
-		create_tween().tween_property(mat, "shader_parameter/aberration_x", 0.03, 0.15)
-		create_tween().tween_property(mat, "shader_parameter/aberration_y", 0.03, 0.15)
-		create_tween().tween_property(GUI.get_node("ColorRect2"), "modulate:a", 0.35, 0.15)
-		create_tween().tween_property(mat, "shader_parameter/desaturation", 0.8, 0.15)
+		_slow_motion_effect(true)
 	if gun_out:
 		Gun.look_at(get_global_mouse_position())
 		var mouse_left := get_global_mouse_position().x < global_position.x
@@ -130,11 +126,9 @@ func _physics_process(delta: float) -> void:
 		$Rotation_point/Gun_dis.emitting = true
 		Engine.time_scale = 1.0
 		main.get_node("Music").pitch_scale = 1.0
-		var mat = GUI.get_node("ColorRect").material
-		create_tween().tween_property(mat, "shader_parameter/aberration_x", 0.0, 0.05)
-		create_tween().tween_property(mat, "shader_parameter/aberration_y", 0.0, 0.05)
-		create_tween().tween_property(GUI.get_node("ColorRect2"), "modulate:a", 0.0, 0.05)
-		create_tween().tween_property(mat, "shader_parameter/desaturation", 0.0, 0.05)
+		Engine.time_scale = 1.0
+		main.get_node("Music").pitch_scale = 1.0
+		_slow_motion_effect(false)
 		$Icon.play("Idle")
 		
 		can_shoot = false
@@ -218,10 +212,20 @@ func _on_faster_jump_timeout() -> void:
 	faster_jump = false
 
 func _reset():
+	Engine.time_scale = 1.0
+	main.get_node("Music").pitch_scale = 1.0
+	_slow_motion_effect(false)
 	gun_out = false
 	Gun_sprite.visible = false
 	taking_gun = false
 	$Icon.play("Idle")
+
+func _slow_motion_effect(on: bool) -> void:
+	var mat = GUI.get_node("ColorRect").material
+	mat.set_shader_parameter("aberration_x", 0.03 if on else 0.0)
+	mat.set_shader_parameter("aberration_y", 0.03 if on else 0.0)
+	mat.set_shader_parameter("desaturation", 0.8 if on else 0.0)
+	GUI.get_node("ColorRect2").modulate.a = 0.35 if on else 0.0
 
 func _on_look_around_timeout() -> void:
 	if $Icon.animation == "Idle":
