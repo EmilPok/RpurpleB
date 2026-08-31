@@ -4,7 +4,7 @@ var hover_dark = 0.6
 var hover_dark_color = Color(hover_dark, hover_dark, hover_dark, 1.0)
 
 func _ready() -> void:
-	
+	$GameTitle.hide()
 	
 	var cables = [
 		$LevelSelector/Level1/LevelConnector,
@@ -65,6 +65,9 @@ func _ready() -> void:
 		Global.do_anim = false
 		$AnimationPlayer.play("level_selector_half")
 	
+	if $MainButtons.visible and not $Transition_Animations.is_playing() and not $AnimationPlayer.is_playing():
+		_on_start_anim_timeout()
+	
 
 func _on_play_pressed() -> void:
 	$Click.play()
@@ -83,17 +86,20 @@ func _on_exit_pressed() -> void:
 
 func _on_back_button_pressed() -> void:
 	$Click.play()
-	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
-	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
+	$Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
+	$Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
 	$LevelSelector/BackButton2.modulate = Color.WHITE
 	
 	
-	if $HBoxContainer/Credits_Smooth_Movement_Handl.visible:
+	if $Credits_Smooth_Movement_Handl.visible:
 		$Transition_Animations.play("credits_off")
 	if $LevelSelector.visible:
 		$Transition_Animations.play("level_selector_off")
-	if $HBoxContainer/Options.visible:
+	if $Options.visible:
 		$Transition_Animations.play("options_off")
+	if $Start_name_anim.is_stopped():
+		$Start_name_anim.start()
+	
 	
 
 func _start_transition(num):
@@ -129,42 +135,42 @@ func _on_button_9_pressed() -> void:
 	_start_transition(9)
 
 func _on_play_mouse_entered() -> void:
-	$HBoxContainer/MainButtons/Play.modulate = hover_dark_color
+	$MainButtons/Play.modulate = hover_dark_color
 func _on_play_mouse_exited() -> void:
-	$HBoxContainer/MainButtons/Play.modulate = Color.WHITE
+	$MainButtons/Play.modulate = Color.WHITE
 func _on_options_mouse_entered() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = hover_dark_color
+	$MainButtons/HBoxContainer/Options.modulate = hover_dark_color
 func _on_options_mouse_exited() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Options.modulate = Color.WHITE
 func _on_credits_mouse_entered() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = hover_dark_color
+	$MainButtons/HBoxContainer/Credits.modulate = hover_dark_color
 func _on_credits_mouse_exited() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
 func _on_exit_mouse_entered() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Exit.modulate = hover_dark_color
+	$MainButtons/HBoxContainer/Exit.modulate = hover_dark_color
 func _on_exit_mouse_exited() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Exit.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Exit.modulate = Color.WHITE
 func _on_back_button_mouse_entered() -> void:
-	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = hover_dark_color
+	$Credits_Smooth_Movement_Handl/BackButton.modulate = hover_dark_color
 func _on_back_button_mouse_exited() -> void:
-	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
+	$Credits_Smooth_Movement_Handl/BackButton.modulate = Color.WHITE
 func _on_back_button_2_mouse_entered() -> void:
 	$LevelSelector/BackButton2.modulate = hover_dark_color
 func _on_back_button_2_mouse_exited() -> void:
 	$LevelSelector/BackButton2.modulate = Color.WHITE
 
 func _on_play_button_down() -> void:
-	$HBoxContainer/MainButtons/Play.modulate = Color.WHITE
+	$MainButtons/Play.modulate = Color.WHITE
 func _on_options_button_down() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Options.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Options.modulate = Color.WHITE
 func _on_credits_button_down() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
 func _on_exit_button_down() -> void:
-	$HBoxContainer/MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
+	$MainButtons/HBoxContainer/Credits.modulate = Color.WHITE
 
 
 func _on_back_button_button_down() -> void:
-	$HBoxContainer/Credits_Smooth_Movement_Handl/BackButton.modulate = Color(0.4, 0.4, 0.4, 1.0)
+	$Credits_Smooth_Movement_Handl/BackButton.modulate = Color(0.4, 0.4, 0.4, 1.0)
 func _on_back_button_2_button_down() -> void:
 	$LevelSelector/BackButton2.modulate  = Color(0.4, 0.4, 0.4, 1.0)
 
@@ -185,11 +191,11 @@ func _on_h_slider_2_value_changed(value: float) -> void:
 
 
 func _on_back_button_options_button_down() -> void:
-	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color(0.4, 0.4, 0.4, 1.0)
+	$Options/CreditsTitle/BackButton_options.modulate = Color(0.4, 0.4, 0.4, 1.0)
 func _on_back_button_options_mouse_entered() -> void:
-	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = hover_dark_color
+	$Options/CreditsTitle/BackButton_options.modulate = hover_dark_color
 func _on_back_button_options_mouse_exited() -> void:
-	$HBoxContainer/Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
+	$Options/CreditsTitle/BackButton_options.modulate = Color.WHITE
 
 
 func _on_h_slider_drag_started() -> void:
@@ -202,3 +208,14 @@ func _on_h_slider_drag_ended(_value_changed: bool) -> void:
 	$Click_end.play()
 func _on_h_slider_2_drag_ended(_value_changed: bool) -> void:
 	$Click_end.play()
+
+
+func _on_start_anim_timeout() -> void:
+	var tween = create_tween()
+	$GameTitle.position.y = 30.0
+	$GameTitle.show()
+	tween.tween_property($GameTitle, "position:y", 90.0, 1.2).set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	
+	
+	
+	

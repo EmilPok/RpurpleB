@@ -68,9 +68,9 @@ second_object = NodePath("../Doors7")
 [node name="Button6" parent="." unique_id=547958804 node_paths=PackedStringArray("object", "second_object", "third_object") instance=ExtResource("3_6nuwh")]
 position = Vector2(24, 40)
 rotation = 1.5707964
-object = NodePath("../Doors5")
+object = NodePath("../Moving_block2")
 second_object = NodePath("../Moving_block")
-third_object = NodePath("../Moving_block2")
+third_object = NodePath("../Doors5")
 
 [node name="Button5" parent="." unique_id=57062674 node_paths=PackedStringArray("object", "second_object") instance=ExtResource("3_6nuwh")]
 position = Vector2(129, 24)

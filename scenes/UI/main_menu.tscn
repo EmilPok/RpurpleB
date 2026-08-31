@@ -50,6 +50,8 @@
 [ext_resource type="AudioStream" uid="uid://d0ag3wp6dudyg" path="res://sounds/colllect.mp3" id="44_himyh"]
 [ext_resource type="AudioStream" uid="uid://c701b4k84ew0m" path="res://sounds/click.wav" id="51_6irp5"]
 [ext_resource type="AudioStream" uid="uid://4gbhmf70xfwx" path="res://sounds/un_click.wav" id="51_cfh5a"]
+[ext_resource type="Texture2D" uid="uid://dgetmhyhijnr8" path="res://art/UI/game_title.png" id="51_m8t5g"]
+[ext_resource type="AudioStream" uid="uid://cjgwp1eceknya" path="res://sounds/music/8bit Bossa.mp3" id="52_6irp5"]
 
 [sub_resource type="Animation" id="Animation_gqbxs"]
 length = 0.001
@@ -68,7 +70,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/1/path = NodePath("MainButtons:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -104,7 +106,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("HBoxContainer/Options:visible")
+tracks/4/path = NodePath("Options:visible")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -112,6 +114,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("GameTitle:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_6gm0r"]
@@ -143,7 +157,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -155,7 +169,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HBoxContainer/Credits_Smooth_Movement_Handl:visible")
+tracks/3/path = NodePath("Credits_Smooth_Movement_Handl:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -194,7 +208,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -206,7 +220,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HBoxContainer/Credits_Smooth_Movement_Handl:visible")
+tracks/3/path = NodePath("Credits_Smooth_Movement_Handl:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -214,6 +228,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameTitle:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1ss0f"]
@@ -245,7 +271,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -296,7 +322,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -316,6 +342,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameTitle:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_pm66n"]
@@ -347,7 +385,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/Options:visible")
+tracks/2/path = NodePath("Options:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -359,7 +397,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/3/path = NodePath("MainButtons:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -398,7 +436,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -410,7 +448,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("HBoxContainer/Options:visible")
+tracks/3/path = NodePath("Options:visible")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -418,6 +456,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("GameTitle:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.18),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_afaap"]
@@ -540,7 +590,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("HBoxContainer/MainButtons:visible")
+tracks/2/path = NodePath("MainButtons:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -635,23 +685,6 @@ libraries/ = SubResource("AnimationLibrary_afaap")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=620200610]
 libraries/ = SubResource("AnimationLibrary_8d054")
 
-[node name="Background" type="TextureRect" parent="." unique_id=794989512]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_g4v7s")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -8.0
-offset_top = -6.0
-offset_right = 8.0
-offset_bottom = 6.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-texture = ExtResource("1_qwnig")
-metadata/_edit_lock_ = true
-
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1740064179]
 layout_mode = 1
 anchors_preset = 8
@@ -659,25 +692,29 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -4.0
-offset_top = -4.0
-offset_right = 4.0
-offset_bottom = 4.0
+offset_left = -52.00003
+offset_top = -34.0
+offset_right = 52.00003
+offset_bottom = 34.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="MainButtons" type="VBoxContainer" parent="HBoxContainer" unique_id=516516008]
-layout_mode = 2
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=516516008]
+layout_mode = 0
+offset_left = 108.0
+offset_top = 57.0
+offset_right = 212.0
+offset_bottom = 125.0
 size_flags_horizontal = 8
 size_flags_vertical = 4
 mouse_filter = 2
 alignment = 1
 
-[node name="Node2D" type="Node2D" parent="HBoxContainer/MainButtons" unique_id=325697204]
+[node name="Node2D" type="Node2D" parent="MainButtons" unique_id=325697204]
 position = Vector2(52, 33)
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/MainButtons/Node2D" unique_id=1951263969]
+[node name="TextureRect" type="TextureRect" parent="MainButtons/Node2D" unique_id=1951263969]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -694,7 +731,7 @@ size_flags_vertical = 4
 mouse_filter = 2
 texture = ExtResource("4_1ss0f")
 
-[node name="Play" type="TextureButton" parent="HBoxContainer/MainButtons" unique_id=728810482]
+[node name="Play" type="TextureButton" parent="MainButtons" unique_id=728810482]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -702,35 +739,36 @@ focus_mode = 0
 texture_normal = ExtResource("3_5jstl")
 texture_pressed = ExtResource("3_tfcbk")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/MainButtons" unique_id=137650592]
+[node name="HBoxContainer" type="HBoxContainer" parent="MainButtons" unique_id=137650592]
 layout_mode = 2
 size_flags_horizontal = 4
 mouse_filter = 2
 
-[node name="Options" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=697400330]
+[node name="Options" type="TextureButton" parent="MainButtons/HBoxContainer" unique_id=697400330]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 texture_normal = ExtResource("5_um6dh")
 texture_pressed = ExtResource("6_mf7fl")
 
-[node name="Credits" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=236405677]
+[node name="Credits" type="TextureButton" parent="MainButtons/HBoxContainer" unique_id=236405677]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("7_d6l81")
 texture_pressed = ExtResource("8_mf7fl")
 
-[node name="Exit" type="TextureButton" parent="HBoxContainer/MainButtons/HBoxContainer" unique_id=1504686372]
+[node name="Exit" type="TextureButton" parent="MainButtons/HBoxContainer" unique_id=1504686372]
 layout_mode = 2
 focus_mode = 0
 texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
 
-[node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
+[node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="." unique_id=617253423]
 visible = false
+position = Vector2(161, 57)
 script = ExtResource("13_i7p8e")
 
-[node name="CreditsTitle" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=1338270116]
+[node name="CreditsTitle" type="TextureRect" parent="Credits_Smooth_Movement_Handl" unique_id=1338270116]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -739,27 +777,27 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("12_a1wsg")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/CreditsTitle" unique_id=385974533]
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits_Smooth_Movement_Handl/CreditsTitle" unique_id=385974533]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -27.5
-offset_right = 27.5
-offset_bottom = 23.0
+offset_left = -48.0
+offset_right = 48.0
+offset_bottom = 38.0
 grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer" unique_id=89607871]
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer" unique_id=89607871]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=835260933]
+[node name="HBoxContainer" type="HBoxContainer" parent="Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=835260933]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=594925242]
+[node name="TextureRect" type="TextureRect" parent="Credits_Smooth_Movement_Handl/CreditsTitle/HBoxContainer/VBoxContainer/HBoxContainer" unique_id=594925242]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
@@ -767,53 +805,53 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -18)
 texture = ExtResource("14_sfthw")
 
-[node name="TextContainer" type="Node2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=183272708]
+[node name="TextContainer" type="Node2D" parent="Credits_Smooth_Movement_Handl" unique_id=183272708]
 
-[node name="Arts" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=854290120]
-position = Vector2(-97, -30)
+[node name="Arts" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=854290120]
+position = Vector2(-80, -30)
 scale = Vector2(3, 3)
 texture = ExtResource("15_n3ahy")
 
-[node name="Kelpekk" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=1837542368]
-position = Vector2(-100.125, -16.375)
+[node name="Kelpekk" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=1837542368]
+position = Vector2(-83.125, -16.375)
 texture = ExtResource("16_scr1a")
 
-[node name="Kelpekk2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=169571704]
-position = Vector2(-88, 31)
+[node name="Kelpekk2" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=169571704]
+position = Vector2(-63, 17)
 texture = ExtResource("16_scr1a")
 
-[node name="Kelpekk3" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=968681954]
-position = Vector2(107, 32)
+[node name="Kelpekk3" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=968681954]
+position = Vector2(60, 24)
 texture = ExtResource("16_scr1a")
 
-[node name="Code" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=1410491197]
-position = Vector2(97, -30)
+[node name="Code" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=1410491197]
+position = Vector2(93, -21)
 scale = Vector2(3, 3)
 texture = ExtResource("17_nu0op")
 
-[node name="Design" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=678328380]
-position = Vector2(90, 11)
+[node name="Design" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=678328380]
+position = Vector2(43.000008, 3)
 scale = Vector2(3, 3)
 texture = ExtResource("18_6gm0r")
 
-[node name="Shaders" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=502964457]
-position = Vector2(-77, 16)
+[node name="Shaders" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=502964457]
+position = Vector2(-49, 1)
 scale = Vector2(3, 3)
 texture = ExtResource("20_afaap")
 
-[node name="Gmail" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=626920457]
-position = Vector2(80, 27)
+[node name="Gmail" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=626920457]
+position = Vector2(33, 21)
 texture = ExtResource("22_1ss0f")
 
-[node name="Gmail2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer" unique_id=2097861645]
-position = Vector2(99, -13)
+[node name="Gmail3" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=619232047]
+position = Vector2(-33, 22)
 texture = ExtResource("22_1ss0f")
 
-[node name="Gmail2" type="Sprite2D" parent="HBoxContainer/Credits_Smooth_Movement_Handl/TextContainer/Gmail2" unique_id=619232047]
-position = Vector2(-157, 52)
+[node name="Gmail2" type="Sprite2D" parent="Credits_Smooth_Movement_Handl/TextContainer" unique_id=2097861645]
+position = Vector2(95, -4)
 texture = ExtResource("22_1ss0f")
 
-[node name="BackButton" type="TextureButton" parent="HBoxContainer/Credits_Smooth_Movement_Handl" unique_id=541694709]
+[node name="BackButton" type="TextureButton" parent="Credits_Smooth_Movement_Handl" unique_id=541694709]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -826,11 +864,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("23_6gm0r")
 
-[node name="Options" type="Node2D" parent="HBoxContainer" unique_id=171070589]
+[node name="Options" type="Node2D" parent="." unique_id=171070589]
 visible = false
+position = Vector2(161, 57)
 script = ExtResource("13_i7p8e")
 
-[node name="CreditsTitle" type="TextureRect" parent="HBoxContainer/Options" unique_id=234227501]
+[node name="CreditsTitle" type="TextureRect" parent="Options" unique_id=234227501]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -839,7 +878,7 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("25_0vyrp")
 
-[node name="BackButton_options" type="TextureButton" parent="HBoxContainer/Options/CreditsTitle" unique_id=334974544]
+[node name="BackButton_options" type="TextureButton" parent="Options/CreditsTitle" unique_id=334974544]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -853,7 +892,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 texture_normal = ExtResource("23_6gm0r")
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle" unique_id=1626366308]
+[node name="TextureRect" type="TextureRect" parent="Options/CreditsTitle" unique_id=1626366308]
 layout_mode = 0
 offset_left = 75.5
 offset_right = 180.5
@@ -864,7 +903,7 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(0, -18)
 texture = ExtResource("26_pm66n")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/Options/CreditsTitle" unique_id=1991210696]
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/CreditsTitle" unique_id=1991210696]
 layout_mode = 0
 offset_left = 39.0
 offset_top = 23.0
@@ -872,24 +911,24 @@ offset_right = 224.0
 offset_bottom = 114.0
 theme_override_constants/separation = 19
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer" unique_id=1639673232]
+[node name="VBoxContainer" type="VBoxContainer" parent="Options/CreditsTitle/HBoxContainer" unique_id=1639673232]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Music_label" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1544280740]
+[node name="Music_label" type="TextureRect" parent="Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1544280740]
 layout_mode = 2
 texture = ExtResource("27_wt33a")
 
-[node name="SFX_label" type="TextureRect" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1516809411]
+[node name="SFX_label" type="TextureRect" parent="Options/CreditsTitle/HBoxContainer/VBoxContainer" unique_id=1516809411]
 layout_mode = 2
 texture = ExtResource("28_cfh5a")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer" unique_id=1202394318]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Options/CreditsTitle/HBoxContainer" unique_id=1202394318]
 custom_minimum_size = Vector2(100.32, 0)
 layout_mode = 2
 theme_override_constants/separation = 18
 
-[node name="HSlider" type="HSlider" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=1313862846]
+[node name="HSlider" type="HSlider" parent="Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=1313862846]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("30_wt33a")
@@ -897,12 +936,30 @@ theme_override_icons/grabber_highlight = ExtResource("29_pm66n")
 min_value = 0.001
 value = 100.0
 
-[node name="HSlider2" type="HSlider" parent="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=337796625]
+[node name="HSlider2" type="HSlider" parent="Options/CreditsTitle/HBoxContainer/VBoxContainer2" unique_id=337796625]
 layout_mode = 2
 focus_mode = 0
 theme_override_icons/grabber = ExtResource("30_wt33a")
 theme_override_icons/grabber_highlight = ExtResource("29_pm66n")
 value = 100.0
+
+[node name="Background" type="TextureRect" parent="." unique_id=794989512]
+z_index = -10
+texture_repeat = 2
+material = SubResource("ShaderMaterial_g4v7s")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -6.0
+offset_right = 8.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("1_qwnig")
+metadata/_edit_lock_ = true
 
 [node name="LevelSelector" type="Node2D" parent="." unique_id=280259287]
 visible = false
@@ -921,7 +978,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("23_6gm0r")
 
 [node name="Level1" type="Sprite2D" parent="LevelSelector" unique_id=1574176337]
-position = Vector2(116, 159)
+position = Vector2(98, 159)
 texture = ExtResource("25_726sv")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level1" unique_id=1878750789]
@@ -947,7 +1004,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_u15bo")
 
 [node name="Level2" type="Sprite2D" parent="LevelSelector" unique_id=1584697939]
-position = Vector2(116, 92)
+position = Vector2(98, 92)
 texture = ExtResource("25_gqbxs")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level2" unique_id=971565743]
@@ -974,7 +1031,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_h18h7")
 
 [node name="Level3" type="Sprite2D" parent="LevelSelector" unique_id=943792369]
-position = Vector2(116, 25)
+position = Vector2(98, 25)
 texture = ExtResource("26_gqbxs")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level3" unique_id=98636667]
@@ -1001,7 +1058,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_udkvx")
 
 [node name="Level4" type="Sprite2D" parent="LevelSelector" unique_id=1949511541]
-position = Vector2(183, 25)
+position = Vector2(165, 25)
 rotation = 1.5707964
 texture = ExtResource("26_gqbxs")
 
@@ -1030,7 +1087,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_l5no5")
 
 [node name="Level5" type="Sprite2D" parent="LevelSelector" unique_id=115041617]
-position = Vector2(183, 92)
+position = Vector2(165, 92)
 texture = ExtResource("25_gqbxs")
 
 [node name="MostlyPurpleLevel" type="Sprite2D" parent="LevelSelector/Level5" unique_id=837371298]
@@ -1056,7 +1113,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_bcduc")
 
 [node name="Level6" type="Sprite2D" parent="LevelSelector" unique_id=1361347794]
-position = Vector2(183, 159)
+position = Vector2(165, 159)
 rotation = -1.5707964
 texture = ExtResource("26_gqbxs")
 
@@ -1084,7 +1141,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_th7s7")
 
 [node name="Level7" type="Sprite2D" parent="LevelSelector" unique_id=1964018817]
-position = Vector2(250, 159)
+position = Vector2(232, 159)
 rotation = -3.1415927
 texture = ExtResource("26_gqbxs")
 
@@ -1112,7 +1169,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_pbenk")
 
 [node name="Level8" type="Sprite2D" parent="LevelSelector" unique_id=2036554959]
-position = Vector2(250, 92)
+position = Vector2(232, 92)
 rotation = -3.1415927
 texture = ExtResource("25_gqbxs")
 
@@ -1139,7 +1196,7 @@ grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_8nu61")
 
 [node name="Level9" type="Sprite2D" parent="LevelSelector" unique_id=952366219]
-position = Vector2(250, 25)
+position = Vector2(232, 25)
 rotation = -3.1415927
 texture = ExtResource("25_726sv")
 
@@ -1165,15 +1222,6 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_qwj3j")
 
 [node name="LevelConnector" parent="LevelSelector/Level9" unique_id=2000744009 instance=ExtResource("24_afaap")]
 position = Vector2(-3, 53)
-
-[node name="Transition_Background" type="ColorRect" parent="." unique_id=1983145882]
-z_index = 1000
-custom_minimum_size = Vector2(320, 180)
-layout_mode = 0
-offset_left = -320.0
-offset_right = 0.00024414063
-offset_bottom = 180.0
-color = Color(1, 0.4392157, 0.2627451, 1)
 
 [node name="Cursor" type="CanvasLayer" parent="." unique_id=136855318]
 
@@ -1242,36 +1290,60 @@ stream = ExtResource("51_cfh5a")
 volume_db = -10.0
 bus = &"sfx"
 
-[connection signal="button_down" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/MainButtons/Play" to="." method="_on_play_pressed"]
-[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
-[connection signal="button_down" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
-[connection signal="button_down" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="button_down" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_button_down"]
-[connection signal="mouse_entered" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_entered"]
-[connection signal="mouse_exited" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_exited"]
-[connection signal="pressed" from="HBoxContainer/Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_pressed"]
-[connection signal="drag_ended" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_ended"]
-[connection signal="drag_started" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_started"]
-[connection signal="value_changed" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
-[connection signal="drag_ended" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_ended"]
-[connection signal="drag_started" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_started"]
-[connection signal="value_changed" from="HBoxContainer/Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
+[node name="Transition_Background" type="ColorRect" parent="." unique_id=1983145882]
+z_index = 1000
+custom_minimum_size = Vector2(320, 180)
+layout_mode = 0
+offset_left = -320.0
+offset_right = 0.00024414063
+offset_bottom = 180.0
+color = Color(1, 0.4392157, 0.2627451, 1)
+
+[node name="GameTitle" type="Sprite2D" parent="." unique_id=1309630971]
+position = Vector2(161.5, 110.605)
+texture = ExtResource("51_m8t5g")
+
+[node name="Start_name_anim" type="Timer" parent="." unique_id=1150521795]
+wait_time = 0.8
+one_shot = true
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=374293129]
+stream = ExtResource("52_6irp5")
+volume_db = -10.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[connection signal="button_down" from="MainButtons/Play" to="." method="_on_play_button_down"]
+[connection signal="mouse_entered" from="MainButtons/Play" to="." method="_on_play_mouse_entered"]
+[connection signal="mouse_exited" from="MainButtons/Play" to="." method="_on_play_mouse_exited"]
+[connection signal="pressed" from="MainButtons/Play" to="." method="_on_play_pressed"]
+[connection signal="button_down" from="MainButtons/HBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_entered"]
+[connection signal="mouse_exited" from="MainButtons/HBoxContainer/Options" to="." method="_on_options_mouse_exited"]
+[connection signal="pressed" from="MainButtons/HBoxContainer/Options" to="." method="_on_options_pressed"]
+[connection signal="button_down" from="MainButtons/HBoxContainer/Credits" to="." method="_on_credits_button_down"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_entered"]
+[connection signal="mouse_exited" from="MainButtons/HBoxContainer/Credits" to="." method="_on_credits_mouse_exited"]
+[connection signal="pressed" from="MainButtons/HBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="button_down" from="MainButtons/HBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="mouse_entered" from="MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_entered"]
+[connection signal="mouse_exited" from="MainButtons/HBoxContainer/Exit" to="." method="_on_exit_mouse_exited"]
+[connection signal="pressed" from="MainButtons/HBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="button_down" from="Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_button_down"]
+[connection signal="mouse_entered" from="Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_entered"]
+[connection signal="mouse_exited" from="Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_mouse_exited"]
+[connection signal="pressed" from="Credits_Smooth_Movement_Handl/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="button_down" from="Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_button_down"]
+[connection signal="mouse_entered" from="Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_entered"]
+[connection signal="mouse_exited" from="Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_options_mouse_exited"]
+[connection signal="pressed" from="Options/CreditsTitle/BackButton_options" to="." method="_on_back_button_pressed"]
+[connection signal="drag_ended" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_started" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_drag_started"]
+[connection signal="value_changed" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="drag_ended" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_ended"]
+[connection signal="drag_started" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_drag_started"]
+[connection signal="value_changed" from="Options/CreditsTitle/HBoxContainer/VBoxContainer2/HSlider2" to="." method="_on_h_slider_2_value_changed"]
 [connection signal="button_down" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_button_down"]
 [connection signal="mouse_entered" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_entered"]
 [connection signal="mouse_exited" from="LevelSelector/BackButton2" to="." method="_on_back_button_2_mouse_exited"]
@@ -1287,3 +1359,4 @@ bus = &"sfx"
 [connection signal="pressed" from="LevelSelector/Level9/Button9" to="." method="_on_button_9_pressed"]
 [connection signal="timeout" from="Circle_trans_time" to="." method="_on_circle_trans_time_timeout"]
 [connection signal="timeout" from="Loading_timer" to="." method="_on_loading_timer_timeout"]
+[connection signal="timeout" from="Start_name_anim" to="." method="_on_start_anim_timeout"]
