@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://t8r1ekv4s8wi" path="res://art/UI/buttons/credits_button_pressed.png" id="8_mf7fl"]
 [ext_resource type="Texture2D" uid="uid://erd1nyrmmejy" path="res://art/UI/buttons/exit_button_pressed.png" id="9_i7p8e"]
 [ext_resource type="Texture2D" uid="uid://id02yalta4gk" path="res://art/UI/credits_panel.png" id="12_a1wsg"]
-[ext_resource type="Texture2D" uid="uid://dgetmhyhijnr8" path="res://art/UI/game_title.png" id="13_cfh5a"]
 [ext_resource type="Script" uid="uid://c261ntsyo224o" path="res://scripts/UI/floating_panel_effect.gd" id="13_i7p8e"]
 [ext_resource type="Texture2D" uid="uid://cuv01i031curc" path="res://art/UI/credits_label.png" id="14_sfthw"]
 [ext_resource type="Texture2D" uid="uid://dqpbhe278ilpr" path="res://art/UI/text/arts.png" id="15_n3ahy"]
@@ -764,15 +763,7 @@ focus_mode = 0
 texture_normal = ExtResource("8_a1wsg")
 texture_pressed = ExtResource("9_i7p8e")
 
-<<<<<<< HEAD
 [node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="." unique_id=617253423]
-=======
-[node name="GameTitle" type="Sprite2D" parent="HBoxContainer/MainButtons" unique_id=2013234742]
-position = Vector2(52, 34)
-texture = ExtResource("13_cfh5a")
-
-[node name="Credits_Smooth_Movement_Handl" type="Node2D" parent="HBoxContainer" unique_id=617253423]
->>>>>>> d5b489045e96cff918e1cd92290ac4ea758eacb1
 visible = false
 position = Vector2(161, 57)
 script = ExtResource("13_i7p8e")
