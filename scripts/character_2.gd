@@ -41,6 +41,8 @@ var scale_falling = Vector2(1.9, 0.1)
 var scale_hold_jump = Vector2(0.5, 1.5)
 var scale_single_jump = Vector2(0.7, 1.3)
 
+var was_airbourne := false
+
 
 func player_2():
 	pass
@@ -55,6 +57,9 @@ func _physics_process(delta: float) -> void:
 		$Icon.scale.y = lerp($Icon.scale.y, 1.0, squesh_weight * delta)
 	
 	if is_on_floor():
+		if was_airbourne:
+			was_airbourne = false
+			$Icon.scale = Vector2(1.3, 0.7)
 		if last_velocity_y:
 			$Icon.scale = scale_fell
 		if not can_jump:
@@ -69,10 +74,12 @@ func _physics_process(delta: float) -> void:
 	
 	
 	if not is_on_floor() and $Coyote_time.is_stopped() and not did_coyote:
+		was_airbourne = true
 		did_coyote = true
 		$Coyote_time.start()
 
 	if not is_on_floor() and not during_dash:
+		was_airbourne = true
 		if velocity.y >= falling_down_velocity_max:
 			velocity += get_gravity() * delta * speed_falling
 			$Icon.scale += scale_falling * delta
@@ -94,9 +101,11 @@ func _physics_process(delta: float) -> void:
 		$Faster_jump.start()
 		
 	if faster_jump and is_on_floor():
+		$Icon.scale = Vector2(0.3, 1.8)
 		_jump()
 	
 	if Input.is_action_just_pressed("jump") and can_jump and not during_dash:
+		$Icon.scale = Vector2(0.3, 1.8)
 		_jump()
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0 and not during_dash:
@@ -159,6 +168,9 @@ func _physics_process(delta: float) -> void:
 	
 	
 	move_and_slide()
+	$Icon.scale.x = move_toward($Icon.scale.x, 1, 0.3 * delta)
+	$Icon.scale.y = move_toward($Icon.scale.y, 1, 0.3 * delta)
+
 
 func _jump():
 	$Icon.scale = scale_single_jump
