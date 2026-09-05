@@ -23,7 +23,7 @@ tile_map_data = PackedByteArray("AAD/////AAADAAAAAAD//wAAAAADAAEAAAD//wEAAAADAAI
 tile_set = ExtResource("1_anwe6")
 
 [node name="End_buttons" parent="." unique_id=213298147 node_paths=PackedStringArray("other_button") instance=ExtResource("2_rej77")]
-position = Vector2(31, 56)
+position = Vector2(29, 56)
 is_red = true
 other_button = NodePath("../End_buttons2")
 
