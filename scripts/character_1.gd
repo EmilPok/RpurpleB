@@ -164,11 +164,9 @@ func _physics_process(delta: float) -> void:
 		$Faster_jump.start()
 	
 	if faster_jump and is_on_floor():
-		$Icon.scale = Vector2(0.3, 1.8)
 		_jump()
 	
 	if Input.is_action_just_pressed("jump") and can_jump:
-		$Icon.scale = Vector2(0.3, 1.8)
 		_jump()
 	
 	if Input.is_action_pressed("jump") and during_jump and velocity.y <= 0:
@@ -190,8 +188,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	$Icon.scale.x = move_toward($Icon.scale.x, 1, 0.5 * delta)
-	$Icon.scale.y = move_toward($Icon.scale.y, 1, 0.5 * delta)
+
 
 func _standing(delta):
 	if $Icon.animation == "Walk":
