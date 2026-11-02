@@ -22,7 +22,7 @@ Made by [Emil_Pok](https://github.com/EmilPok) and [Kelpekk](https://github.com/
 
 <div align="center">
 
-![Gameplay screenshot](J_anVz.png)
+![Gameplay screenshot](art/gameplay_screenshot.png)
 
 </div>
 
