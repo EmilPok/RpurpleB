@@ -7,8 +7,8 @@
 # RpurpleB
 
 [![Play on itch.io](https://img.shields.io/badge/Play-itch.io-fa5c5c?logo=itch.io&logoColor=white)](https://emil-pok.itch.io/rpurpleb)
-![Godot](https://img.shields.io/badge/Godot-4.7-478cbf?logo=godotengine&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green)
+[![Godot](https://img.shields.io/badge/Godot-4.7-478cbf?logo=godotengine&logoColor=white)](https://godotengine.org/download/archive/4.7-stable/)
+[![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 This game is a a simple puzzle platformer. It was made in a week for a game jam [Godocikowy Dżem #14](https://itch.io/jam/godocikowy-dzem-14).
 The game was made by [Emil_Pok](https://github.com/EmilPok) and [Kelpekk](https://github.com/Kelpekk)
