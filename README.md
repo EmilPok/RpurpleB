@@ -16,7 +16,7 @@ RpurpleB is a simple single-player puzzle platformer made in one week for the ga
 
 Made by [Emil_Pok](https://github.com/EmilPok) and [Kelpekk](https://github.com/Kelpekk).
 
-> 🏆 **Winner of Godocikowy Dżem #14** with a score of **4.762**, the highest of any edition so far.
+> **Winner of Godocikowy Dżem #14** with a score of **4.762**, the highest of any edition so far.
 > 
 > [Result page](https://itch.io/jam/godocikowy-dzem-14/rate/4949958)
 
@@ -26,13 +26,13 @@ Made by [Emil_Pok](https://github.com/EmilPok) and [Kelpekk](https://github.com/
 
 </div>
 
-## 🎮 About the game
+## About the game
 
 You find yourself in a laboratory-like area, and the only way out is to make two characters work together. You control both of them and switch between them at any time. One character can dash, the other can shoot. To finish a level, each character has to step on its own button at the same time.
 
 The game has 9 unique levels with increasing difficulty.
 
-## 🕹️ Controls
+## Controls
 
 | Action            | Key                    |
 |-------------------|------------------------|
@@ -44,7 +44,7 @@ The game has 9 unique levels with increasing difficulty.
 | Switch character  | Alt or Ctrl            |
 | Restart level     | R                      |
 
-## 🚀 Getting started
+## Getting started
 
 ### Play
 
@@ -60,6 +60,6 @@ Play in your browser or download the game on [itch.io](https://emil-pok.itch.io/
 3. Open Godot, click **Import**, and select the `project.godot` file.
 4. Press **F5** to run the game.
 
-## 📜 License
+## License
 
 The code in this project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
